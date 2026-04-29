@@ -100,6 +100,24 @@ architecture Behavioral of audio_testbench is
             oled_vdd : out std_logic);
     end component;
 
+    component stepper_motor
+        port (
+            clk_100 : in std_logic; --Clock
+            reset : in std_logic; --Reset
+            ce_204_8 : in std_logic; --Clock enable for 204.8Hz signal, used to time the steps
+
+            rotation : in std_logic; -- If true rotate, 0 stop
+            direction : in std_logic; -- 0 rotate clockwise, 1 rotate coutner-clockwise
+
+            -- Signals controlling the stepper motor
+            sm_c_1 : out std_logic;
+            sm_c_2 : out std_logic;
+            sm_c_3 : out std_logic;
+            sm_c_4 : out std_logic;
+
+            motor_ready : out std_logic -- Signal to indicate motor is ready for next command
+        );
+    end component;
     signal clk_100_buffered : std_logic;
 
     signal counter : unsigned (5 downto 0);
@@ -125,6 +143,7 @@ architecture Behavioral of audio_testbench is
 
     -- Increment value: (204.8 / 48000) * 2^16 = 279.62... (round to 280)
     constant STEP_204_8 : unsigned(15 downto 0) := to_unsigned(280, 16);
+
 begin
 
     i_audio : audio_top port map(
@@ -169,6 +188,23 @@ begin
         oled_res => oled_res,
         oled_vbat => oled_vbat,
         oled_vdd => oled_vdd
+    );
+
+    i_motor : stepper_motor port map(
+        clk_100 => clk_100,--Clock
+        reset => clean_reset, --Reset
+        ce_204_8 => en_204_8Hz, --Clock enable for 204.8Hz signal, used to time the steps
+
+        rotation => '0', -- If true rotate, 0 stop
+        direction => '0', -- 0 rotate clockwise, 1 rotate coutner-clockwise
+
+        -- Signals controlling the stepper motor
+        sm_c_1 => open,
+        sm_c_2 => open,
+        sm_c_3 => open,
+        sm_c_4 => open,
+
+        motor_ready => open -- Signal to indicate motor is ready for next command
     );
     -- use comments to switch between TEST 1 (sawtooth) and 2 (loopback)
 

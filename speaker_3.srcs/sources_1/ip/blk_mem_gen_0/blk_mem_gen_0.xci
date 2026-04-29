@@ -163,7 +163,7 @@
         "BOARD_CONNECTIONS": [ { "value": "" } ],
         "DEVICE": [ { "value": "xc7z020" } ],
         "PACKAGE": [ { "value": "clg484" } ],
-        "PREFHDL": [ { "value": "VERILOG" } ],
+        "PREFHDL": [ { "value": "VHDL" } ],
         "SILICON_REVISION": [ { "value": "" } ],
         "SIMULATOR_LANGUAGE": [ { "value": "MIXED" } ],
         "SPEEDGRADE": [ { "value": "-1" } ],

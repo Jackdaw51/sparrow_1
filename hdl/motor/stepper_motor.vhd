@@ -1,30 +1,30 @@
-LIBRARY IEEE;
-USE IEEE.STD_LOGIC_1164.ALL;
-USE IEEE.NUMERIC_STD.ALL;
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+use IEEE.NUMERIC_STD.all;
 
 -- Stepper motor specification:
-    -- 4 phases
-    -- speed variation index: 1/64
-    -- voltage: 5V
-    -- frequency: 100Hz ?
-    -- step angle: 5.625° (1/64) ?
-    -- 4096 steps per revolution (360° / 5.625° * 64) half-step sequence
-    -- 2048 steps per revolution (360° / 5.625° * 32) full-step sequence
+-- 4 phases
+-- speed variation index: 1/64
+-- voltage: 5V
+-- frequency: 100Hz ?
+-- step angle: 5.625° (1/64) ?
+-- 4096 steps per revolution (360° / 5.625° * 64) half-step sequence
+-- 2048 steps per revolution (360° / 5.625° * 32) full-step sequence
 
-    -- frequency = RPM * steps_per_revolution / 60
-        -- For 6 RPM (one every 10 seconds), frequency = 6 * 2048 / 60 = 204.8Hz
-            -- 488,281 cycles per step at 100MHz clock, 2^19 bits needed for counter
-        -- If resistance from guitar too high,
-        --start at 100Hz and accelerates to 204.8Hz in a few milliseconds
+-- frequency = RPM * steps_per_revolution / 60
+-- For 6 RPM (one every 10 seconds), frequency = 6 * 2048 / 60 = 204.8Hz
+-- 488,281 cycles per step at 100MHz clock, 2^19 bits needed for counter
+-- If resistance from guitar too high,
+--start at 100Hz and accelerates to 204.8Hz in a few milliseconds
 
 entity sm_control is
-    PORT (
+    port (
         clk_100 : in std_logic; --Clock
         reset : in std_logic; --Reset
         ce_204_8 : in std_logic; --Clock enable for 204.8Hz signal, used to time the steps
-        
-        rotation: in std_logic; -- If true rotate, 0 stop
-        direction: in std_logic; -- 0 rotate clockwise, 1 rotate coutner-clockwise
+
+        rotation : in std_logic; -- If true rotate, 0 stop
+        direction : in std_logic; -- 0 rotate clockwise, 1 rotate coutner-clockwise
 
         -- Signals controlling the stepper motor
         sm_c_1 : out std_logic;
@@ -37,16 +37,14 @@ entity sm_control is
 end entity sm_control;
 
 architecture behavioral of sm_control is
-    
+
     --Signal definition
     signal phase : std_logic_vector(3 downto 0) := "0000"; -- 2-bit signal to control the motor phases
     signal active : std_logic := '0'; -- Indicate if motor was active
-                                -- Used to avoid backlash from guitar string tension
+    -- Used to avoid backlash from guitar string tension
     signal stop_counter : integer range 0 to 614 := 0; -- Counter was originally 1023, idk if vivado accepts 614
 
 begin
-    
-
     State_machine : process (clk_100)
     begin
         if rising_edge(clk_100) then
@@ -105,12 +103,10 @@ begin
                             motor_ready <= '1';
                         end if;
                     end if;
-                end if; 
+                end if;
             end if;
         end if;
     end process;
-    
-
     -- We use full-step sequence instead of half-step sequence.
     -- This should give more torque, but less smooth movement. (Might need to switch)
     -- Full-step -> always two coils powered at same time;
@@ -154,7 +150,7 @@ begin
                     sm_c_4 <= '0';
                 end if;
             end if;
-            
+
         end if;
     end process;
 

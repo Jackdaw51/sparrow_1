@@ -8,7 +8,7 @@
   **** SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
   **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
   **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-  **** Start of session at: Mon Apr 27 19:31:45 2026
+  **** Start of session at: Wed Apr 29 17:27:04 2026
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 
@@ -21,9 +21,9 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 10724
+INFO: [Synth 8-7075] Helper process launched with PID 9656
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1004.758 ; gain = 468.582
+Starting RTL Elaboration : Time (s): cpu = 00:00:27 ; elapsed = 00:00:31 . Memory (MB): peak = 1002.809 ; gain = 466.660
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'xfft_0' [c:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.gen/sources_1/ip/xfft_0/synth/xfft_0.vhd:84]
 	Parameter C_XDEVICEFAMILY bound to: zynq - type: string 
@@ -166,20 +166,20 @@ WARNING: [Synth 8-7129] Port COMBI_SCLR in module shift_ram__parameterized30 is 
 WARNING: [Synth 8-7129] Port DEPTHx2 in module shift_ram__parameterized30 is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:50 ; elapsed = 00:00:59 . Memory (MB): peak = 2405.676 ; gain = 1869.500
+Finished RTL Elaboration : Time (s): cpu = 00:02:18 ; elapsed = 00:02:57 . Memory (MB): peak = 2392.422 ; gain = 1856.273
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:50 ; elapsed = 00:00:59 . Memory (MB): peak = 2405.676 ; gain = 1869.500
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:18 ; elapsed = 00:02:57 . Memory (MB): peak = 2392.422 ; gain = 1856.273
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:50 ; elapsed = 00:00:59 . Memory (MB): peak = 2405.676 ; gain = 1869.500
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:02:18 ; elapsed = 00:02:57 . Memory (MB): peak = 2392.422 ; gain = 1856.273
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.162 . Memory (MB): peak = 2405.676 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.640 . Memory (MB): peak = 2392.422 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 1228 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Netlist 29-28] Unisim Transformation completed in 3 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -190,33 +190,33 @@ Parsing XDC File [C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/x
 Finished Parsing XDC File [C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/xfft_0_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 2405.676 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 2392.422 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 125 instances were transformed.
   FDE => FDRE: 70 instances
   RAMB18 => RAMB18E1: 55 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.163 . Memory (MB): peak = 2405.676 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.196 . Memory (MB): peak = 2392.422 ; gain = 0.000
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:58 ; elapsed = 00:01:07 . Memory (MB): peak = 2405.676 ; gain = 1869.500
+Finished Constraint Validation : Time (s): cpu = 00:02:38 ; elapsed = 00:03:19 . Memory (MB): peak = 2392.422 ; gain = 1856.273
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:58 ; elapsed = 00:01:07 . Memory (MB): peak = 2405.676 ; gain = 1869.500
+Finished Loading Part and Timing Information : Time (s): cpu = 00:02:38 ; elapsed = 00:03:19 . Memory (MB): peak = 2392.422 ; gain = 1856.273
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property KEEP_HIERARCHY = SOFT for U0. (constraint file  C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/xfft_0_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:58 ; elapsed = 00:01:07 . Memory (MB): peak = 2405.676 ; gain = 1869.500
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:02:38 ; elapsed = 00:03:19 . Memory (MB): peak = 2392.422 ; gain = 1856.273
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:00 ; elapsed = 00:01:10 . Memory (MB): peak = 2405.676 ; gain = 1869.500
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:02:41 ; elapsed = 00:03:22 . Memory (MB): peak = 2392.422 ; gain = 1856.273
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-223] decloning instance 'U0/i_synth/non_native_floating_point.xfft_inst/floating_point.xfft_inst/get_block_max_exp/gen_start_dly' (shift_ram__parameterized1) to 'U0/i_synth/non_native_floating_point.xfft_inst/floating_point.xfft_inst/get_block_max_exp/gen_fwd_inv_we_out'
 INFO: [Synth 8-223] decloning instance 'fp_convert_to_block_fp:/fpo/DELAY_DIVIDE_BY_ZERO' (floating_point_v7_0_24_delay__parameterized13) to 'fp_convert_to_block_fp:/fpo/DELAY_ACCUM_OVERFLOW'
@@ -288,25 +288,25 @@ INFO: [Synth 8-3332] Sequential element (non_native_floating_point.xfft_inst/flo
 INFO: [Synth 8-3332] Sequential element (non_native_floating_point.xfft_inst/floating_point.xfft_inst/fft/non_floating_point.arch_c.xfft_inst/single_channel.datapath/pe/scale_gen.scaler_1i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[1].latency1.reg) is unused and will be removed from module xfft_v9_1_13_viv.
 INFO: [Synth 8-3332] Sequential element (non_native_floating_point.xfft_inst/floating_point.xfft_inst/fft/non_floating_point.arch_c.xfft_inst/single_channel.datapath/pe/scale_gen.scaler_1i/scale_mux/four_inputs.use_lut6.no_lut_sclr.four_to_one_mux[0].latency1.reg) is unused and will be removed from module xfft_v9_1_13_viv.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:05 ; elapsed = 00:01:15 . Memory (MB): peak = 2405.676 ; gain = 1869.500
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:46 ; elapsed = 00:03:27 . Memory (MB): peak = 2392.422 ; gain = 1856.273
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:12 ; elapsed = 00:01:22 . Memory (MB): peak = 2405.676 ; gain = 1869.500
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:53 ; elapsed = 00:03:35 . Memory (MB): peak = 2392.422 ; gain = 1856.273
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:13 ; elapsed = 00:01:23 . Memory (MB): peak = 2405.676 ; gain = 1869.500
+Finished Timing Optimization : Time (s): cpu = 00:02:54 ; elapsed = 00:03:36 . Memory (MB): peak = 2392.422 ; gain = 1856.273
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:14 ; elapsed = 00:01:25 . Memory (MB): peak = 2405.676 ; gain = 1869.500
+Finished Technology Mapping : Time (s): cpu = 00:02:55 ; elapsed = 00:03:38 . Memory (MB): peak = 2392.422 ; gain = 1856.273
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -324,37 +324,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:17 ; elapsed = 00:01:28 . Memory (MB): peak = 2405.676 ; gain = 1869.500
+Finished IO Insertion : Time (s): cpu = 00:02:59 ; elapsed = 00:03:41 . Memory (MB): peak = 2392.422 ; gain = 1856.273
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:17 ; elapsed = 00:01:28 . Memory (MB): peak = 2405.676 ; gain = 1869.500
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:59 ; elapsed = 00:03:41 . Memory (MB): peak = 2392.422 ; gain = 1856.273
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:17 ; elapsed = 00:01:29 . Memory (MB): peak = 2405.676 ; gain = 1869.500
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:59 ; elapsed = 00:03:42 . Memory (MB): peak = 2392.422 ; gain = 1856.273
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:17 ; elapsed = 00:01:29 . Memory (MB): peak = 2405.676 ; gain = 1869.500
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:59 ; elapsed = 00:03:42 . Memory (MB): peak = 2392.422 ; gain = 1856.273
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:18 ; elapsed = 00:01:29 . Memory (MB): peak = 2405.676 ; gain = 1869.500
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:59 ; elapsed = 00:03:42 . Memory (MB): peak = 2392.422 ; gain = 1856.273
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:18 ; elapsed = 00:01:29 . Memory (MB): peak = 2405.676 ; gain = 1869.500
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:59 ; elapsed = 00:03:42 . Memory (MB): peak = 2392.422 ; gain = 1856.273
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -406,18 +406,18 @@ Report Cell Usage:
 |22    |FDSE     |    59|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:18 ; elapsed = 00:01:29 . Memory (MB): peak = 2405.676 ; gain = 1869.500
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:59 ; elapsed = 00:03:42 . Memory (MB): peak = 2392.422 ; gain = 1856.273
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 823 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:01:25 . Memory (MB): peak = 2405.676 ; gain = 1869.500
-Synthesis Optimization Complete : Time (s): cpu = 00:01:18 ; elapsed = 00:01:29 . Memory (MB): peak = 2405.676 ; gain = 1869.500
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:03:26 . Memory (MB): peak = 2392.422 ; gain = 1856.273
+Synthesis Optimization Complete : Time (s): cpu = 00:03:00 ; elapsed = 00:03:42 . Memory (MB): peak = 2392.422 ; gain = 1856.273
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.109 . Memory (MB): peak = 2405.676 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.110 . Memory (MB): peak = 2392.422 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 1208 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 2405.676 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 2392.422 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 287 instances were transformed.
   (MUXCY,XORCY) => CARRY4: 165 instances
@@ -428,12 +428,12 @@ Synth Design complete | Checksum: 5b5d4f99
 INFO: [Common 17-83] Releasing license: Synthesis
 70 Infos, 103 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:23 ; elapsed = 00:01:35 . Memory (MB): peak = 2405.676 ; gain = 2107.508
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 2405.676 ; gain = 0.000
+synth_design: Time (s): cpu = 00:03:04 ; elapsed = 00:03:48 . Memory (MB): peak = 2392.422 ; gain = 2093.531
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 2392.422 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/xfft_0_synth_1/xfft_0.dcp' has been generated.
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP xfft_0, cache-ID = e0395621ac4125d2
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP xfft_0, cache-ID = f306d1dd87760dd8
 INFO: [Coretcl 2-1174] Renamed 649 cell refs.
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 2405.676 ; gain = 0.000
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 2392.422 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/xfft_0_synth_1/xfft_0.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file xfft_0_utilization_synth.rpt -pb xfft_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon Apr 27 19:33:32 2026...
+INFO: [Common 17-206] Exiting Vivado at Wed Apr 29 17:31:05 2026...
