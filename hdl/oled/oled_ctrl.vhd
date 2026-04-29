@@ -11,7 +11,7 @@ use ieee.numeric_std.all;
 
 entity oled_ctrl is
     port ( 
-        clk         : in std_logic;
+        clk_100     : in std_logic;
         rst         : in std_logic;
         raw_data    : in std_logic_vector(31 downto 0); -- Data input to be displayed on the OLED
         oled_sdin   : out std_logic;
@@ -26,7 +26,7 @@ architecture behavioral of oled_ctrl is
 
     component oled_init is
         port ( 
-            clk         : in std_logic;
+            clk_100     : in std_logic;
             rst         : in std_logic;
             en          : in std_logic;
             sdout       : out std_logic;
@@ -40,7 +40,7 @@ architecture behavioral of oled_ctrl is
 
     component oled_writer is
         port ( 
-            clk         : in std_logic;
+            clk_100     : in std_logic;
             rst         : in std_logic;
             en          : in std_logic;
             data_in    : in std_logic_vector ( 19 downto 0);
@@ -73,7 +73,7 @@ architecture behavioral of oled_ctrl is
 begin
 
     Initialize: oled_init port map (
-        clk => clk,
+        clk_100 => clk_100,
         rst => rst,
         en => init_en,
         sdout => init_sdata,
@@ -86,7 +86,7 @@ begin
     );
 
     Writer: oled_writer port map (
-        clk => clk,
+        clk_100 => clk_100,
         rst => rst,
         en => writer_en,
         data_in => data_print,

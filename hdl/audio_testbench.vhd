@@ -88,7 +88,7 @@ architecture Behavioral of audio_testbench is
 
     component oled_ctrl
         port (
-            clk : in std_logic;
+            clk_100 : in std_logic;
             rst : in std_logic;
             raw_data : in std_logic_vector(31 downto 0); -- Data input to be displayed on the OLED
             oled_sdin : out std_logic;
@@ -154,7 +154,7 @@ begin
     );
 
     i_oled : oled_ctrl port map(
-        clk => clk_100,
+        clk_100 => clk_100,
         rst => clean_reset,
         raw_data => x"00038000",
         oled_sdin => oled_sdin,
