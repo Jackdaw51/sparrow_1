@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1777457134">
+<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1777475244">
   <File Type="PA-TCL" Name="audio_testbench.tcl"/>
   <File Type="REPORTS-TCL" Name="audio_testbench_reports.tcl"/>
   <File Type="INIT-TIMING" Name="audio_testbench_timing_summary_init.rpt"/>

@@ -45,8 +45,8 @@ entity audio_testbench is
         oled_dc : out std_logic;
         oled_res : out std_logic;
         oled_vbat : out std_logic;
-        oled_vdd : out std_logic
-
+        oled_vdd : out std_logic;
+        test : out std_logic
     );
 end audio_testbench;
 
@@ -74,6 +74,7 @@ architecture Behavioral of audio_testbench is
 
             new_sample : out std_logic; -- goes up for 1 clk cycle if new sample is transmitted received
             sample_clk_48k : out std_logic -- sample clock 
+
         );
     end component;
 
@@ -119,6 +120,11 @@ architecture Behavioral of audio_testbench is
     signal stable_reset : std_logic := '0';
     signal clean_reset : std_logic := '0';
 
+    signal sample_acc : unsigned(15 downto 0) := (others => '0');
+    signal en_204_8Hz : std_logic := '0';
+
+    -- Increment value: (204.8 / 48000) * 2^16 = 279.62... (round to 280)
+    constant STEP_204_8 : unsigned(15 downto 0) := to_unsigned(280, 16);
 begin
 
     i_audio : audio_top port map(
@@ -266,6 +272,27 @@ begin
         end if;
     end process;
 
+    process (clk_100)
+    begin
+        if rising_edge(clk_100) then
+            if clean_reset = '1' then
+                sample_acc <= (others => '0');
+                en_204_8Hz <= '0';
+                -- Reset any other internal registers here
+            else
+                en_204_8Hz <= '0';
+                if new_sample = '1' then
+                    -- Every time a 48kHz sample arrives, we update the accumulator
+                    sample_acc <= sample_acc + STEP_204_8;
+
+                    -- Detect the rollover/overflow to create the 204.8Hz pulse
+                    if sample_acc < STEP_204_8 then
+                        en_204_8Hz <= '1';
+                    end if;
+                end if;
+            end if;
+        end if;
+    end process;
     -- Assign the stable internal signal to your output
     clean_reset <= stable_reset;
 
