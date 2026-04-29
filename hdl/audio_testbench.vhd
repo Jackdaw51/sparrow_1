@@ -39,7 +39,13 @@ entity audio_testbench is
         AC_GPIO3 : in std_logic; -- I2S_LR
         AC_MCLK : out std_logic;
         AC_SCK : out std_logic;
-        AC_SDA : inout std_logic
+        AC_SDA : inout std_logic;
+        oled_sdin : out std_logic;
+        oled_sclk : out std_logic;
+        oled_dc : out std_logic;
+        oled_res : out std_logic;
+        oled_vbat : out std_logic;
+        oled_vdd : out std_logic
 
     );
 end audio_testbench;
@@ -80,6 +86,18 @@ architecture Behavioral of audio_testbench is
         );
     end component;
 
+    component oled_ctrl
+        port (
+            clk : in std_logic;
+            rst : in std_logic;
+            oled_sdin : out std_logic;
+            oled_sclk : out std_logic;
+            oled_dc : out std_logic;
+            oled_res : out std_logic;
+            oled_vbat : out std_logic;
+            oled_vdd : out std_logic
+        );
+    end component;
     signal clk_100_buffered : std_logic;
 
     signal counter : unsigned (5 downto 0);
@@ -133,6 +151,17 @@ begin
         reset => clean_reset,
         audio_out => diapason_sample
     );
+
+    i_oled : oled_ctrl port map(
+        clk => clk_100,
+        rst => clean_reset,
+        oled_sdin => oled_sdin,
+        oled_sclk => oled_sclk,
+        oled_dc => oled_dc,
+        oled_res => oled_res,
+        oled_vbat => oled_vbat,
+        oled_vdd => oled_vdd
+    );
     -- use comments to switch between TEST 1 (sawtooth) and 2 (loopback)
 
     --------------------------------------------------
@@ -175,40 +204,40 @@ begin
 
     -----------------------------------------------------
     -- TEST 2: loopback "line in" data to headphone output
-     process (clk_100)
-     begin
-         if (clk_100'event and clk_100 = '1') then
-             hphone_valid <= '0';
-             hphone_l <= (others => '0');
-             hphone_r <= (others => '0');
+    process (clk_100)
+    begin
+        if (clk_100'event and clk_100 = '1') then
+            hphone_valid <= '0';
+            hphone_l <= (others => '0');
+            hphone_r <= (others => '0');
 
-             if clean_reset = '0' and new_sample = '1' then
+            if clean_reset = '0' and new_sample = '1' then
 
-                 hphone_valid <= '1';
-                 hphone_l <= line_in_r;
-                 hphone_r <= line_in_r;
-             end if;
-         end if;
-     end process;
+                hphone_valid <= '1';
+                hphone_l <= line_in_r;
+                hphone_r <= line_in_r;
+            end if;
+        end if;
+    end process;
 
---    process (clk_100)
---    begin
---        if (clk_100'event and clk_100 = '1') then
+    --    process (clk_100)
+    --    begin
+    --        if (clk_100'event and clk_100 = '1') then
 
---            hphone_valid <= '0';
---            hphone_l <= (others => '0');
---            hphone_r <= (others => '0');
+    --            hphone_valid <= '0';
+    --            hphone_l <= (others => '0');
+    --            hphone_r <= (others => '0');
 
---            if new_sample = '1' then
---                counter <= counter + 1;
+    --            if new_sample = '1' then
+    --                counter <= counter + 1;
 
---                hphone_valid <= '1';
---                hphone_l <= line_in_r;
---                hphone_r <= line_in_r;
---            end if;
+    --                hphone_valid <= '1';
+    --                hphone_l <= line_in_r;
+    --                hphone_r <= line_in_r;
+    --            end if;
 
---        end if;
---    end process;
+    --        end if;
+    --    end process;
     Reset_Debounce_Proc : process (clk_100)
     begin
         if rising_edge(clk_100) then
