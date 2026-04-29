@@ -15,7 +15,7 @@ entity oled_writer is
     port (  clk         : in std_logic; -- System clock
             rst         : in std_logic; -- Global synchronous reset
             en          : in std_logic; -- Block enable pin
-            data_int    : in std_logic_vector ( 19 downto 0); -- Data input to be displayed on the OLED
+            data_in    : in std_logic_vector ( 19 downto 0); -- Data input to be displayed on the OLED
             sdout       : out std_logic; -- SPI data out
             oled_sclk   : out std_logic; -- SPI clock
             oled_dc     : out std_logic; -- Data/Command controller
@@ -356,12 +356,12 @@ begin
             if rst = '1' then
                 data_screen <= clear_screen;
             else
-                data_screen(0, 0) <= to_ascii(data_int(19 downto 16));
-                data_screen(0, 1) <= to_ascii(data_int(15 downto 12));
-                data_screen(0, 2) <= to_ascii(data_int(11 downto 8));
-                data_screen(0, 3) <= to_ascii(data_int(7 downto 4));
+                data_screen(0, 0) <= to_ascii(data_in(19 downto 16));
+                data_screen(0, 1) <= to_ascii(data_in(15 downto 12));
+                data_screen(0, 2) <= to_ascii(data_in(11 downto 8));
+                data_screen(0, 3) <= to_ascii(data_in(7 downto 4));
                 data_screen(0, 4) <= x"2E"; -- Decimal point
-                data_screen(0, 5) <= to_ascii(data_int(3 downto 0));
+                data_screen(0, 5) <= to_ascii(data_in(3 downto 0));
             end if;
         end if;
     end process;
