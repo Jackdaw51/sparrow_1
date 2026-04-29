@@ -110,9 +110,9 @@ begin
     int_data <= unsigned(raw_data(31 downto 16));
     frac_data <= unsigned(raw_data(15 downto 0));
 
-    process (clk)
+    process (clk_100)
     begin
-        if rising_edge(clk) then
+        if rising_edge(clk_100) then
             if rst = '1' then
                 current_state <= Idle;
             else
@@ -134,7 +134,7 @@ begin
         end if;
     end process;
 
-    Num_converter: process(clk)
+    Num_converter: process(clk_100)
         variable frac_bcd : unsigned(3 downto 0); -- 1 int_bcd digit (4 bits)
         variable frac_mult : unsigned(19 downto 0); -- 16 bits + 4 bits for *10
 
@@ -142,7 +142,7 @@ begin
         variable temp : unsigned(15 downto 0); -- Temporary variable for shifting during
 
     begin
-        if rising_edge(clk) then
+        if rising_edge(clk_100) then
             if rst = '1' then
                 data_print <= (others => '0');
             else
