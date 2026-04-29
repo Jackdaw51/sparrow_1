@@ -87,7 +87,7 @@ begin
                 end if;
             end if;
 
-            if rotation = '0' 
+            if rotation = '0' then
                 if active = '0' then
                     motor_ready <= '1'; -- If not active, immediately set motor_ready to true
                     -- Important at startup to avoid waiting for 3 seconds
