@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Mon Apr 27 19:31:45 2026
+# Process ID         : 22060
+# Current directory  : C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/xfft_0_synth_1
+# Command line       : vivado.exe -log xfft_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source xfft_0.tcl
+# Log file           : C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/xfft_0_synth_1/xfft_0.vds
+# Journal file       : C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/xfft_0_synth_1\vivado.jou
+# Running On         : Aloy
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : 12th Gen Intel(R) Core(TM) i5-12450H
+# CPU Frequency      : 2496 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 12
+# Host memory        : 16802 MB
+# Swap memory        : 2684 MB
+# Total Virtual      : 19487 MB
+# Available Virtual  : 7025 MB
+#-----------------------------------------------------------
+source xfft_0.tcl -notrace

@@ -1,0 +1,96 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Mon Apr 27 17:14:52 2026
+| Host         : Aloy running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file audio_testbench_control_sets_placed.rpt
+| Design       : audio_testbench
+| Device       : xc7z020
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    18 |
+|    Minimum number of control sets                        |    18 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    48 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    18 |
+| >= 0 to < 4        |     2 |
+| >= 4 to < 6        |     3 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     3 |
+| >= 10 to < 12      |     1 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     9 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              24 |           13 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              45 |            9 |
+| Yes          | No                    | No                     |             195 |           50 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |               8 |            1 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------------------+-----------------------------------------------------------------------------+----------------------------------------------------------------------------+------------------+----------------+--------------+
+|        Clock Signal        |                                Enable Signal                                |                              Set/Reset Signal                              | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------------------+-----------------------------------------------------------------------------+----------------------------------------------------------------------------+------------------+----------------+--------------+
+|  i_audio/i_clocking/CLK_48 | i_audio/Inst_adau1761_izedboard/Inst_i2c/Inst_i3c2/i2c_scl_i_1_n_0          |                                                                            |                1 |              1 |         1.00 |
+|  i_audio/i_clocking/CLK_48 | i_audio/Inst_adau1761_izedboard/Inst_i2c/Inst_i3c2/i2c_sda_t_i_1_n_0        |                                                                            |                1 |              1 |         1.00 |
+|  i_audio/i_clocking/CLK_48 | i_audio/Inst_adau1761_izedboard/Inst_i2c/Inst_i3c2/i2c_bits_left[3]_i_1_n_0 |                                                                            |                2 |              4 |         2.00 |
+|  clk_100_IBUF_BUFG         |                                                                             |                                                                            |                2 |              4 |         2.00 |
+|  clk_100_buffered          |                                                                             |                                                                            |                2 |              5 |         2.50 |
+|  i_audio/i_clocking/CLK_48 | i_audio/Inst_adau1761_izedboard/Inst_i2c/Inst_i3c2/bitcount[7]_i_1_n_0      |                                                                            |                4 |              8 |         2.00 |
+|  i_audio/i_clocking/CLK_48 | i_audio/Inst_adau1761_izedboard/Inst_i2s_data_interface/i2s_lr_last_i_1_n_0 | i_audio/Inst_adau1761_izedboard/Inst_i2s_data_interface/sr_out[39]_i_1_n_0 |                1 |              8 |         8.00 |
+|  i_audio/i_clocking/CLK_48 | i_audio/Inst_adau1761_izedboard/Inst_i2c/Inst_i3c2/i2c_data[8]_i_1_n_0      |                                                                            |                3 |              9 |         3.00 |
+|  i_audio/i_clocking/CLK_48 | i_audio/Inst_adau1761_izedboard/Inst_i2c/Inst_i3c2/pcnext[9]_i_1_n_0        |                                                                            |                4 |             10 |         2.50 |
+|  i_audio/i_clocking/CLK_48 | i_audio/Inst_adau1761_izedboard/Inst_i2c/Inst_i3c2/delay[15]_i_1_n_0        |                                                                            |                7 |             16 |         2.29 |
+|  i_audio/i_clocking/CLK_48 |                                                                             |                                                                            |                9 |             17 |         1.89 |
+|  clk_100_IBUF_BUFG         |                                                                             | debounce_counter[0]_i_1_n_0                                                |                6 |             21 |         3.50 |
+|  i_audio/i_clocking/CLK_48 | i_audio/Inst_adau1761_izedboard/Inst_i2s_data_interface/audio_l_out_n_0     |                                                                            |                7 |             24 |         3.43 |
+|  clk_100_IBUF_BUFG         |                                                                             | i_audio/stable_reset_reg                                                   |                3 |             24 |         8.00 |
+|  clk_100_buffered          | i_audio/new_sample_100                                                      |                                                                            |                3 |             24 |         8.00 |
+|  clk_100_buffered          | hphone_valid                                                                |                                                                            |                4 |             24 |         6.00 |
+|  i_audio/i_clocking/CLK_48 | i_audio/Inst_adau1761_izedboard/Inst_i2s_data_interface/sr_in[94]_i_1_n_0   |                                                                            |                5 |             27 |         5.40 |
+|  i_audio/i_clocking/CLK_48 | i_audio/Inst_adau1761_izedboard/Inst_i2s_data_interface/i2s_lr_last_i_1_n_0 |                                                                            |                9 |             50 |         5.56 |
++----------------------------+-----------------------------------------------------------------------------+----------------------------------------------------------------------------+------------------+----------------+--------------+
+
+
