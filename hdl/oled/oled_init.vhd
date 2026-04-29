@@ -11,68 +11,72 @@ use ieee.std_logic_arith.all;
 use ieee.std_logic_unsigned.all;
 
 entity oled_init is
-    port (  clk         : in std_logic; -- System clock
-            rst         : in std_logic; -- Global synchronous reset
-            en          : in std_logic; -- Block enable pin
-            sdout       : out std_logic; -- SPI data out
-            oled_sclk   : out std_logic; -- SPI clock
-            oled_dc     : out std_logic; -- Data/Command pin
-            oled_res    : out std_logic; -- OLED reset
-            oled_vbat   : out std_logic; -- oled_vbat enable
-            oled_vdd    : out std_logic; -- oled_vdd enable
-            fin         : out std_logic); -- Finish flag for block
+    port (  
+        clk_100     : in std_logic; -- System clock
+        rst         : in std_logic; -- Global synchronous reset
+        en          : in std_logic; -- Block enable pin
+        sdout       : out std_logic; -- SPI data out
+        oled_sclk   : out std_logic; -- SPI clock
+        oled_dc     : out std_logic; -- Data/Command pin
+        oled_res    : out std_logic; -- OLED reset
+        oled_vbat   : out std_logic; -- oled_vbat enable
+        oled_vdd    : out std_logic; -- oled_vdd enable
+        fin         : out std_logic); -- Finish flag for block
 end oled_init;
 
 architecture behavioral of oled_init is
 
     component spi_ctrl
-        port (  clk         : in std_logic;
-                rst         : in std_logic;
-                en          : in std_logic;
-                sdata       : in std_logic_vector (7 downto 0);
-                sdout       : out std_logic;
-                oled_sclk   : out std_logic;
-                fin         : out std_logic);
+        port ( 
+            clk_100     : in std_logic;
+            rst         : in std_logic;
+            en          : in std_logic;
+            sdata       : in std_logic_vector (7 downto 0);
+            sdout       : out std_logic;
+            oled_sclk   : out std_logic;
+            fin         : out std_logic);
     end component;
 
     component delay
-        port (  clk         : in std_logic;
-                rst         : in std_logic;
-                delay_ms    : in std_logic_vector (11 downto 0);
-                delay_en    : in std_logic;
-                delay_fin   : out std_logic);
+        port (
+            clk_100     : in std_logic;
+            rst         : in std_logic;
+            delay_ms    : in std_logic_vector (11 downto 0);
+            delay_en    : in std_logic;
+            delay_fin   : out std_logic);
     end component;
 
-    type states is (Transition1,
-                    Transition2,
-                    Transition3,
-                    Transition4,
-                    Transition5,
-                    Idle,
-                    VddOn,
-                    Wait1,
-                    DispOff,
-                    ResetOn,
-                    Wait2,
-                    ResetOff,
-                    ChargePump1,
-                    ChargePump2,
-                    PreCharge1,
-                    PreCharge2,
-                    VbatOn,
-                    Wait3,
-                    DispContrast1,
-                    DispContrast2,
-                    InvertDisp1,
-                    InvertDisp2,
-                    ComConfig1,
-                    ComConfig2,
-                    DispOn,
-                    FullDisp,
-                    Done);
+    type states is (
+        Transition1,
+        Transition2,
+        Transition3,
+        Transition4,
+        Transition5,
+        Idle,
+        VddOn,
+        Wait1,
+        DispOff,
+        ResetOn,
+        Wait2,
+        ResetOff,
+        ChargePump1,
+        ChargePump2,
+        PreCharge1,
+        PreCharge2,
+        VbatOn,
+        Wait3,
+        DispContrast1,
+        DispContrast2,
+        InvertDisp1,
+        InvertDisp2,
+        ComConfig1,
+        ComConfig2,
+        DispOn,
+        FullDisp,
+        Done);
 
-    signal current_state : states := Idle;
-    signal after_state : states := Idle;
+    signal current_state    : states := Idle;
+    signal after_state      : states := Idle;
 
     signal temp_dc      : std_logic := '0';
     signal temp_res     : std_logic := '1';
@@ -89,19 +93,21 @@ architecture behavioral of oled_init is
 
 begin
 
-    spi_comp: spi_ctrl port map (   clk => clk,
-                                    rst => rst,
-                                    en => temp_spi_en,
-                                    sdata => temp_sdata,
-                                    sdout => sdout,
-                                    oled_sclk => oled_sclk,
-                                    fin => temp_spi_fin);
+    spi_comp: spi_ctrl port map (
+        clk_100 => clk_100,
+        rst => rst,
+        en => temp_spi_en,
+        sdata => temp_sdata,
+        sdout => sdout,
+        oled_sclk => oled_sclk,
+        fin => temp_spi_fin);
 
-    delay_comp: delay port map (clk => clk,
-                                rst => rst,
-                                delay_ms => temp_delay_ms,
-                                delay_en => temp_delay_en,
-                                delay_fin => temp_delay_fin);
+    delay_comp: delay port map (
+        clk_100 => clk_100,
+        rst => rst,
+        delay_ms => temp_delay_ms,
+        delay_en => temp_delay_en,
+        delay_fin => temp_delay_fin);
 
     oled_dc <= temp_dc;
     oled_res <= temp_res;
@@ -113,9 +119,9 @@ begin
     temp_delay_ms <=    "000001100100" when after_state = DispContrast1 else -- 100ms
                         "000000000001"; -- 1ms
 
-    process (clk)
+    process (clk_100)
     begin
-        if rising_edge(clk) then
+        if rising_edge(clk_100) then
             if rst = '1' then
                 current_state <= Idle;
                 temp_res <= '0';

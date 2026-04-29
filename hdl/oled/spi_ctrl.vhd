@@ -12,13 +12,14 @@ use ieee.std_logic_arith.all;
 use ieee.std_logic_unsigned.all;
 
 entity spi_ctrl is
-    Port ( clk          : in std_logic; -- System clok (100MHz)
-           rst          : in std_logic; -- Global synchronous reset
-           en           : in std_logic; -- Block enable pin
-           sdata        : in std_logic_vector (7 downto 0); -- Byte to be sent
-           sdout        : out std_logic; -- Serial data out
-           oled_sclk    : out std_logic; -- OLED serial clock
-           fin          : out std_logic); -- Finish flag for block
+    Port (
+        clk_100      : in std_logic; -- System clok (100MHz)
+        rst          : in std_logic; -- Global synchronous reset
+        en           : in std_logic; -- Block enable pin
+        sdata        : in std_logic_vector (7 downto 0); -- Byte to be sent
+        sdout        : out std_logic; -- Serial data out
+        oled_sclk    : out std_logic; -- OLED serial clock
+        fin          : out std_logic); -- Finish flag for block
 end spi_ctrl;
 
 architecture behavioral of spi_ctrl is
@@ -42,9 +43,9 @@ begin
     sdout <= temp_sdata;
     fin <= '1' when current_state = Done else '0';
 
-    state_machine : process (clk)
+    state_machine : process (clk_100)
     begin
-        if rising_edge(clk) then
+        if rising_edge(clk_100) then
             if rst = '1' then -- Synchronous rst
                 current_state <= Idle;
             else
@@ -68,9 +69,9 @@ begin
         end if;
     end process state_machine;
 
-    clk_div : process (clk)
+    clk_div : process (clk_100)
     begin
-        if rising_edge(clk) then
+        if rising_edge(clk_100) then
             if current_state = Send then -- Start clock counter when in send state
                 counter <= counter + 1;
             else -- Reset clock counter when not in send state
@@ -79,9 +80,9 @@ begin
         end if;
     end process clk_div;
 
-    spi_send_byte : process (clk) -- Sends SPI data formatted oled_sclk active low with sdout changing on the falling edge
+    spi_send_byte : process (clk_100) -- Sends SPI data formatted oled_sclk active low with sdout changing on the falling edge
     begin
-        if rising_edge(clk) then
+        if rising_edge(clk_100) then
             if current_state = Idle then
                 shift_counter <= (others => '0');
                 shift_register <= sdata; -- Keeps placing sdata into shift_register so that when state goes to send it has the latest sdata

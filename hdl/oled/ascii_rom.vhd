@@ -10,9 +10,10 @@ use ieee.std_logic_arith.all;
 use ieee.std_logic_unsigned.all;
 
 entity ascii_rom is
-    port (  clk     : in std_logic; -- System clock
-            addr    : in std_logic_vector (10 downto 0); -- Memory address
-            dout    : out std_logic_vector (7 downto 0)); -- Data from memory
+    port (
+        clk_100 : in std_logic; -- System clock
+        addr    : in std_logic_vector (10 downto 0); -- Memory address
+        dout    : out std_logic_vector (7 downto 0)); -- Data from memory
 end ascii_rom;
 
 architecture behavioral of ascii_rom is
@@ -152,9 +153,9 @@ architecture behavioral of ascii_rom is
 
 begin
 
-    process (clk)
+    process (clk_100)
     begin
-        if rising_edge(clk) then
+        if rising_edge(clk_100) then
             dout <= rom_data(conv_integer(addr));
         end if;
     end process;

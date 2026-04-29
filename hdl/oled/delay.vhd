@@ -11,11 +11,12 @@ use ieee.std_logic_arith.all;
 use ieee.std_logic_unsigned.all;
 
 entity delay is
-    port (  clk         : in std_logic; -- System clock
-            rst         : in std_logic;  -- Global synchronous reset
-            delay_ms    : in std_logic_vector (11 downto 0); -- Amount of ms to delay
-            delay_en    : in std_logic; -- Delay enable
-            delay_fin   : out std_logic); -- Delay finish flag
+    port (
+        clk_100     : in std_logic; -- System clock
+        rst         : in std_logic;  -- Global synchronous reset
+        delay_ms    : in std_logic_vector (11 downto 0); -- Amount of ms to delay
+        delay_en    : in std_logic; -- Delay enable
+        delay_fin   : out std_logic); -- Delay finish flag
 end delay;
 
 architecture behavioral of delay is
@@ -31,9 +32,9 @@ begin
     delay_fin <= '1' when (current_state = Done and delay_en = '1') else '0';
 
     -- State machine for Delay block
-    state_machine : process (clk)
+    state_machine : process (clk_100)
     begin
-        if rising_edge(clk) then
+        if rising_edge(clk_100) then
             if rst = '1' then -- When rst is asserted switch to Idle (synchronous)
                 current_state <= Idle;
             else
@@ -59,9 +60,9 @@ begin
 
 
     -- Creates ms_counter that counts at 1KHz
-    clk_div : process (clk)
+    clk_div : process (clk_100)
     begin
-        if rising_edge(clk) then
+        if rising_edge(clk_100) then
             if current_state = Hold then
                 if clk_counter = "11000011010100000" then -- 100,000
                     clk_counter <= (others => '0');

@@ -7,45 +7,47 @@
 
 library ieee;
 use ieee.std_logic_1164.all;
-use ieee.std_logic_arith.all;
-use ieee.std_logic_unsigned.all;
+use ieee.numeric_std.all;
 
 entity oled_ctrl is
-    port (  clk         : in std_logic;
-            rst         : in std_logic;
-            raw_data    : in std_logic_vector(31 downto 0); -- Data input to be displayed on the OLED
-            oled_sdin   : out std_logic;
-            oled_sclk   : out std_logic;
-            oled_dc     : out std_logic;
-            oled_res    : out std_logic;
-            oled_vbat   : out std_logic;
-            oled_vdd    : out std_logic);
+    port ( 
+        clk         : in std_logic;
+        rst         : in std_logic;
+        raw_data    : in std_logic_vector(31 downto 0); -- Data input to be displayed on the OLED
+        oled_sdin   : out std_logic;
+        oled_sclk   : out std_logic;
+        oled_dc     : out std_logic;
+        oled_res    : out std_logic;
+        oled_vbat   : out std_logic;
+        oled_vdd    : out std_logic);
 end oled_ctrl;
 
 architecture behavioral of oled_ctrl is
 
     component oled_init is
-        port (  clk         : in std_logic;
-                rst         : in std_logic;
-                en          : in std_logic;
-                sdout       : out std_logic;
-                oled_sclk   : out std_logic;
-                oled_dc     : out std_logic;
-                oled_res    : out std_logic;
-                oled_vbat   : out std_logic;
-                oled_vdd    : out std_logic;
-                fin         : out std_logic);
+        port ( 
+            clk         : in std_logic;
+            rst         : in std_logic;
+            en          : in std_logic;
+            sdout       : out std_logic;
+            oled_sclk   : out std_logic;
+            oled_dc     : out std_logic;
+            oled_res    : out std_logic;
+            oled_vbat   : out std_logic;
+            oled_vdd    : out std_logic;
+            fin         : out std_logic);
     end component;
 
     component oled_writer is
-        port (  clk         : in std_logic;
-                rst         : in std_logic;
-                en          : in std_logic;
-                data_in    : in std_logic_vector ( 19 downto 0);
-                sdout       : out std_logic;
-                oled_sclk   : out std_logic;
-                oled_dc     : out std_logic;
-                fin         : out std_logic);
+        port ( 
+            clk         : in std_logic;
+            rst         : in std_logic;
+            en          : in std_logic;
+            data_in    : in std_logic_vector ( 19 downto 0);
+            sdout       : out std_logic;
+            oled_sclk   : out std_logic;
+            oled_dc     : out std_logic;
+            fin         : out std_logic);
     end component;
 
     type states is (Idle, OledInitialize, OledWriter);
@@ -58,11 +60,11 @@ architecture behavioral of oled_ctrl is
     signal init_spi_clk     : std_logic;
     signal init_dc          : std_logic;
 
-    signal example_en       : std_logic := '0';
-    signal example_sdata    : std_logic;
-    signal example_spi_clk  : std_logic;
-    signal example_dc       : std_logic;
-    signal example_done     : std_logic;
+    signal writer_en       : std_logic := '0';
+    signal writer_sdata    : std_logic;
+    signal writer_spi_clk  : std_logic;
+    signal writer_dc       : std_logic;
+    signal writer_done     : std_logic;
 
     signal data_print       : std_logic_vector(19 downto 0) := (others => '0');
     signal int_data         : unsigned(15 downto 0);
@@ -70,25 +72,29 @@ architecture behavioral of oled_ctrl is
 
 begin
 
-    Initialize: oled_init port map (clk,
-                                    rst,
-                                    init_en,
-                                    init_sdata,
-                                    init_spi_clk,
-                                    init_dc,
-                                    oled_res,
-                                    oled_vbat,
-                                    oled_vdd,
-                                    init_done);
+    Initialize: oled_init port map (
+        clk => clk,
+        rst => rst,
+        en => init_en,
+        sdout => init_sdata,
+        oled_sclk => init_spi_clk,
+        oled_dc => init_dc,
+        oled_res => oled_res,
+        oled_vbat => oled_vbat,
+        oled_vdd => oled_vdd,
+        fin => init_done
+    );
 
-    Writer: oled_writer port map ( clk,
-                                rst,
-                                writer_en,
-                                data_print,
-                                writer_sdata,
-                                writer_spi_clk,
-                                writer_dc,
-                                example_done);
+    Writer: oled_writer port map (
+        clk => clk,
+        rst => rst,
+        en => writer_en,
+        data_in => data_print,
+        sdout => writer_sdata,
+        oled_sclk => writer_spi_clk,
+        oled_dc => writer_dc,
+        fin => writer_done
+    );
 
     -- MUXes to indicate which outputs are routed out depending on which block is enabled
     oled_sdin <= init_sdata when current_state = OledInitialize else writer_sdata;
@@ -101,8 +107,8 @@ begin
     writer_en <= '1' when current_state = OledWriter else '0';
     -- End enable MUXes
 
-    int_part <= unsigned(raw_data(31 downto 16));
-    frac_part <= unsigned(raw_data(15 downto 0));
+    int_data <= unsigned(raw_data(31 downto 16));
+    frac_data <= unsigned(raw_data(15 downto 0));
 
     process (clk)
     begin
@@ -140,7 +146,7 @@ begin
             if rst = '1' then
                 data_print <= (others => '0');
             else
-                frac_mult := frac_data * 10;
+                frac_mult := unsigned(frac_data) * 10;
                 frac_bcd := frac_mult(19 downto 16); -- Get the first decimal place
 
                 int_bcd := (others => '0');

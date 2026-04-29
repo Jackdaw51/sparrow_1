@@ -19,7 +19,7 @@ USE IEEE.NUMERIC_STD.ALL;
 
 entity sm_control is
     PORT (
-        clk_204_8Hz : in std_logic; --Clock
+        clk_204_8 : in std_logic; --Clock
         reset : in std_logic; --Reset
         
         rotation: in std_logic; -- If true rotate, 0 stop
@@ -46,9 +46,9 @@ architecture behavioral of sm_control is
 begin
     
 
-    State_machine : process (clk_204_8Hz)
+    State_machine : process (clk_204_8)
     begin
-        if rising_edge(clk_204_8Hz) then
+        if rising_edge(clk_204_8) then
             if reset = '1' then -- might need to change reset condition
                 phase <= "0000"; -- default phase;
                 if active /= '1' then
@@ -110,9 +110,9 @@ begin
     -- This should give more torque, but less smooth movement. (Might need to switch)
     -- Full-step -> always two coils powered at same time;
     -- Half-step -> every other step, only one coil powered
-    Movement : process (clk_204_8Hz)
+    Movement : process (clk_204_8)
     begin
-        if rising_edge(clk_204_8Hz) then
+        if rising_edge(clk_204_8) then
             if active = '1' then
                 case phase is
                     when "0001" =>

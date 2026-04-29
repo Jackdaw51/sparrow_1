@@ -12,76 +12,82 @@ use ieee.std_logic_arith.all;
 use ieee.std_logic_unsigned.all;
 
 entity oled_writer is
-    port (  clk         : in std_logic; -- System clock
-            rst         : in std_logic; -- Global synchronous reset
-            en          : in std_logic; -- Block enable pin
-            data_in     : in std_logic_vector ( 19 downto 0); -- Data input to be displayed on the OLED
-            sdout       : out std_logic; -- SPI data out
-            oled_sclk   : out std_logic; -- SPI clock
-            oled_dc     : out std_logic; -- Data/Command controller
-            fin         : out std_logic); -- Finish flag for block
+    port ( 
+        clk_100     : in std_logic; -- System clock
+        rst         : in std_logic; -- Global synchronous reset
+        en          : in std_logic; -- Block enable pin
+        data_in     : in std_logic_vector ( 19 downto 0); -- Data input to be displayed on the OLED
+        sdout       : out std_logic; -- SPI data out
+        oled_sclk   : out std_logic; -- SPI clock
+        oled_dc     : out std_logic; -- Data/Command controller
+        fin         : out std_logic); -- Finish flag for block
 end oled_writer;
 
 architecture behavioral of oled_writer is
 
     -- SPI controller
     component spi_ctrl
-        port (  clk         : in std_logic;
-                rst         : in std_logic;
-                en          : in std_logic;
-                sdata       : in std_logic_vector (7 downto 0);
-                sdout       : out std_logic;
-                oled_sclk   : out std_logic;
-                fin         : out std_logic);
+        port (
+            clk_100     : in std_logic;
+            rst         : in std_logic;
+            en          : in std_logic;
+            sdata       : in std_logic_vector (7 downto 0);
+            sdout       : out std_logic;
+            oled_sclk   : out std_logic;
+            fin         : out std_logic);
     end component;
 
     -- delay controller
     component delay
-        port (  clk         : in std_logic;
-                rst         : in std_logic;
-                delay_ms    : in std_logic_vector (11 downto 0);
-                delay_en    : in std_logic;
-                delay_fin   : out std_logic);
+        port ( 
+            clk_100     : in std_logic;
+            rst         : in std_logic;
+            delay_ms    : in std_logic_vector (11 downto 0);
+            delay_en    : in std_logic;
+            delay_fin   : out std_logic);
     end component;
 
     -- character library, latency = 1
     component ascii_rom
-        port (  clk    : in std_logic; -- System clock
-                addr   : in std_logic_vector (10 downto 0); -- First 8 bits is the ASCII value of the character, the last 3 bits are the parts of the char
-                dout   : out std_logic_vector (7 downto 0)); -- Data byte out
+        port ( 
+            clk_100     : in std_logic; -- System clock
+            addr        : in std_logic_vector (10 downto 0); -- First 8 bits is the ASCII value of the character, the last 3 bits are the parts of the char
+            dout        : out std_logic_vector (7 downto 0)); -- Data byte out
     end component;
 
     -- States for state machine
-    type states is (Idle,
-                    ClearDC,
-                    SetPage,
-                    PageNum,
-                    LeftColumn1,
-                    LeftColumn2,
-                    SetDC,
-                    Alphabet,
-                    Wait1,
-                    ClearScreen,
-                    Wait2,
-                    WriteScreen,
-                    Wait3,
-                    UpdateScreen,
-                    SendChar1,
-                    SendChar2,
-                    SendChar3,
-                    SendChar4,
-                    SendChar5,
-                    SendChar6,
-                    SendChar7,
-                    SendChar8,
-                    ReadMem,
-                    ReadMem2,
-                    Done,
-                    Transition1,
-                    Transition2,
-                    Transition3,
-                    Transition4,
-                    Transition5);
+    type states is (
+        Idle,
+        ClearDC,
+        SetPage,
+        PageNum,
+        LeftColumn1,
+        LeftColumn2,
+        SetDC,
+        Alphabet,
+        Wait1,
+        ClearScreen,
+        Wait2,
+        WriteScreen,
+        Wait3,
+        UpdateScreen,
+        SendChar1,
+        SendChar2,
+        SendChar3,
+        SendChar4,
+        SendChar5,
+        SendChar6,
+        SendChar7,
+        SendChar8,
+        ReadMem,
+        ReadMem2,
+        Done,
+        Transition1,
+        Transition2,
+        Transition3,
+        Transition4,
+        Transition5
+    );
 
     type oled_mem is array (0 to 3, 0 to 15) of std_logic_vector (7 downto 0);
 
@@ -167,29 +173,32 @@ begin
     fin <= '1' when current_state = Done else '0';
 
     -- Instantiate SPI controller
-    spi_comp: spi_ctrl port map (   clk => clk,
-                                    rst => rst,
-                                    en => temp_spi_en,
-                                    sdata => temp_sdata,
-                                    sdout => sdout,
-                                    oled_sclk => oled_sclk,
-                                    fin => temp_spi_fin);
+    spi_comp: spi_ctrl port map (
+        clk_100 => clk_100,
+        rst => rst,
+        en => temp_spi_en,
+        sdata => temp_sdata,
+        sdout => sdout,
+        oled_sclk => oled_sclk,
+        fin => temp_spi_fin);
 
     -- Instantiate delay
-    delay_comp: delay port map (clk => clk,
-                                rst => rst,
-                                delay_ms => temp_delay_ms,
-                                delay_en => temp_delay_en,
-                                delay_fin => temp_delay_fin);
+    delay_comp: delay port map (
+        clk_100 => clk_100,
+        rst => rst,
+        delay_ms => temp_delay_ms,
+        delay_en => temp_delay_en,
+        delay_fin => temp_delay_fin);
 
     -- Instantiate ASCII character library
-    char_lib_comp : ascii_rom port map (clk => clk,
-                                        addr => temp_addr,
-                                        dout => temp_dout);
+    char_lib_comp : ascii_rom port map (
+        clk_100 => clk_100,
+        addr => temp_addr,
+        dout => temp_dout);
 
-    process (clk)
+    process (clk_100)
     begin
-        if rising_edge(clk) then
+        if rising_edge(clk_100) then
             case current_state is
                 -- Idle until en pulled high than intialize Page to 0 and go to state alphabet afterwards
                 when Idle =>
@@ -371,9 +380,9 @@ begin
         end if;
     end process;
 
-    Data_converter: process(clk)
+    Data_converter: process(clk_100)
     begin
-        if rising_edge(clk) then
+        if rising_edge(clk_100) then
             if rst = '1' then
                 data_screen <= clear_screen;
             else

@@ -98,6 +98,7 @@ architecture Behavioral of audio_testbench is
             oled_vbat : out std_logic;
             oled_vdd : out std_logic);
     end component;
+
     signal clk_100_buffered : std_logic;
 
     signal counter : unsigned (5 downto 0);
