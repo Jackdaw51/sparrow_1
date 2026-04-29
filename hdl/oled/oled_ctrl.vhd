@@ -146,7 +146,7 @@ begin
             if rst = '1' then
                 data_print <= (others => '0');
             else
-                frac_mult := unsigned(frac_data) * 10;
+                frac_mult := unsigned(frac_data) * to_unsigned(10, 4);
                 frac_bcd := frac_mult(19 downto 16); -- Get the first decimal place
 
                 int_bcd := (others => '0');
