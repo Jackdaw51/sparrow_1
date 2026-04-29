@@ -56,8 +56,6 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 3
-set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg484-1
 
@@ -67,7 +65,7 @@ set_param synth.vivado.isSynthRun true
 set_property webtalk.parent_dir C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.cache/wt [current_project]
 set_property parent.project_path C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
-set_property target_language Verilog [current_project]
+set_property target_language VHDL [current_project]
 set_property board_part xilinx.com:zc702:part0:1.4 [current_project]
 set_property ip_output_repo c:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
@@ -77,11 +75,17 @@ read_vhdl -library xil_defaultlib {
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/ADAU1761_interface.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/adau1761_configuraiton_data.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/adau1761_izedboard.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/ascii_rom.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/audio_top.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/clocking.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/delay.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/i2c.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/i2s_data_interface.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/i3c2.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_ctrl.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_init.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_writer.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/spi_ctrl.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/square_wave_440hz.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd
 }

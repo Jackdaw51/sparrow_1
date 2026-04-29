@@ -1,63 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1777302830">
+<GenRun Id="impl_1" LaunchPart="xc7z020clg484-1" LaunchTime="1777457134">
+  <File Type="PA-TCL" Name="audio_testbench.tcl"/>
   <File Type="REPORTS-TCL" Name="audio_testbench_reports.tcl"/>
-  <File Type="ROUTE-PWR-SUM" Name="audio_testbench_power_summary_routed.pb"/>
-  <File Type="BITSTR-MMI" Name="audio_testbench.mmi"/>
+  <File Type="INIT-TIMING" Name="audio_testbench_timing_summary_init.rpt"/>
+  <File Type="OPT-DCP" Name="audio_testbench_opt.dcp"/>
   <File Type="OPT-DRC" Name="audio_testbench_drc_opted.rpt"/>
-  <File Type="BG-DRC" Name="audio_testbench.drc"/>
-  <File Type="ROUTE-STATUS-PB" Name="audio_testbench_route_status.pb"/>
-  <File Type="BG-BGN" Name="audio_testbench.bgn"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="audio_testbench_methodology_drc_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="audio_testbench.hwdef"/>
+  <File Type="OPT-TIMING" Name="audio_testbench_timing_summary_opted.rpt"/>
+  <File Type="OPT-RQA-PB" Name="audio_testbench_rqa_opted.pb"/>
+  <File Type="PWROPT-DCP" Name="audio_testbench_pwropt.dcp"/>
+  <File Type="PWROPT-DRC" Name="audio_testbench_drc_pwropted.rpt"/>
+  <File Type="PWROPT-TIMING" Name="audio_testbench_timing_summary_pwropted.rpt"/>
+  <File Type="PLACE-DCP" Name="audio_testbench_placed.dcp"/>
+  <File Type="PLACE-IO" Name="audio_testbench_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="audio_testbench_clock_utilization_placed.rpt"/>
   <File Type="PLACE-UTIL" Name="audio_testbench_utilization_placed.rpt"/>
   <File Type="PLACE-UTIL-PB" Name="audio_testbench_utilization_placed.pb"/>
-  <File Type="PLACE-IO" Name="audio_testbench_io_placed.rpt"/>
-  <File Type="BG-BIN" Name="audio_testbench.bin"/>
   <File Type="PLACE-CTRL" Name="audio_testbench_control_sets_placed.rpt"/>
-  <File Type="ROUTE-PWR-RPX" Name="audio_testbench_power_routed.rpx"/>
+  <File Type="PLACE-SIMILARITY" Name="audio_testbench_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="audio_testbench_incremental_reuse_pre_placed.rpt"/>
+  <File Type="PLACE-TIMING" Name="audio_testbench_timing_summary_placed.rpt"/>
+  <File Type="PLACE-RQA-PB" Name="audio_testbench_rqa_placed.pb"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="audio_testbench_postplace_pwropt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="audio_testbench_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="audio_testbench_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="audio_testbench_drc_physopted.rpt"/>
+  <File Type="PHYSOPT-TIMING" Name="audio_testbench_timing_summary_physopted.rpt"/>
+  <File Type="ROUTE-ERROR-DCP" Name="audio_testbench_routed_error.dcp"/>
   <File Type="ROUTE-DCP" Name="audio_testbench_routed.dcp"/>
-  <File Type="BITSTR-MSK" Name="audio_testbench.msk"/>
-  <File Type="BITSTR-RBT" Name="audio_testbench.rbt"/>
-  <File Type="ROUTE-TIMINGSUMMARY" Name="audio_testbench_timing_summary_routed.rpt"/>
-  <File Type="ROUTE-TIMING-RPX" Name="audio_testbench_timing_summary_routed.rpx"/>
-  <File Type="ROUTE-STATUS" Name="audio_testbench_route_status.rpt"/>
-  <File Type="PA-TCL" Name="audio_testbench.tcl"/>
-  <File Type="ROUTE-PWR" Name="audio_testbench_power_routed.rpt"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="audio_testbench_routed_bb.dcp"/>
   <File Type="ROUTE-DRC" Name="audio_testbench_drc_routed.rpt"/>
-  <File Type="ROUTE-DRC-RPX" Name="audio_testbench_drc_routed.rpx"/>
   <File Type="ROUTE-DRC-PB" Name="audio_testbench_drc_routed.pb"/>
-  <File Type="BITSTR-SYSDEF" Name="audio_testbench.sysdef"/>
+  <File Type="ROUTE-DRC-RPX" Name="audio_testbench_drc_routed.rpx"/>
   <File Type="ROUTE-METHODOLOGY-DRC" Name="audio_testbench_methodology_drc_routed.rpt"/>
   <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="audio_testbench_methodology_drc_routed.rpx"/>
-  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
-  <File Type="BITSTR-LTX" Name="audio_testbench.ltx"/>
   <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="audio_testbench_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-PWR" Name="audio_testbench_power_routed.rpt"/>
+  <File Type="ROUTE-PWR-SUM" Name="audio_testbench_power_summary_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="audio_testbench_power_routed.rpx"/>
+  <File Type="ROUTE-STATUS" Name="audio_testbench_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="audio_testbench_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="audio_testbench_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="audio_testbench_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="audio_testbench_timing_summary_routed.rpx"/>
   <File Type="ROUTE-SIMILARITY" Name="audio_testbench_incremental_reuse_routed.rpt"/>
-  <File Type="RDI-RDI" Name="audio_testbench.vdi"/>
   <File Type="ROUTE-CLK" Name="audio_testbench_clock_utilization_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW" Name="audio_testbench_bus_skew_routed.rpt"/>
-  <File Type="ROUTE-BUS-SKEW-RPX" Name="audio_testbench_bus_skew_routed.rpx"/>
   <File Type="ROUTE-BUS-SKEW-PB" Name="audio_testbench_bus_skew_routed.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="audio_testbench_timing_summary_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="audio_testbench_timing_summary_postroute_physopted.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="audio_testbench_timing_summary_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="audio_testbench_bus_skew_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="audio_testbench_bus_skew_postroute_physopted.rpx"/>
-  <File Type="BG-BIT" Name="audio_testbench.bit"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="audio_testbench_bus_skew_postroute_physopted.pb"/>
-  <File Type="BITSTR-NKY" Name="audio_testbench.nky"/>
-  <File Type="BITSTR-BMM" Name="audio_testbench_bd.bmm"/>
-  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
-  <File Type="OPT-HWDEF" Name="audio_testbench.hwdef"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="audio_testbench_incremental_reuse_pre_placed.rpt"/>
-  <File Type="ROUTE-ERROR-DCP" Name="audio_testbench_routed_error.dcp"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="audio_testbench_routed_bb.dcp"/>
-  <File Type="ROUTE-TIMING-PB" Name="audio_testbench_timing_summary_routed.pb"/>
-  <File Type="OPT-DCP" Name="audio_testbench_opt.dcp"/>
-  <File Type="PLACE-DCP" Name="audio_testbench_placed.dcp"/>
-  <File Type="PWROPT-DCP" Name="audio_testbench_pwropt.dcp"/>
-  <File Type="POSTPLACE-PWROPT-DCP" Name="audio_testbench_postplace_pwropt.dcp"/>
-  <File Type="PHYSOPT-DCP" Name="audio_testbench_physopt.dcp"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="audio_testbench_bus_skew_routed.rpx"/>
+  <File Type="ROUTE-RQS-PB" Name="audio_testbench_rqs_routed.pb"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="audio_testbench_postroute_physopt.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="audio_testbench_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="audio_testbench_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="audio_testbench_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="audio_testbench_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="audio_testbench_bus_skew_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="audio_testbench_bus_skew_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="audio_testbench_bus_skew_postroute_physopted.rpx"/>
+  <File Type="BG-BIT" Name="audio_testbench.bit"/>
+  <File Type="BG-BIN" Name="audio_testbench.bin"/>
+  <File Type="BITSTR-MSK" Name="audio_testbench.msk"/>
+  <File Type="BITSTR-RBT" Name="audio_testbench.rbt"/>
+  <File Type="BITSTR-NKY" Name="audio_testbench.nky"/>
+  <File Type="BITSTR-BMM" Name="audio_testbench_bd.bmm"/>
+  <File Type="BITSTR-MMI" Name="audio_testbench.mmi"/>
   <File Type="PDI-FILE" Name="audio_testbench.pdi"/>
   <File Type="BOOT-PDI-FILE" Name="audio_testbench_boot.pdi"/>
   <File Type="PL-PDI-FILE" Name="audio_testbench_pld.pdi"/>
@@ -66,6 +73,13 @@
   <File Type="RNPI_FILE" Name="audio_testbench.rnpi"/>
   <File Type="NPI_FILE" Name="audio_testbench.npi"/>
   <File Type="RBD_FILE" Name="audio_testbench.rbd"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="audio_testbench.ltx"/>
+  <File Type="BITSTR-SYSDEF" Name="audio_testbench.sysdef"/>
+  <File Type="BG-BGN" Name="audio_testbench.bgn"/>
+  <File Type="BG-DRC" Name="audio_testbench.drc"/>
+  <File Type="RDI-RDI" Name="audio_testbench.vdi"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="ROUTE-RQS" Name="audio_testbench_routed.rqs"/>
   <File Type="POSTROUTE-PHYSOPT-RQS" Name="audio_testbench_postroute_physopted.rqs"/>
   <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
@@ -90,6 +104,12 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/hdl/oled/ascii_rom.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/hdl/audio/audio_top.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -97,6 +117,12 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/hdl/audio/clocking.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/hdl/oled/delay.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -120,6 +146,30 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/hdl/oled/oled_ctrl.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/hdl/oled/oled_init.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/hdl/oled/oled_writer.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/hdl/oled/spi_ctrl.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/hdl/square_wave_440hz.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -128,6 +178,41 @@
     </File>
     <File Path="$PPRDIR/hdl/audio_testbench.vhd">
       <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/hdl/signal_processing/integrate_and_dump.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/hdl/signal_processing/fft_ping_pong.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/hdl/signal_processing/fft_top.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/hdl/signal_processing/peak_finder.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/hdl/motor/stepper_motor.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -157,6 +242,7 @@
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedInSteps" Val="synth_1"/>
+        <Attr Name="UsedInSteps" Val="synth_1_copy_1"/>
         <Attr Name="AutoDcp" Val="1"/>
       </FileInfo>
     </File>
@@ -175,6 +261,5 @@
     <Step Id="route_design"/>
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
-    <Step Id="write_device_image"/>
   </Strategy>
 </GenRun>

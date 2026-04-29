@@ -15,7 +15,7 @@ entity oled_writer is
     port (  clk         : in std_logic; -- System clock
             rst         : in std_logic; -- Global synchronous reset
             en          : in std_logic; -- Block enable pin
-            data_in    : in std_logic_vector ( 19 downto 0); -- Data input to be displayed on the OLED
+            data_in     : in std_logic_vector ( 19 downto 0); -- Data input to be displayed on the OLED
             sdout       : out std_logic; -- SPI data out
             oled_sclk   : out std_logic; -- SPI clock
             oled_dc     : out std_logic; -- Data/Command controller
@@ -138,6 +138,27 @@ architecture behavioral of oled_writer is
     signal temp_page : std_logic_vector (1 downto 0) := (others => '0'); -- Current page
     signal temp_index : integer range 0 to 15 := 0; -- Current character on page
 
+    -- FIX: Moved function to the architecture's declarative region
+    -- FIX: Added (3 downto 0) constraint to the input vector
+    function to_ascii(x : in std_logic_vector(3 downto 0)) return std_logic_vector is
+        variable ascii : std_logic_vector(7 downto 0);
+    begin -- FIX: Added missing 'begin' statement
+        case x is
+            when "0000" => ascii := x"30"; -- 0
+            when "0001" => ascii := x"31"; -- 1
+            when "0010" => ascii := x"32"; -- 2
+            when "0011" => ascii := x"33"; -- 3
+            when "0100" => ascii := x"34"; -- 4
+            when "0101" => ascii := x"35"; -- 5
+            when "0110" => ascii := x"36"; -- 6
+            when "0111" => ascii := x"37"; -- 7
+            when "1000" => ascii := x"38"; -- 8
+            when "1001" => ascii := x"39"; -- 9
+            when others => ascii := x"45"; -- E for error
+        end case;
+        return ascii;
+    end function to_ascii;
+
 begin
 
     oled_dc <= temp_dc;
@@ -201,7 +222,7 @@ begin
                 when WriteScreen =>
                     current_screen <= data_screen;
                     after_update_state <= Wait3;
-                    current_state <= Update_Screen;
+                    current_state <= UpdateScreen;
                 when Wait3 =>
                     temp_delay_ms <= "001111101000"; -- 1ms
                     after_state <= WriteScreen; -- Keep writing
@@ -365,24 +386,5 @@ begin
             end if;
         end if;
     end process;
-
-    function to_ascii(x : in std_logic_vector) return std_logic_vector is
-        variable ascii : std_logic_vector(7 downto 0);
-        case x is
-            when "0000" => ascii := x"30"; -- 0
-            when "0001" => ascii := x"31"; -- 1
-            when "0010" => ascii := x"32"; -- 2
-            when "0011" => ascii := x"33"; -- 3
-            when "0100" => ascii := x"34"; -- 4
-            when "0101" => ascii := x"35"; -- 5
-            when "0110" => ascii := x"36"; -- 6
-            when "0111" => ascii := x"37"; -- 7
-            when "1000" => ascii := x"38"; -- 8
-            when "1001" => ascii := x"39"; -- 9
-            when others => ascii := x"45"; -- E for error
-        end case;
-        
-        return ascii;
-    end function to_ascii;
 
 end behavioral;
