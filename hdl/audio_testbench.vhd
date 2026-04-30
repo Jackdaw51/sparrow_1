@@ -100,7 +100,7 @@ architecture Behavioral of audio_testbench is
             oled_vdd : out std_logic);
     end component;
 
-    component stepper_motor
+    component sm_control
         port (
             clk_100 : in std_logic; --Clock
             reset : in std_logic; --Reset
@@ -190,7 +190,7 @@ begin
         oled_vdd => oled_vdd
     );
 
-    i_motor : stepper_motor port map(
+    i_motor : sm_control port map(
         clk_100 => clk_100,--Clock
         reset => clean_reset, --Reset
         ce_204_8 => en_204_8Hz, --Clock enable for 204.8Hz signal, used to time the steps
