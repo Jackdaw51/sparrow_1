@@ -45,8 +45,7 @@ entity audio_testbench is
         oled_dc : out std_logic;
         oled_res : out std_logic;
         oled_vbat : out std_logic;
-        oled_vdd : out std_logic;
-        test : out std_logic
+        oled_vdd : out std_logic
     );
 end audio_testbench;
 
@@ -144,7 +143,106 @@ architecture Behavioral of audio_testbench is
     -- Increment value: (204.8 / 48000) * 2^16 = 279.62... (round to 280)
     constant STEP_204_8 : unsigned(15 downto 0) := to_unsigned(280, 16);
 
+    signal raw_data : std_logic_vector(31 downto 0) := (others => '0');
+
 begin
+
+    -- process (clk_100_buffered)
+    -- begin
+    --     if rising_edge(clk_100_buffered) then
+
+    --         hphone_valid <= '0';
+    --         hphone_l <= (others => '0');
+    --         hphone_r <= (others => '0');
+
+    --         if new_sample = '1' then
+
+    --             hphone_valid <= '1';
+    --             hphone_l <= diapason_sample;
+    --             hphone_r <= diapason_sample;
+    --         end if;
+
+    --     end if;
+    -- end process;
+
+    -----------------------------------------------------
+    -- TEST 2: loopback "line in" data to headphone output
+    loopback_proc : process (clk_100_buffered)
+    begin
+        if (clk_100_buffered'event and clk_100_buffered = '1') then
+            hphone_valid <= '0';
+            hphone_l <= (others => '0');
+            hphone_r <= (others => '0');
+
+            if clean_reset = '0' and new_sample = '1' then
+
+                hphone_valid <= '1';
+                hphone_l <= line_in_r;
+                hphone_r <= line_in_r;
+            end if;
+        end if;
+    end process;
+
+    BTNC_debounce_proc : process (clk_100_buffered)
+    begin
+        if rising_edge(clk_100_buffered) then
+
+            -- Double-flop synchronizer to prevent metastability
+            sync_0 <= reset_btn;
+            sync_1 <= sync_0;
+
+            -- Debounce logic
+            if sync_1 /= stable_reset then
+                -- The input differs from our stable state; start/continue counting
+                if debounce_counter < 2_000_000 then
+                    debounce_counter <= debounce_counter + 1;
+                else
+                    -- The signal has been stable for 20ms, update the state
+                    stable_reset <= sync_1;
+                    debounce_counter <= 0;
+                end if;
+            else
+                -- The input matches the stable state (or is bouncing); reset the counter
+                debounce_counter <= 0;
+            end if;
+
+        end if;
+    end process;
+
+    raw_data_proc : process (clk_100_buffered)
+    begin
+        if rising_edge(clk_100_buffered) then
+            if clean_reset = '1' then
+                raw_data <= (others => '0');
+            else
+                raw_data <= std_logic_vector(unsigned(raw_data) + 1);
+            end if;
+        end if;
+    end process;
+
+    sm_clock_proc : process (clk_100_buffered)
+    begin
+        if rising_edge(clk_100_buffered) then
+            if clean_reset = '1' then
+                sample_acc <= (others => '0');
+                en_204_8Hz <= '0';
+                -- Reset any other internal registers here
+            else
+                en_204_8Hz <= '0';
+                if new_sample = '1' then
+                    -- Every time a 48kHz sample arrives, we update the accumulator
+                    sample_acc <= sample_acc + STEP_204_8;
+
+                    -- Detect the rollover/overflow to create the 204.8Hz pulse
+                    if sample_acc < STEP_204_8 then
+                        en_204_8Hz <= '1';
+                    end if;
+                end if;
+            end if;
+        end if;
+    end process;
+    -- Assign the stable internal signal to output
+    clean_reset <= stable_reset;
 
     i_audio : audio_top port map(
         clk_100 => clk_100_buffered,
@@ -179,9 +277,9 @@ begin
     );
 
     i_oled : oled_ctrl port map(
-        clk_100 => clk_100,
+        clk_100 => clk_100_buffered,
         rst => clean_reset,
-        raw_data => x"00038000",
+        raw_data => raw_data,
         oled_sdin => oled_sdin,
         oled_sclk => oled_sclk,
         oled_dc => oled_dc,
@@ -191,7 +289,7 @@ begin
     );
 
     i_motor : sm_control port map(
-        clk_100 => clk_100,--Clock
+        clk_100 => clk_100_buffered, --Clock
         reset => clean_reset, --Reset
         ce_204_8 => en_204_8Hz, --Clock enable for 204.8Hz signal, used to time the steps
 
@@ -206,135 +304,8 @@ begin
 
         motor_ready => open -- Signal to indicate motor is ready for next command
     );
-    -- use comments to switch between TEST 1 (sawtooth) and 2 (loopback)
-
-    --------------------------------------------------
-    -- TEST 1: output sawtooth signal, discard input data
-    -- process (clk_100)
-    -- begin
-    --     if (clk_100'event and clk_100 = '1') then
-
-    --         hphone_valid <= '0';
-    -- 		hphone_l <= (others => '0');
-    -- 		hphone_r <= (others => '0');
-
-    --         if new_sample = '1' then
-    --             counter <= counter + 1;
-
-    --             hphone_valid <= '1';
-    --             hphone_l <= std_logic_vector(counter) & "000000000000000000" ;
-    --             hphone_r <= std_logic_vector(counter) & "000000000000000000";
-    --         end if;
-
-    --     end if;
-    -- end process;
-    -- process (clk_100)
-    -- begin
-    --     if rising_edge(clk_100) then
-
-    --         hphone_valid <= '0';
-    --         hphone_l <= (others => '0');
-    --         hphone_r <= (others => '0');
-
-    --         if new_sample = '1' then
-
-    --             hphone_valid <= '1';
-    --             hphone_l <= diapason_sample;
-    --             hphone_r <= diapason_sample;
-    --         end if;
-
-    --     end if;
-    -- end process;
-
-    -----------------------------------------------------
-    -- TEST 2: loopback "line in" data to headphone output
-    process (clk_100)
-    begin
-        if (clk_100'event and clk_100 = '1') then
-            hphone_valid <= '0';
-            hphone_l <= (others => '0');
-            hphone_r <= (others => '0');
-
-            if clean_reset = '0' and new_sample = '1' then
-
-                hphone_valid <= '1';
-                hphone_l <= line_in_r;
-                hphone_r <= line_in_r;
-            end if;
-        end if;
-    end process;
-
-    --    process (clk_100)
-    --    begin
-    --        if (clk_100'event and clk_100 = '1') then
-
-    --            hphone_valid <= '0';
-    --            hphone_l <= (others => '0');
-    --            hphone_r <= (others => '0');
-
-    --            if new_sample = '1' then
-    --                counter <= counter + 1;
-
-    --                hphone_valid <= '1';
-    --                hphone_l <= line_in_r;
-    --                hphone_r <= line_in_r;
-    --            end if;
-
-    --        end if;
-    --    end process;
-    Reset_Debounce_Proc : process (clk_100)
-    begin
-        if rising_edge(clk_100) then
-
-            -- Double-flop synchronizer to prevent metastability
-            sync_0 <= reset_btn;
-            sync_1 <= sync_0;
-
-            -- Debounce logic
-            if sync_1 /= stable_reset then
-                -- The input differs from our stable state; start/continue counting
-                if debounce_counter < 2_000_000 then
-                    debounce_counter <= debounce_counter + 1;
-                else
-                    -- The signal has been stable for 20ms, update the state
-                    stable_reset <= sync_1;
-                    debounce_counter <= 0;
-                end if;
-            else
-                -- The input matches the stable state (or is bouncing); reset the counter
-                debounce_counter <= 0;
-            end if;
-
-        end if;
-    end process;
-
-    process (clk_100)
-    begin
-        if rising_edge(clk_100) then
-            if clean_reset = '1' then
-                sample_acc <= (others => '0');
-                en_204_8Hz <= '0';
-                -- Reset any other internal registers here
-            else
-                en_204_8Hz <= '0';
-                if new_sample = '1' then
-                    -- Every time a 48kHz sample arrives, we update the accumulator
-                    sample_acc <= sample_acc + STEP_204_8;
-
-                    -- Detect the rollover/overflow to create the 204.8Hz pulse
-                    if sample_acc < STEP_204_8 then
-                        en_204_8Hz <= '1';
-                    end if;
-                end if;
-            end if;
-        end if;
-    end process;
-    -- Assign the stable internal signal to your output
-    clean_reset <= stable_reset;
-
     -- global clock buffer for the clock signal
-    BUFG_inst : BUFG
-    port map(
+    BUFG_inst : BUFG port map(
         O => clk_100_buffered, -- 1-bit output: Clock output
         I => clk_100 -- 1-bit input: Clock input
     );
