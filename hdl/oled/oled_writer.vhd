@@ -392,6 +392,8 @@ begin
                 data_screen(0, 3) <= to_ascii(data_in(7 downto 4));
                 data_screen(0, 4) <= x"2E"; -- Decimal point
                 data_screen(0, 5) <= to_ascii(data_in(3 downto 0));
+                data_screen(0, 6) <= x"48"; -- H
+                data_screen(0, 7) <= x"7A"; -- z
             end if;
         end if;
     end process;
