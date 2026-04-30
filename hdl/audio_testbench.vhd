@@ -1,19 +1,3 @@
-----------------------------------------------------------------------------------
--- Testbench for Audiointerface for Zedboard
---
--- Stefan Scholl, DC9ST
--- Microelectronic Systems Design Research Group
--- TU Kaiserslautern
--- 2014
-----------------------------------------------------------------------------------
--- This testbench can operate in two different modes:
---
--- 1: sawtooth mode: outputs a simple sawtool signal on l and right headphone output (discards input signals)
--- 2: loopback mode: line in signals are routed to the headphone output 
---
--- choose between the two mode by commenting the code blocks below
---
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 
@@ -86,6 +70,15 @@ architecture Behavioral of audio_testbench is
         );
     end component;
 
+    component sine_wave_440hz
+        port (
+            clk : in std_logic;
+            ce_48k : in std_logic;
+            reset : in std_logic;
+            audio_out : out std_logic_vector (23 downto 0)
+        );
+    end component;
+
     component oled_ctrl
         port (
             clk_100 : in std_logic;
@@ -147,41 +140,40 @@ architecture Behavioral of audio_testbench is
 
 begin
 
-    -- process (clk_100_buffered)
-    -- begin
-    --     if rising_edge(clk_100_buffered) then
-
-    --         hphone_valid <= '0';
-    --         hphone_l <= (others => '0');
-    --         hphone_r <= (others => '0');
-
-    --         if new_sample = '1' then
-
-    --             hphone_valid <= '1';
-    --             hphone_l <= diapason_sample;
-    --             hphone_r <= diapason_sample;
-    --         end if;
-
-    --     end if;
-    -- end process;
-
-    -----------------------------------------------------
-    -- TEST 2: loopback "line in" data to headphone output
-    loopback_proc : process (clk_100_buffered)
+    sine_wave_proc : process (clk_100_buffered)
     begin
-        if (clk_100_buffered'event and clk_100_buffered = '1') then
+        if rising_edge(clk_100_buffered) then
+
             hphone_valid <= '0';
             hphone_l <= (others => '0');
             hphone_r <= (others => '0');
 
             if clean_reset = '0' and new_sample = '1' then
-
                 hphone_valid <= '1';
-                hphone_l <= line_in_r;
-                hphone_r <= line_in_r;
+                hphone_l <= diapason_sample;
+                hphone_r <= diapason_sample;
             end if;
+
         end if;
     end process;
+
+    -----------------------------------------------------
+    -- TEST 2: loopback "line in" data to headphone output
+    -- loopback_proc : process (clk_100_buffered)
+    -- begin
+    --     if (clk_100_buffered'event and clk_100_buffered = '1') then
+    --         hphone_valid <= '0';
+    --         hphone_l <= (others => '0');
+    --         hphone_r <= (others => '0');
+
+    --         if clean_reset = '0' and new_sample = '1' then
+
+    --             hphone_valid <= '1';
+    --             hphone_l <= line_in_r;
+    --             hphone_r <= line_in_r;
+    --         end if;
+    --     end if;
+    -- end process;
 
     BTNC_debounce_proc : process (clk_100_buffered)
     begin
@@ -210,12 +202,18 @@ begin
     end process;
 
     raw_data_proc : process (clk_100_buffered)
+        variable counter : integer := 48000;
     begin
         if rising_edge(clk_100_buffered) then
             if clean_reset = '1' then
                 raw_data <= (others => '0');
-            else
-                raw_data <= std_logic_vector(unsigned(raw_data) + 1);
+                counter := 48000;
+            elsif new_sample = '1' then
+                counter := counter - 1;
+                if counter = 0 then
+                    raw_data <= std_logic_vector(unsigned(raw_data) + 1);
+                    counter := 48000;
+                end if;
             end if;
         end if;
     end process;
@@ -269,7 +267,7 @@ begin
 
     );
 
-    i_440hz : square_wave_440hz port map(
+    i_440hz : sine_wave_440hz port map(
         clk => clk_100_buffered,
         ce_48k => new_sample,
         reset => clean_reset,
