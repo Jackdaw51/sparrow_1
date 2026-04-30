@@ -202,17 +202,20 @@ begin
     end process;
 
     raw_data_proc : process (clk_100_buffered)
-        variable counter : integer := 48000;
+        variable counter : integer range 0 to 48000 := 48000;
+        variable second_counter : integer range 0 to 999999 := 0;
     begin
         if rising_edge(clk_100_buffered) then
             if clean_reset = '1' then
                 raw_data <= (others => '0');
                 counter := 48000;
+                second_counter := 0;
             elsif new_sample = '1' then
                 counter := counter - 1;
                 if counter = 0 then
-                    raw_data <= std_logic_vector(unsigned(raw_data) + 1);
+                    raw_data <= std_logic_vector(to_unsigned(second_counter,16) & x"0000");
                     counter := 48000;
+                    second_counter := second_counter + 1;
                 end if;
             end if;
         end if;
