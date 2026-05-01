@@ -86,7 +86,9 @@ architecture Behavioral of audio_testbench is
             clk_100_buffered : in std_logic; --Clock
             switches_in  : in  std_logic_vector(7 downto 0);
             switches_deb : out std_logic_vector(7 downto 0);
-            switches_valid : out std_logic
+            switches_valid : out std_logic;
+            btnl_impulse: out std_logic;
+            btnr_impulse: out std_logic
         );
     end component;
 
@@ -287,7 +289,9 @@ begin
         clk_100_buffered => clk_100_buffered,
         switches_in => sw_in,
         switches_deb => sw_deb,
-        switches_valid => open
+        switches_valid => open,
+        btnl_impulse => open,
+        btnr_impulse => open
     );
 
     i_oled : oled_ctrl port map(
