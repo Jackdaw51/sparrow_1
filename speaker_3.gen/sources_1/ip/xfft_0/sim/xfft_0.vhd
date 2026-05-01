@@ -60,7 +60,7 @@ ENTITY xfft_0 IS
   PORT (
     aclk : IN STD_LOGIC;
     aresetn : IN STD_LOGIC;
-    s_axis_config_tdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    s_axis_config_tdata : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     s_axis_config_tvalid : IN STD_LOGIC;
     s_axis_config_tready : OUT STD_LOGIC;
     s_axis_data_tdata : IN STD_LOGIC_VECTOR(63 DOWNTO 0);
@@ -127,7 +127,7 @@ ARCHITECTURE xfft_0_arch OF xfft_0 IS
       aclk : IN STD_LOGIC;
       aclken : IN STD_LOGIC;
       aresetn : IN STD_LOGIC;
-      s_axis_config_tdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+      s_axis_config_tdata : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
       s_axis_config_tvalid : IN STD_LOGIC;
       s_axis_config_tready : OUT STD_LOGIC;
       s_axis_data_tdata : IN STD_LOGIC_VECTOR(63 DOWNTO 0);
@@ -187,7 +187,7 @@ ARCHITECTURE xfft_0_arch OF xfft_0 IS
   ATTRIBUTE X_INTERFACE_INFO OF m_axis_data_tvalid: SIGNAL IS "xilinx.com:interface:axis:1.0 M_AXIS_DATA TVALID";
   ATTRIBUTE X_INTERFACE_INFO OF s_axis_config_tdata: SIGNAL IS "xilinx.com:interface:axis:1.0 S_AXIS_CONFIG TDATA";
   ATTRIBUTE X_INTERFACE_MODE OF s_axis_config_tdata: SIGNAL IS "slave S_AXIS_CONFIG";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF s_axis_config_tdata: SIGNAL IS "XIL_INTERFACENAME S_AXIS_CONFIG, TDATA_NUM_BYTES 4, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF s_axis_config_tdata: SIGNAL IS "XIL_INTERFACENAME S_AXIS_CONFIG, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 100000000, PHASE 0.0, LAYERED_METADATA undef, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF s_axis_config_tready: SIGNAL IS "xilinx.com:interface:axis:1.0 S_AXIS_CONFIG TREADY";
   ATTRIBUTE X_INTERFACE_INFO OF s_axis_config_tvalid: SIGNAL IS "xilinx.com:interface:axis:1.0 S_AXIS_CONFIG TVALID";
   ATTRIBUTE X_INTERFACE_INFO OF s_axis_data_tdata: SIGNAL IS "xilinx.com:interface:axis:1.0 S_AXIS_DATA TDATA";
@@ -201,7 +201,7 @@ BEGIN
     GENERIC MAP (
       C_XDEVICEFAMILY => "zynq",
       C_PART => "xc7z020clg484-1",
-      C_S_AXIS_CONFIG_TDATA_WIDTH => 32,
+      C_S_AXIS_CONFIG_TDATA_WIDTH => 16,
       C_S_AXIS_DATA_TDATA_WIDTH => 64,
       C_M_AXIS_DATA_TDATA_WIDTH => 64,
       C_M_AXIS_DATA_TUSER_WIDTH => 16,
@@ -210,9 +210,9 @@ BEGIN
       C_NSSR => 1,
       C_CHANNELS => 1,
       C_NFFT_MAX => 13,
-      C_ARCH => 2,
+      C_ARCH => 3,
       C_HAS_NFFT => 0,
-      C_USE_FLT_PT => 1,
+      C_USE_FLT_PT => 0,
       C_INPUT_WIDTH => 32,
       C_TWIDDLE_WIDTH => 24,
       C_OUTPUT_WIDTH => 32,
@@ -228,7 +228,7 @@ BEGIN
       C_HAS_XK_INDEX => 1,
       C_DATA_MEM_TYPE => 1,
       C_TWIDDLE_MEM_TYPE => 1,
-      C_BRAM_STAGES => 0,
+      C_BRAM_STAGES => 6,
       C_REORDER_MEM_TYPE => 1,
       C_USE_HYBRID_RAM => 0,
       C_OPTIMIZE_GOAL => 0,

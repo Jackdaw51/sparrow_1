@@ -1,0 +1,11 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../speaker_3.gen/sources_1/ip/xfft_0/sim/xfft_0.vhd" \
+"../../../../hdl/signal_processing/fft_ping_pong.vhd" \
+"../../../../hdl/signal_processing/fft_top.vhd" \
+"../../../../hdl/signal_processing/integrate_and_dump.vhd" \
+"../../../../hdl/signal_processing/peak_finder.vhd" \
+"../../../../speaker_3.srcs/sim_1/new/tb_fft_top.vhd" \
+
+# Do not sort compile order
+nosort

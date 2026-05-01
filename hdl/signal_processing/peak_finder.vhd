@@ -62,7 +62,8 @@ begin
                     pwr_sum <= pwr_real + pwr_imag;
 
                     -- Compare using the fully delayed bin index!
-                    if pwr_sum > max_pwr then
+                    -- bin_delay_3 < 4096 ignores negative frequencies
+                    if pwr_sum > max_pwr and bin_delay_3 < 4096 then
                         max_pwr <= pwr_sum;
                         best_bin <= std_logic_vector(bin_delay_3);
                     end if;

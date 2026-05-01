@@ -8,7 +8,7 @@
   **** SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
   **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
   **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-  **** Start of session at: Wed Apr 29 17:32:39 2026
+  **** Start of session at: Fri May  1 15:50:01 2026
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 
@@ -25,12 +25,13 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 12684
+INFO: [Synth 8-7075] Helper process launched with PID 9224
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 994.676 ; gain = 469.320
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1005.801 ; gain = 470.898
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'audio_testbench' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:53]
-INFO: [Synth 8-3491] module 'audio_top' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/audio_top.vhd:45' bound to instance 'i_audio' of component 'audio_top' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:130]
+WARNING: [Synth 8-9112] actual for formal port 's_axis_config_tvalid' is neither a static name nor a globally static expression [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:143]
+INFO: [Synth 8-638] synthesizing module 'audio_testbench' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:36]
+INFO: [Synth 8-3491] module 'audio_top' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/audio_top.vhd:45' bound to instance 'i_audio' of component 'audio_top' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:271]
 INFO: [Synth 8-638] synthesizing module 'audio_top' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/audio_top.vhd:74]
 INFO: [Synth 8-3491] module 'clocking' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/clocking.vhd:30' bound to instance 'i_clocking' of component 'clocking' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/audio_top.vhd:124]
 INFO: [Synth 8-638] synthesizing module 'clocking' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/clocking.vhd:42]
@@ -74,10 +75,10 @@ INFO: [Synth 8-638] synthesizing module 'i2s_data_interface' [C:/Users/frabo/a/P
 INFO: [Synth 8-256] done synthesizing module 'i2s_data_interface' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/i2s_data_interface.vhd:26]
 INFO: [Synth 8-256] done synthesizing module 'adau1761_izedboard' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/adau1761_izedboard.vhd:47]
 INFO: [Synth 8-256] done synthesizing module 'audio_top' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/audio_top.vhd:74]
-INFO: [Synth 8-3491] module 'square_wave_440hz' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/square_wave_440hz.vhd:5' bound to instance 'i_440hz' of component 'square_wave_440hz' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:155]
-INFO: [Synth 8-638] synthesizing module 'square_wave_440hz' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/square_wave_440hz.vhd:14]
-INFO: [Synth 8-256] done synthesizing module 'square_wave_440hz' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/square_wave_440hz.vhd:14]
-INFO: [Synth 8-3491] module 'oled_ctrl' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_ctrl.vhd:12' bound to instance 'i_oled' of component 'oled_ctrl' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:162]
+INFO: [Synth 8-3491] module 'sine_wave_440hz' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/sine_wave_440hz.vhd:6' bound to instance 'i_440hz' of component 'sine_wave_440hz' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:296]
+INFO: [Synth 8-638] synthesizing module 'sine_wave_440hz' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/sine_wave_440hz.vhd:15]
+INFO: [Synth 8-256] done synthesizing module 'sine_wave_440hz' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/sine_wave_440hz.vhd:15]
+INFO: [Synth 8-3491] module 'oled_ctrl' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_ctrl.vhd:12' bound to instance 'i_oled' of component 'oled_ctrl' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:303]
 INFO: [Synth 8-638] synthesizing module 'oled_ctrl' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_ctrl.vhd:25]
 INFO: [Synth 8-3491] module 'oled_init' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_init.vhd:13' bound to instance 'Initialize' of component 'oled_init' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_ctrl.vhd:75]
 INFO: [Synth 8-638] synthesizing module 'oled_init' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_init.vhd:27]
@@ -97,28 +98,49 @@ INFO: [Synth 8-638] synthesizing module 'ascii_rom' [C:/Users/frabo/a/Programmin
 INFO: [Synth 8-256] done synthesizing module 'ascii_rom' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/ascii_rom.vhd:19]
 INFO: [Synth 8-256] done synthesizing module 'oled_writer' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_writer.vhd:26]
 INFO: [Synth 8-256] done synthesizing module 'oled_ctrl' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_ctrl.vhd:25]
-INFO: [Synth 8-113] binding component instance 'BUFG_inst' to cell 'BUFG' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:300]
-INFO: [Synth 8-256] done synthesizing module 'audio_testbench' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:53]
-WARNING: [Synth 8-6014] Unused sequential element sample_acc_reg was removed.  [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:279]
-WARNING: [Synth 8-6014] Unused sequential element en_204_8Hz_reg was removed.  [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:280]
-WARNING: [Synth 8-6014] Unused sequential element hphone_r_reg was removed.  [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:144]
-WARNING: [Synth 8-3848] Net test in module/entity audio_testbench does not have driver. [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:49]
+INFO: [Synth 8-3491] module 'sm_control' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/motor/stepper_motor.vhd:20' bound to instance 'i_motor' of component 'sm_control' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:315]
+INFO: [Synth 8-638] synthesizing module 'sm_control' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/motor/stepper_motor.vhd:39]
+INFO: [Synth 8-256] done synthesizing module 'sm_control' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/motor/stepper_motor.vhd:39]
+INFO: [Synth 8-3491] module 'fft_top' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:5' bound to instance 'i_fft' of component 'fft_top' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:332]
+INFO: [Synth 8-638] synthesizing module 'fft_top' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:22]
+INFO: [Synth 8-3491] module 'integrate_and_dump' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/integrate_and_dump.vhd:5' bound to instance 'U_DOWNSAMPLE' of component 'integrate_and_dump' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:119]
+INFO: [Synth 8-638] synthesizing module 'integrate_and_dump' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/integrate_and_dump.vhd:20]
+INFO: [Synth 8-256] done synthesizing module 'integrate_and_dump' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/integrate_and_dump.vhd:20]
+INFO: [Synth 8-3491] module 'fft_ping_pong' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_ping_pong.vhd:5' bound to instance 'U_BUFFER' of component 'fft_ping_pong' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:127]
+INFO: [Synth 8-638] synthesizing module 'fft_ping_pong' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_ping_pong.vhd:18]
+INFO: [Synth 8-3491] module 'blk_mem_gen_0' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-7884-Aloy/realtime/blk_mem_gen_0_stub.vhdl:6' bound to instance 'your_bram_inst' of component 'blk_mem_gen_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_ping_pong.vhd:50]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-7884-Aloy/realtime/blk_mem_gen_0_stub.vhdl:25]
+INFO: [Synth 8-256] done synthesizing module 'fft_ping_pong' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_ping_pong.vhd:18]
+WARNING: [Synth 8-5640] Port 'm_axis_data_tuser' is missing in component declaration [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:85]
+WARNING: [Synth 8-5640] Port 'event_tlast_unexpected' is missing in component declaration [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:85]
+WARNING: [Synth 8-5640] Port 'event_tlast_missing' is missing in component declaration [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:85]
+WARNING: [Synth 8-5640] Port 'event_status_channel_halt' is missing in component declaration [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:85]
+WARNING: [Synth 8-5640] Port 'event_data_in_channel_halt' is missing in component declaration [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:85]
+WARNING: [Synth 8-5640] Port 'event_data_out_channel_halt' is missing in component declaration [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:85]
+INFO: [Synth 8-3491] module 'xfft_0' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-7884-Aloy/realtime/xfft_0_stub.vhdl:6' bound to instance 'U_FFT' of component 'xfft_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:138]
+INFO: [Synth 8-638] synthesizing module 'xfft_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-7884-Aloy/realtime/xfft_0_stub.vhdl:38]
+INFO: [Synth 8-3491] module 'peak_finder' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/peak_finder.vhd:5' bound to instance 'U_PEAK_FINDER' of component 'peak_finder' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:157]
+INFO: [Synth 8-638] synthesizing module 'peak_finder' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/peak_finder.vhd:21]
+INFO: [Synth 8-256] done synthesizing module 'peak_finder' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/peak_finder.vhd:21]
+INFO: [Synth 8-256] done synthesizing module 'fft_top' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:22]
+INFO: [Synth 8-113] binding component instance 'BUFG_inst' to cell 'BUFG' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:347]
+INFO: [Synth 8-256] done synthesizing module 'audio_testbench' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:36]
+WARNING: [Synth 8-6014] Unused sequential element hphone_r_reg was removed.  [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:171]
 WARNING: [Synth 8-7129] Port addr[10] in module ascii_rom is either unconnected or has no load
 WARNING: [Synth 8-7129] Port hphone_r_valid_dummy in module audio_top is either unconnected or has no load
-WARNING: [Synth 8-7129] Port test in module audio_testbench is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1134.703 ; gain = 609.348
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1154.609 ; gain = 619.707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1134.703 ; gain = 609.348
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1154.609 ; gain = 619.707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1134.703 ; gain = 609.348
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1154.609 ; gain = 619.707
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 1134.703 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 1154.609 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 3 Unisim elements for replacement
 WARNING: [Netlist 29-432] The IBUFG primitive 'i_audio/i_clocking/clkin1_buf' has been retargeted to an IBUF primitive only. No BUFG will be added. If a global buffer is intended, please instantiate an available global clock primitive from the current architecture.
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -126,6 +148,10 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
+Parsing XDC File [c:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.gen/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0/blk_mem_gen_0_in_context.xdc] for cell 'i_fft/U_BUFFER/your_bram_inst'
+Finished Parsing XDC File [c:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.gen/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0/blk_mem_gen_0_in_context.xdc] for cell 'i_fft/U_BUFFER/your_bram_inst'
+Parsing XDC File [c:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.gen/sources_1/ip/xfft_0/xfft_0/xfft_0_in_context.xdc] for cell 'i_fft/U_FFT'
+Finished Parsing XDC File [c:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.gen/sources_1/ip/xfft_0/xfft_0/xfft_0_in_context.xdc] for cell 'i_fft/U_FFT'
 Parsing XDC File [C:/Users/frabo/a/Programming/Vivado/speaker_3/constraints/zed_audio.xdc]
 INFO: [Timing 38-2] Deriving generated clocks [C:/Users/frabo/a/Programming/Vivado/speaker_3/constraints/zed_audio.xdc:4]
 WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 34]]'. [C:/Users/frabo/a/Programming/Vivado/speaker_3/constraints/zed_audio.xdc:61]
@@ -135,30 +161,33 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/audio_testbench_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1221.844 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1243.109 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 2 instances were transformed.
   IBUFG => IBUF: 1 instance 
   IOBUF => IOBUF (IBUF, OBUFT): 1 instance 
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1221.844 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1243.109 ; gain = 0.000
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'i_fft/U_BUFFER/your_bram_inst' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1221.844 ; gain = 696.488
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1243.109 ; gain = 708.207
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1221.844 ; gain = 696.488
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1243.109 ; gain = 708.207
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for i_fft/U_BUFFER/your_bram_inst. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for i_fft/U_FFT. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1221.844 ; gain = 696.488
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1243.109 ; gain = 708.207
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'i3c2'
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'spi_ctrl'
@@ -199,48 +228,58 @@ INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using e
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'oled_ctrl'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 1221.844 ; gain = 696.488
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1243.109 ; gain = 708.207
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input   16 Bit       Adders := 1     
-	   2 Input   10 Bit       Adders := 1     
+	   2 Input   64 Bit       Adders := 1     
+	   2 Input   28 Bit       Adders := 1     
+	   2 Input   16 Bit       Adders := 3     
+	   2 Input   13 Bit       Adders := 2     
+	   2 Input   10 Bit       Adders := 2     
 	   2 Input    8 Bit       Adders := 1     
 	   2 Input    5 Bit       Adders := 2     
-	   2 Input    4 Bit       Adders := 45    
+	   2 Input    4 Bit       Adders := 46    
 	   2 Input    3 Bit       Adders := 1     
 	   2 Input    2 Bit       Adders := 1     
 +---XORs : 
 	   2 Input      1 Bit         XORs := 1     
 +---Registers : 
 	              127 Bit    Registers := 1     
-	               64 Bit    Registers := 1     
+	               64 Bit    Registers := 5     
+	               32 Bit    Registers := 3     
+	               28 Bit    Registers := 1     
 	               24 Bit    Registers := 7     
 	               20 Bit    Registers := 1     
-	               16 Bit    Registers := 2     
+	               16 Bit    Registers := 4     
+	               13 Bit    Registers := 7     
 	               12 Bit    Registers := 1     
 	               11 Bit    Registers := 1     
-	               10 Bit    Registers := 2     
+	               10 Bit    Registers := 3     
 	                9 Bit    Registers := 2     
-	                8 Bit    Registers := 78    
+	                8 Bit    Registers := 81    
 	                5 Bit    Registers := 10    
-	                4 Bit    Registers := 4     
+	                4 Bit    Registers := 7     
 	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 40    
+	                1 Bit    Registers := 55    
++---Multipliers : 
+	              32x32  Multipliers := 2     
 +---ROMs : 
-	                    ROMs := 2     
+	                    ROMs := 3     
 +---Muxes : 
 	   2 Input   64 Bit        Muxes := 1     
-	   2 Input   24 Bit        Muxes := 2     
+	   2 Input   32 Bit        Muxes := 1     
+	   2 Input   24 Bit        Muxes := 1     
 	   2 Input   16 Bit        Muxes := 1     
 	  13 Input   16 Bit        Muxes := 1     
 	   5 Input   16 Bit        Muxes := 2     
 	   2 Input   15 Bit        Muxes := 13    
 	  31 Input   12 Bit        Muxes := 1     
-	   2 Input   10 Bit        Muxes := 1     
+	   2 Input   12 Bit        Muxes := 2     
+	   2 Input   10 Bit        Muxes := 5     
 	  13 Input   10 Bit        Muxes := 1     
 	   5 Input   10 Bit        Muxes := 1     
 	  13 Input    9 Bit        Muxes := 1     
@@ -252,22 +291,24 @@ Detailed RTL Component Info :
 	   2 Input    7 Bit        Muxes := 1     
 	  31 Input    5 Bit        Muxes := 2     
 	   2 Input    5 Bit        Muxes := 1     
-	   2 Input    4 Bit        Muxes := 29    
+	   2 Input    4 Bit        Muxes := 36    
 	   4 Input    4 Bit        Muxes := 1     
 	   7 Input    4 Bit        Muxes := 1     
 	   5 Input    4 Bit        Muxes := 1     
+	   6 Input    4 Bit        Muxes := 2     
 	   5 Input    3 Bit        Muxes := 1     
 	   2 Input    3 Bit        Muxes := 3     
 	  13 Input    3 Bit        Muxes := 1     
 	   3 Input    3 Bit        Muxes := 1     
 	  31 Input    2 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 33    
+	   2 Input    1 Bit        Muxes := 66    
 	  13 Input    1 Bit        Muxes := 6     
 	  14 Input    1 Bit        Muxes := 2     
-	   5 Input    1 Bit        Muxes := 20    
-	   3 Input    1 Bit        Muxes := 7     
+	   5 Input    1 Bit        Muxes := 24    
+	   3 Input    1 Bit        Muxes := 9     
 	  28 Input    1 Bit        Muxes := 9     
 	  31 Input    1 Bit        Muxes := 9     
+	   6 Input    1 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -286,35 +327,203 @@ Start Cross Boundary and Area Optimization
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 WARNING: [Synth 8-6040] Register Inst_adau1761_izedboard/Inst_i2c/Inst_i3c2/pcnext_reg_rep driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.
 WARNING: [Synth 8-6040] Register temp_addr_reg driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.
+DSP Report: Generating DSP U_PEAK_FINDER/pwr_imag0, operation Mode is: A2*B.
+DSP Report: register U_PEAK_FINDER/pwr_imag0 is absorbed into DSP U_PEAK_FINDER/pwr_imag0.
+DSP Report: operator U_PEAK_FINDER/pwr_imag0 is absorbed into DSP U_PEAK_FINDER/pwr_imag0.
+DSP Report: operator U_PEAK_FINDER/pwr_imag0 is absorbed into DSP U_PEAK_FINDER/pwr_imag0.
+DSP Report: Generating DSP U_PEAK_FINDER/pwr_imag_reg, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register U_PEAK_FINDER/pwr_imag_reg is absorbed into DSP U_PEAK_FINDER/pwr_imag_reg.
+DSP Report: operator U_PEAK_FINDER/pwr_imag0 is absorbed into DSP U_PEAK_FINDER/pwr_imag_reg.
+DSP Report: operator U_PEAK_FINDER/pwr_imag0 is absorbed into DSP U_PEAK_FINDER/pwr_imag_reg.
+DSP Report: Generating DSP U_PEAK_FINDER/pwr_imag0, operation Mode is: A2*B2.
+DSP Report: register U_PEAK_FINDER/pwr_imag0 is absorbed into DSP U_PEAK_FINDER/pwr_imag0.
+DSP Report: register U_PEAK_FINDER/pwr_imag0 is absorbed into DSP U_PEAK_FINDER/pwr_imag0.
+DSP Report: operator U_PEAK_FINDER/pwr_imag0 is absorbed into DSP U_PEAK_FINDER/pwr_imag0.
+DSP Report: operator U_PEAK_FINDER/pwr_imag0 is absorbed into DSP U_PEAK_FINDER/pwr_imag0.
+DSP Report: Generating DSP U_PEAK_FINDER/pwr_imag_reg, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register U_PEAK_FINDER/pwr_imag_reg is absorbed into DSP U_PEAK_FINDER/pwr_imag_reg.
+DSP Report: register U_PEAK_FINDER/pwr_imag_reg is absorbed into DSP U_PEAK_FINDER/pwr_imag_reg.
+DSP Report: operator U_PEAK_FINDER/pwr_imag0 is absorbed into DSP U_PEAK_FINDER/pwr_imag_reg.
+DSP Report: operator U_PEAK_FINDER/pwr_imag0 is absorbed into DSP U_PEAK_FINDER/pwr_imag_reg.
+DSP Report: Generating DSP U_PEAK_FINDER/pwr_real0, operation Mode is: A2*B.
+DSP Report: register U_PEAK_FINDER/pwr_real0 is absorbed into DSP U_PEAK_FINDER/pwr_real0.
+DSP Report: operator U_PEAK_FINDER/pwr_real0 is absorbed into DSP U_PEAK_FINDER/pwr_real0.
+DSP Report: operator U_PEAK_FINDER/pwr_real0 is absorbed into DSP U_PEAK_FINDER/pwr_real0.
+DSP Report: Generating DSP U_PEAK_FINDER/pwr_real_reg, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register U_PEAK_FINDER/pwr_real_reg is absorbed into DSP U_PEAK_FINDER/pwr_real_reg.
+DSP Report: operator U_PEAK_FINDER/pwr_real0 is absorbed into DSP U_PEAK_FINDER/pwr_real_reg.
+DSP Report: operator U_PEAK_FINDER/pwr_real0 is absorbed into DSP U_PEAK_FINDER/pwr_real_reg.
+DSP Report: Generating DSP U_PEAK_FINDER/pwr_real0, operation Mode is: A2*B2.
+DSP Report: register U_PEAK_FINDER/pwr_real0 is absorbed into DSP U_PEAK_FINDER/pwr_real0.
+DSP Report: register U_PEAK_FINDER/pwr_real0 is absorbed into DSP U_PEAK_FINDER/pwr_real0.
+DSP Report: operator U_PEAK_FINDER/pwr_real0 is absorbed into DSP U_PEAK_FINDER/pwr_real0.
+DSP Report: operator U_PEAK_FINDER/pwr_real0 is absorbed into DSP U_PEAK_FINDER/pwr_real0.
+DSP Report: Generating DSP U_PEAK_FINDER/pwr_real_reg, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register U_PEAK_FINDER/pwr_real_reg is absorbed into DSP U_PEAK_FINDER/pwr_real_reg.
+DSP Report: register U_PEAK_FINDER/pwr_real_reg is absorbed into DSP U_PEAK_FINDER/pwr_real_reg.
+DSP Report: operator U_PEAK_FINDER/pwr_real0 is absorbed into DSP U_PEAK_FINDER/pwr_real_reg.
+DSP Report: operator U_PEAK_FINDER/pwr_real0 is absorbed into DSP U_PEAK_FINDER/pwr_real_reg.
+DSP Report: Generating DSP freq_scaled_reg, operation Mode is: ((A:0x9600)*B'')'.
+DSP Report: register U_PEAK_FINDER/best_bin_reg is absorbed into DSP freq_scaled_reg.
+DSP Report: register U_PEAK_FINDER/peak_bin_index_reg is absorbed into DSP freq_scaled_reg.
+DSP Report: register freq_scaled_reg is absorbed into DSP freq_scaled_reg.
+DSP Report: operator freq_scaled0 is absorbed into DSP freq_scaled_reg.
 WARNING: [Synth 8-7129] Port hphone_r_valid_dummy in module audio_top is either unconnected or has no load
-WARNING: [Synth 8-7129] Port test in module audio_testbench is either unconnected or has no load
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[47]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[46]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[45]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[44]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[43]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[42]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[41]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[40]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[39]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[38]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[37]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[36]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[35]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[34]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[33]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[32]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[31]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[30]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[29]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[28]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[27]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[26]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[25]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[24]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[23]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[22]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[21]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[20]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[19]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[18]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[17]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[47]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[46]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[45]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[44]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[43]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[42]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[41]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[40]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[39]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[38]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[37]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[36]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[35]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[34]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[33]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[32]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[31]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[30]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[29]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[28]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[27]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[26]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[25]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[24]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[23]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[22]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[21]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[20]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[19]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[18]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_imag_reg[17]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[47]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[46]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[45]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[44]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[43]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[42]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[41]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[40]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[39]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[38]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[37]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[36]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[35]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[34]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[33]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[32]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[31]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[30]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[29]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[28]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[27]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[26]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[25]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[24]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[23]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[22]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[21]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[20]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[19]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[18]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[17]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[47]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[46]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[45]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[44]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[43]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[42]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[41]__0) is unused and will be removed from module fft_top.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1221.844 ; gain = 696.488
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 1243.109 ; gain = 708.207
 ---------------------------------------------------------------------------------
+ Sort Area is  U_PEAK_FINDER/pwr_imag0_6 : 0 0 : 3137 5856 : Used 1 time 0
+ Sort Area is  U_PEAK_FINDER/pwr_imag0_6 : 0 1 : 2719 5856 : Used 1 time 0
+ Sort Area is  U_PEAK_FINDER/pwr_real0_0 : 0 0 : 3137 5856 : Used 1 time 0
+ Sort Area is  U_PEAK_FINDER/pwr_real0_0 : 0 1 : 2719 5856 : Used 1 time 0
+ Sort Area is  U_PEAK_FINDER/pwr_imag0_7 : 0 0 : 2652 5185 : Used 1 time 0
+ Sort Area is  U_PEAK_FINDER/pwr_imag0_7 : 0 1 : 2533 5185 : Used 1 time 0
+ Sort Area is  U_PEAK_FINDER/pwr_real0_3 : 0 0 : 2652 5185 : Used 1 time 0
+ Sort Area is  U_PEAK_FINDER/pwr_real0_3 : 0 1 : 2533 5185 : Used 1 time 0
+ Sort Area is  freq_scaled_reg_8 : 0 0 : 554 554 : Used 1 time 0
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 
 ROM: Preliminary Mapping Report
-+------------+----------------------------------------------------------------------------+---------------+----------------+
-|Module Name | RTL Object                                                                 | Depth x Width | Implemented As | 
-+------------+----------------------------------------------------------------------------+---------------+----------------+
-|oled_init   | after_state                                                                | 32x1          | LUT            | 
-|oled_init   | after_state                                                                | 32x5          | LUT            | 
-|oled_init   | temp_sdata                                                                 | 32x1          | LUT            | 
-|oled_init   | temp_sdata                                                                 | 32x8          | LUT            | 
-|oled_writer | after_state                                                                | 32x1          | LUT            | 
-|oled_writer | temp_addr                                                                  | 32x1          | LUT            | 
-|audio_top   | Inst_adau1761_izedboard/Inst_i2c/Inst_adau1761_configuraiton_data/data_reg | 1024x9        | Block RAM      | 
-|oled_writer | after_state                                                                | 32x1          | LUT            | 
-|oled_writer | temp_addr                                                                  | 32x1          | LUT            | 
-|oled_writer | char_lib_comp/dout_reg                                                     | 1024x8        | Block RAM      | 
-|oled_ctrl   | Initialize/after_state                                                     | 32x5          | LUT            | 
-|oled_ctrl   | Initialize/temp_sdata                                                      | 32x8          | LUT            | 
-|oled_ctrl   | Initialize/after_state                                                     | 32x1          | LUT            | 
-|oled_ctrl   | Initialize/temp_sdata                                                      | 32x1          | LUT            | 
-+------------+----------------------------------------------------------------------------+---------------+----------------+
++----------------+----------------------------------------------------------------------------+---------------+----------------+
+|Module Name     | RTL Object                                                                 | Depth x Width | Implemented As | 
++----------------+----------------------------------------------------------------------------+---------------+----------------+
+|oled_init       | after_state                                                                | 32x1          | LUT            | 
+|oled_init       | after_state                                                                | 32x5          | LUT            | 
+|oled_init       | temp_sdata                                                                 | 32x1          | LUT            | 
+|oled_init       | temp_sdata                                                                 | 32x8          | LUT            | 
+|oled_writer     | after_state                                                                | 32x1          | LUT            | 
+|oled_writer     | temp_addr                                                                  | 32x1          | LUT            | 
+|audio_top       | Inst_adau1761_izedboard/Inst_i2c/Inst_adau1761_configuraiton_data/data_reg | 1024x9        | Block RAM      | 
+|oled_writer     | after_state                                                                | 32x1          | LUT            | 
+|oled_writer     | temp_addr                                                                  | 32x1          | LUT            | 
+|oled_writer     | char_lib_comp/dout_reg                                                     | 1024x8        | Block RAM      | 
+|oled_ctrl       | Initialize/after_state                                                     | 32x5          | LUT            | 
+|oled_ctrl       | Initialize/temp_sdata                                                      | 32x8          | LUT            | 
+|oled_ctrl       | Initialize/after_state                                                     | 32x1          | LUT            | 
+|oled_ctrl       | Initialize/temp_sdata                                                      | 32x1          | LUT            | 
+|audio_testbench | sel                                                                        | 256x24        | Block RAM      | 
++----------------+----------------------------------------------------------------------------+---------------+----------------+
 
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping       | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|fft_top     | A2*B              | 18     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|fft_top     | (PCIN>>17)+A*B    | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|fft_top     | A2*B2             | 18     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|fft_top     | (PCIN>>17)+A2*B   | 18     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|fft_top     | A2*B              | 18     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|fft_top     | (PCIN>>17)+A*B    | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|fft_top     | A2*B2             | 18     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|fft_top     | (PCIN>>17)+A2*B   | 18     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|fft_top     | ((A:0x9600)*B'')' | 13     | 16     | -      | -      | 29     | 2    | 0    | -    | -    | -     | 1    | 0    | 
++------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
 ---------------------------------------------------------------------------------
 Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
@@ -322,21 +531,23 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1318.574 ; gain = 793.219
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1397.578 ; gain = 862.676
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1356.105 ; gain = 830.750
+Finished Timing Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 1435.449 ; gain = 900.547
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-7052] The timing for the instance i_audio/Inst_adau1761_izedboard/Inst_i2c/Inst_adau1761_configuraiton_data/data_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance i_oled/Writer/char_lib_comp/dout_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance sel (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance sel (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1359.125 ; gain = 833.770
+Finished Technology Mapping : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1453.023 ; gain = 918.121
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -353,39 +564,38 @@ Start Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-5410] Found another clock driver BUFG_inst:O [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:300]
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1546.801 ; gain = 1021.445
+Finished IO Insertion : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 1632.305 ; gain = 1097.402
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1546.801 ; gain = 1021.445
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 1632.305 ; gain = 1097.402
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1546.801 ; gain = 1021.445
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 1632.305 ; gain = 1097.402
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1546.801 ; gain = 1021.445
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 1632.305 ; gain = 1097.402
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1547.797 ; gain = 1022.441
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 1633.324 ; gain = 1098.422
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1547.797 ; gain = 1022.441
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 1633.324 ; gain = 1098.422
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -395,9 +605,9 @@ Static Shift Register Report:
 +----------------+---------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
 |Module Name     | RTL Name                                                                  | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
 +----------------+---------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
-|audio_testbench | i_audio/Inst_adau1761_izedboard/Inst_i2s_data_interface/bclk_delay_reg[1] | 6      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|audio_testbench | i_audio/Inst_adau1761_izedboard/Inst_i2s_data_interface/bclk_delay_reg[1] | 9      | 1     | NO           | YES                | YES               | 1      | 0       | 
 |audio_testbench | i_audio/sample_clk_48k_d3_48_reg                                          | 3      | 1     | NO           | NO                 | YES               | 1      | 0       | 
-|audio_testbench | i_audio/Inst_adau1761_izedboard/Inst_i2s_data_interface/sr_in_reg[71]     | 72     | 1     | NO           | NO                 | YES               | 0      | 3       | 
+|audio_testbench | i_fft/U_PEAK_FINDER/bin_delay_3_reg[12]                                   | 3      | 13    | NO           | NO                 | YES               | 13     | 0       | 
 +----------------+---------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
 
 ---------------------------------------------------------------------------------
@@ -407,63 +617,83 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Writing Synthesis Report
 ---------------------------------------------------------------------------------
 
+DSP Final Report (the ' indicates corresponding REG is set)
++------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping       | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|fft_top     | (A''*B)'          | 13     | 16     | -      | -      | 29     | 2    | 0    | -    | -    | -     | 0    | 1    | 
+|fft_top     | A'*B'             | 17     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|fft_top     | (PCIN>>17+A'*B')' | 30     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 1    | 
+|fft_top     | A'*B'             | 17     | 17     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|fft_top     | (PCIN>>17+A'*B')' | 17     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 1    | 
+|fft_top     | A'*B'             | 17     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|fft_top     | (PCIN>>17+A'*B')' | 30     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 1    | 
+|fft_top     | A'*B'             | 17     | 17     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|fft_top     | (PCIN>>17+A'*B')' | 17     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 1    | 
++------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
 Report BlackBoxes: 
-+-+--------------+----------+
-| |BlackBox name |Instances |
-+-+--------------+----------+
-+-+--------------+----------+
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |xfft_0        |         1|
+|2     |blk_mem_gen_0 |         1|
++------+--------------+----------+
 
 Report Cell Usage: 
-+------+-----------+------+
-|      |Cell       |Count |
-+------+-----------+------+
-|1     |BUFG       |     3|
-|2     |CARRY4     |    28|
-|3     |LUT1       |    33|
-|4     |LUT2       |    32|
-|5     |LUT3       |    51|
-|6     |LUT4       |   103|
-|7     |LUT5       |    71|
-|8     |LUT6       |   127|
-|9     |MMCME2_ADV |     1|
-|10    |MUXF7      |     2|
-|11    |RAMB18E1   |     2|
-|13    |SRL16E     |     2|
-|14    |SRLC32E    |     3|
-|15    |FDRE       |   460|
-|16    |FDSE       |     9|
-|17    |IBUF       |     5|
-|18    |IBUFG      |     1|
-|19    |IOBUF      |     1|
-|20    |OBUF       |    11|
-|21    |OBUFT      |     1|
-+------+-----------+------+
++------+-------------------+------+
+|      |Cell               |Count |
++------+-------------------+------+
+|1     |blk_mem_gen_0_bbox |     1|
+|2     |xfft_0_bbox        |     1|
+|3     |BUFG               |     2|
+|4     |CARRY4             |   119|
+|5     |DSP48E1            |     9|
+|8     |LUT1               |    66|
+|9     |LUT2               |   339|
+|10    |LUT3               |    75|
+|11    |LUT4               |   191|
+|12    |LUT5               |    90|
+|13    |LUT6               |   174|
+|14    |MMCME2_ADV         |     1|
+|15    |MUXF7              |    11|
+|16    |MUXF8              |     1|
+|17    |RAMB18E1           |     3|
+|20    |SRL16E             |    15|
+|21    |FDRE               |   846|
+|22    |FDSE               |    22|
+|23    |IBUF               |     4|
+|24    |IBUFG              |     1|
+|25    |IOBUF              |     1|
+|26    |OBUF               |    11|
++------+-------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1547.797 ; gain = 1022.441
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 1633.324 ; gain = 1098.422
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 6 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:26 . Memory (MB): peak = 1547.797 ; gain = 935.301
-Synthesis Optimization Complete : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1547.797 ; gain = 1022.441
+Synthesis finished with 0 errors, 0 critical warnings and 128 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:21 ; elapsed = 00:00:29 . Memory (MB): peak = 1633.324 ; gain = 1009.922
+Synthesis Optimization Complete : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 1633.324 ; gain = 1098.422
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1547.797 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 35 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 1633.324 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 146 Unisim elements for replacement
 WARNING: [Netlist 29-432] The IBUFG primitive 'i_audio/i_clocking/clkin1_buf' has been retargeted to an IBUF primitive only. No BUFG will be added. If a global buffer is intended, please instantiate an available global clock primitive from the current architecture.
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. i_audio/i_clocking/clkin1_buf 
 Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1547.797 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1641.605 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 1 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 1 instance 
 
-Synth Design complete | Checksum: 18c9bf17
+Synth Design complete | Checksum: 1157d89f
 INFO: [Common 17-83] Releasing license: Synthesis
-88 Infos, 18 Warnings, 0 Critical Warnings and 0 Errors encountered.
+110 Infos, 120 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 1547.797 ; gain = 1258.617
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1547.797 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:32 ; elapsed = 00:00:36 . Memory (MB): peak = 1641.605 ; gain = 1344.012
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1641.605 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/audio_testbench.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file audio_testbench_utilization_synth.rpt -pb audio_testbench_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Apr 29 17:33:15 2026...
+INFO: [Common 17-206] Exiting Vivado at Fri May  1 15:50:39 2026...

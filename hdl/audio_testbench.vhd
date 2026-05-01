@@ -110,6 +110,24 @@ architecture Behavioral of audio_testbench is
             motor_ready : out std_logic -- Signal to indicate motor is ready for next command
         );
     end component;
+
+    component fft_top
+        port (
+            clk : in std_logic; -- 100 MHz System Clock
+            reset : in std_logic; -- Active High Reset
+
+            -- Physical Interface (from Audio Codec)
+            adc_data_in : in std_logic_vector(23 downto 0);
+            adc_valid_in : in std_logic;
+
+            -- Final Output (To your OLED or Logic Analyzer)
+            peak_freq_hz : out std_logic_vector(15 downto 0);
+            peak_ready : out std_logic;
+
+            peak_freq_tenths : out std_logic_vector(3 downto 0) -- A neat 0-9 digit for the OLED
+
+        );
+    end component;
     signal clk_100_buffered : std_logic;
 
     signal counter : unsigned (5 downto 0);
@@ -137,6 +155,10 @@ architecture Behavioral of audio_testbench is
     constant STEP_204_8 : unsigned(15 downto 0) := to_unsigned(280, 16);
 
     signal raw_data : std_logic_vector(31 downto 0) := (others => '0');
+
+    signal peak_freq_hz : std_logic_vector(15 downto 0);
+    signal peak_freq_tenths : std_logic_vector (3 downto 0);
+    signal peak_ready : std_logic;
 
 begin
 
@@ -213,7 +235,8 @@ begin
             elsif new_sample = '1' then
                 counter := counter - 1;
                 if counter = 0 then
-                    raw_data <= std_logic_vector(to_unsigned(second_counter,16) & x"0000");
+                    -- raw_data <= std_logic_vector(to_unsigned(second_counter, 16) & x"0000");
+                    raw_data <= peak_freq_hz & peak_freq_tenths & x"000";
                     counter := 48000;
                     second_counter := second_counter + 1;
                 end if;
@@ -304,6 +327,21 @@ begin
         sm_c_4 => open,
 
         motor_ready => open -- Signal to indicate motor is ready for next command
+    );
+
+    i_fft : fft_top port map(
+        clk => clk_100_buffered, -- 100 MHz System Clock
+        reset => clean_reset, -- Active High Reset
+
+        -- Physical Interface (from Audio Codec)
+        adc_data_in => diapason_sample,
+        adc_valid_in => new_sample,
+
+        -- Final Output (To your OLED or Logic Analyzer)
+        peak_freq_hz => peak_freq_hz,
+        peak_ready => peak_ready,
+
+        peak_freq_tenths => peak_freq_tenths
     );
     -- global clock buffer for the clock signal
     BUFG_inst : BUFG port map(

@@ -55,7 +55,7 @@ COMPONENT xfft_0
   PORT (
     aclk : IN STD_LOGIC;
     aresetn : IN STD_LOGIC;
-    s_axis_config_tdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    s_axis_config_tdata : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     s_axis_config_tvalid : IN STD_LOGIC;
     s_axis_config_tready : OUT STD_LOGIC;
     s_axis_data_tdata : IN STD_LOGIC_VECTOR(63 DOWNTO 0);

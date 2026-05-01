@@ -57,14 +57,18 @@ if {$::dispatch::connected} {
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 3
+set_param xicom.use_bs_reader 1
+set_msg_config -id {Common 17-41} -limit 10000000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg484-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
+set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.cache/wt [current_project]
 set_property parent.project_path C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.xpr [current_project]
+set_property XPM_LIBRARIES XPM_MEMORY [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
 set_property board_part xilinx.com:zc702:part0:1.4 [current_project]
@@ -80,16 +84,27 @@ read_vhdl -library xil_defaultlib {
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/audio_top.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/clocking.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/delay.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_ping_pong.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/i2c.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/i2s_data_interface.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/i3c2.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/integrate_and_dump.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_ctrl.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_init.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_writer.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/peak_finder.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/sine_wave_440hz.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/spi_ctrl.vhd
-  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/square_wave_440hz.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/motor/stepper_motor.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd
 }
+read_ip -quiet C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci
+set_property used_in_implementation false [get_files -all c:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.gen/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_ooc.xdc]
+
+read_ip -quiet C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.srcs/sources_1/ip/xfft_0/xfft_0.xci
+set_property used_in_implementation false [get_files -all c:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.gen/sources_1/ip/xfft_0/xfft_0_ooc.xdc]
+
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

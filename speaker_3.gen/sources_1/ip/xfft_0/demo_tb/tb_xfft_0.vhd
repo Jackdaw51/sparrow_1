@@ -94,7 +94,7 @@ architecture tb of tb_xfft_0 is
   -- Config slave channel signals
   signal s_axis_config_tvalid        : std_logic := '0';  -- payload is valid
   signal s_axis_config_tready        : std_logic := '1';  -- slave is ready
-  signal s_axis_config_tdata         : std_logic_vector(31 downto 0) := (others => '0');  -- data payload
+  signal s_axis_config_tdata         : std_logic_vector(15 downto 0) := (others => '0');  -- data payload
 
   -- Data slave channel signals
   signal s_axis_data_tvalid          : std_logic := '0';  -- payload is valid
@@ -126,21 +126,15 @@ architecture tb of tb_xfft_0 is
 
   -- Config slave channel alias signals
   signal s_axis_config_tdata_fwd_inv      : std_logic                    := '0';              -- forward or inverse
-  signal s_axis_config_tdata_scale_sch    : std_logic_vector(25 downto 0) := (others => '0');  -- scaling schedule
+  signal s_axis_config_tdata_scale_sch    : std_logic_vector(13 downto 0) := (others => '0');  -- scaling schedule
 
   -- Data slave channel alias signals
   signal s_axis_data_tdata_re             : std_logic_vector(31 downto 0) := (others => '0');  -- real data
   signal s_axis_data_tdata_im             : std_logic_vector(31 downto 0) := (others => '0');  -- imaginary data
-  -- Equivalents of type 'real' converted from floating point format
-  signal s_axis_data_tdata_re_real        : real := 0.0;  -- real data
-  signal s_axis_data_tdata_im_real        : real := 0.0;  -- imaginary data
 
   -- Data master channel alias signals
   signal m_axis_data_tdata_re             : std_logic_vector(31 downto 0) := (others => '0');  -- real data
   signal m_axis_data_tdata_im             : std_logic_vector(31 downto 0) := (others => '0');  -- imaginary data
-  -- Equivalents of type 'real' converted from floating point format
-  signal m_axis_data_tdata_re_real        : real := 0.0;  -- real data
-  signal m_axis_data_tdata_im_real        : real := 0.0;  -- imaginary data
   signal m_axis_data_tuser_xk_index       : std_logic_vector(12 downto 0) := (others => '0');  -- sample index
 
   -----------------------------------------------------------------------
@@ -159,95 +153,6 @@ architecture tb of tb_xfft_0 is
   constant IP_TABLE_CLEAR : T_IP_TABLE := (others => (re => (others => '0'),
                                                       im => (others => '0')));
 
-  -- Function to convert a real number to 32-bit IEEE 754 single precision format
-  function real2float ( data : real ) return std_logic_vector is
-    variable result   : std_logic_vector(31 downto 0);
-    variable data_i   : real;
-    variable sign     : std_logic;
-    variable exponent : integer;
-    variable mantissa : integer;
-  begin
-    -- Zero is special case
-    if data = 0.0 then
-      sign     := '0';
-      exponent := 0;
-      mantissa := 0;
-    else
-      -- Get sign
-      if data < 0.0 then
-        sign := '1';
-      else
-        sign := '0';
-      end if;
-      -- Calculate exponent
-      exponent := 127;  -- zero offset (exponent bias)
-      data_i := abs(data);
-      if data_i < 1.0 then
-        while data_i < 1.0 loop
-          exponent := exponent - 1;
-          data_i := data_i * 2.0;
-        end loop;
-      elsif data_i >= 2.0 then
-        while data_i >= 2.0 loop
-          exponent := exponent + 1;
-          data_i := data_i / 2.0;
-        end loop;
-      end if;
-      -- Check for zero or infinity
-      if exponent <= 0 then  -- treat as zero
-        exponent := 0;
-        mantissa := 0;
-      elsif exponent >= 255 then  -- treat as infinity
-        exponent := 255;
-        mantissa := 0;
-      else
-        -- data_i is now in the range 1.0 <= data_i < 2.0, so the fractional part of this is the mantissa
-        data_i := data_i - 1.0;
-        mantissa := integer(round(data_i * real(2**23)));
-      end if;
-    end if;
-    -- Finally stitch together the std_logic_vector result
-    result(31)           := sign;
-    result(30 downto 23) := std_logic_vector(to_unsigned(exponent, 8));
-    result(22 downto 0)  := std_logic_vector(to_unsigned(mantissa, 23));
-    return result;
-  end function real2float;
-
-  -- Function to convert a 32-bit IEEE 754 single precision format std_logic_vector to real format
-  function float2real ( data : std_logic_vector(31 downto 0) ) return real is
-    variable result : real;
-    variable sign     : std_logic;
-    variable exponent : integer;
-    variable mantissa : integer;
-  begin
-    -- Extract sign, exponent and mantissa
-    sign     := data(31);
-    exponent := to_integer(unsigned(data(30 downto 23)));
-    mantissa := to_integer(unsigned(data(22 downto 0)));
-    -- Zero is special case
-    if exponent = 0 and mantissa = 0 then
-      result := 0.0;
-    else
-      -- Convert mantissa to real format
-      result := real(mantissa) / real(2**23) + 1.0;
-      -- Apply exponent
-      exponent := exponent - 127;  -- remove exponent bias
-      result := result * (2.0 ** real(exponent));
-
-
-      --if exponent < 0 then  -- handle negative exponents as 2**-N is not supported
-      --  result := result / real(2**(-exponent));
-      --else
-      --  result := result * real(2**exponent);
-      --end if;
-      -- Apply sign
-      if sign = '1' then
-        result := -result;
-      end if;
-    end if;
-    return result;
-  end function float2real;
-
   -- Function to generate input data table
   -- Data is a complex sinusoid exp(-jwt) with a frequency 2.6 times the frame size
   -- added to another with a lower magnitude and a higher frequency
@@ -257,6 +162,9 @@ architecture tb of tb_xfft_0 is
     variable theta2 : real;
     variable re_real : real;
     variable im_real : real;
+    variable re_int : integer;
+    variable im_int : integer;
+    constant DATA_WIDTH : integer := 30;
   begin
     for i in 0 to MAX_SAMPLES-1 loop
       theta   := real(i) / real(MAX_SAMPLES) * 2.6 * 2.0 * MATH_PI;
@@ -265,8 +173,10 @@ architecture tb of tb_xfft_0 is
       theta2  := real(i) / real(MAX_SAMPLES) * 23.2 * 2.0 * MATH_PI;
       re_real := re_real + (cos(-theta2) / 4.0);
       im_real := im_real + (sin(-theta2) / 4.0);
-      result(i).re := real2float(re_real);
-      result(i).im := real2float(im_real);
+      re_int  := integer(round(re_real * real(2**(DATA_WIDTH))));
+      im_int  := integer(round(im_real * real(2**(DATA_WIDTH))));
+      result(i).re := std_logic_vector(to_signed(re_int, IP_WIDTH));
+      result(i).im := std_logic_vector(to_signed(im_int, IP_WIDTH));
     end loop;
     return result;
   end function create_ip_table;
@@ -546,7 +456,7 @@ begin
   -----------------------------------------------------------------------
 
   config_stimuli : process
-    variable scale_sch : std_logic_vector(25 downto 0);
+    variable scale_sch : std_logic_vector(13 downto 0);
   begin
 
     -- Drive a configuration when requested by data_stimuli process
@@ -576,12 +486,13 @@ begin
     if cfg_scale_sch = ZERO then  -- no scaling
       scale_sch := (others => '0');
     elsif cfg_scale_sch = DEFAULT then  -- default scaling, for largest magnitude output with no overflow guaranteed
-      scale_sch(1 downto 0) := "10";  -- largest scaling at first stage
-      for s in 2 to 13 loop
-        scale_sch(s*2-1 downto s*2-2) := "01";  -- less scaling at later stages
+      scale_sch(1 downto 0) := "11";  -- largest scaling at first stage
+      for s in 2 to 6 loop
+        scale_sch(s*2-1 downto s*2-2) := "10";  -- less scaling at later stages
       end loop;
+      scale_sch(13 downto 12) := "01";  -- least scaling at last stage
     end if;
-    s_axis_config_tdata(26 downto 1) <= scale_sch;
+    s_axis_config_tdata(14 downto 1) <= scale_sch;
 
     -- Drive the transaction on the config slave channel
     s_axis_config_tvalid <= '1';
@@ -687,21 +598,15 @@ begin
 
   -- Config slave channel alias signals
   s_axis_config_tdata_fwd_inv    <= s_axis_config_tdata(0);
-  s_axis_config_tdata_scale_sch  <= s_axis_config_tdata(26 downto 1);
+  s_axis_config_tdata_scale_sch  <= s_axis_config_tdata(14 downto 1);
 
   -- Data slave channel alias signals
   s_axis_data_tdata_re           <= s_axis_data_tdata(31 downto 0);
   s_axis_data_tdata_im           <= s_axis_data_tdata(63 downto 32);
-  -- Equivalents of type 'real' converted from floating point format
-  s_axis_data_tdata_re_real        <= float2real(s_axis_data_tdata(31 downto 0));
-  s_axis_data_tdata_im_real        <= float2real(s_axis_data_tdata(63 downto 32));
 
   -- Data master channel alias signals
   m_axis_data_tdata_re           <= m_axis_data_tdata(31 downto 0);
   m_axis_data_tdata_im           <= m_axis_data_tdata(63 downto 32);
-  -- Equivalents of type 'real' converted from floating point format
-  m_axis_data_tdata_re_real        <= float2real(m_axis_data_tdata(31 downto 0));
-  m_axis_data_tdata_im_real        <= float2real(m_axis_data_tdata(63 downto 32));
   m_axis_data_tuser_xk_index     <= m_axis_data_tuser(12 downto 0);
 
 end tb;
