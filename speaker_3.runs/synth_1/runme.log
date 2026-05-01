@@ -8,7 +8,7 @@
   **** SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
   **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
   **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-  **** Start of session at: Fri May  1 15:50:01 2026
+  **** Start of session at: Fri May  1 19:30:42 2026
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 
@@ -25,12 +25,12 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 9224
+INFO: [Synth 8-7075] Helper process launched with PID 13340
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1005.801 ; gain = 470.898
+Starting RTL Elaboration : Time (s): cpu = 00:00:19 ; elapsed = 00:00:23 . Memory (MB): peak = 1004.715 ; gain = 469.277
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-9112] actual for formal port 's_axis_config_tvalid' is neither a static name nor a globally static expression [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:143]
-INFO: [Synth 8-638] synthesizing module 'audio_testbench' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:36]
+INFO: [Synth 8-638] synthesizing module 'audio_testbench' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:39]
 INFO: [Synth 8-3491] module 'audio_top' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/audio_top.vhd:45' bound to instance 'i_audio' of component 'audio_top' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:271]
 INFO: [Synth 8-638] synthesizing module 'audio_top' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/audio_top.vhd:74]
 INFO: [Synth 8-3491] module 'clocking' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/clocking.vhd:30' bound to instance 'i_clocking' of component 'clocking' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/audio_top.vhd:124]
@@ -78,7 +78,42 @@ INFO: [Synth 8-256] done synthesizing module 'audio_top' (0#1) [C:/Users/frabo/a
 INFO: [Synth 8-3491] module 'sine_wave_440hz' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/sine_wave_440hz.vhd:6' bound to instance 'i_440hz' of component 'sine_wave_440hz' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:296]
 INFO: [Synth 8-638] synthesizing module 'sine_wave_440hz' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/sine_wave_440hz.vhd:15]
 INFO: [Synth 8-256] done synthesizing module 'sine_wave_440hz' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/sine_wave_440hz.vhd:15]
-INFO: [Synth 8-3491] module 'oled_ctrl' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_ctrl.vhd:12' bound to instance 'i_oled' of component 'oled_ctrl' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:303]
+INFO: [Synth 8-3491] module 'button_manager' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/button_manager.vhd:4' bound to instance 'i_btn_man' of component 'button_manager' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:303]
+INFO: [Synth 8-638] synthesizing module 'button_manager' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/button_manager.vhd:13]
+	Parameter WAIT_CYCLES bound to: 2000000 - type: integer 
+INFO: [Synth 8-3491] module 'debouncer' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/debouncer.vhd:5' bound to instance 'debouncer_inst' of component 'debouncer' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/button_manager.vhd:30]
+INFO: [Synth 8-638] synthesizing module 'debouncer' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/debouncer.vhd:16]
+	Parameter WAIT_CYCLES bound to: 2000000 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'debouncer' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/debouncer.vhd:16]
+	Parameter WAIT_CYCLES bound to: 2000000 - type: integer 
+INFO: [Synth 8-3491] module 'debouncer' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/debouncer.vhd:5' bound to instance 'debouncer_inst' of component 'debouncer' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/button_manager.vhd:30]
+	Parameter WAIT_CYCLES bound to: 2000000 - type: integer 
+INFO: [Synth 8-3491] module 'debouncer' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/debouncer.vhd:5' bound to instance 'debouncer_inst' of component 'debouncer' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/button_manager.vhd:30]
+	Parameter WAIT_CYCLES bound to: 2000000 - type: integer 
+INFO: [Synth 8-3491] module 'debouncer' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/debouncer.vhd:5' bound to instance 'debouncer_inst' of component 'debouncer' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/button_manager.vhd:30]
+	Parameter WAIT_CYCLES bound to: 2000000 - type: integer 
+INFO: [Synth 8-3491] module 'debouncer' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/debouncer.vhd:5' bound to instance 'debouncer_inst' of component 'debouncer' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/button_manager.vhd:30]
+INFO: [Synth 8-256] done synthesizing module 'button_manager' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/button_manager.vhd:13]
+INFO: [Synth 8-3491] module 'switch_manager' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/switch_manager.vhd:4' bound to instance 'i_sw_man' of component 'switch_manager' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:311]
+INFO: [Synth 8-638] synthesizing module 'switch_manager' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/switch_manager.vhd:12]
+	Parameter WAIT_CYCLES bound to: 2000000 - type: integer 
+INFO: [Synth 8-3491] module 'debouncer' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/debouncer.vhd:5' bound to instance 'debouncer_inst' of component 'debouncer' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/switch_manager.vhd:29]
+	Parameter WAIT_CYCLES bound to: 2000000 - type: integer 
+INFO: [Synth 8-3491] module 'debouncer' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/debouncer.vhd:5' bound to instance 'debouncer_inst' of component 'debouncer' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/switch_manager.vhd:29]
+	Parameter WAIT_CYCLES bound to: 2000000 - type: integer 
+INFO: [Synth 8-3491] module 'debouncer' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/debouncer.vhd:5' bound to instance 'debouncer_inst' of component 'debouncer' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/switch_manager.vhd:29]
+	Parameter WAIT_CYCLES bound to: 2000000 - type: integer 
+INFO: [Synth 8-3491] module 'debouncer' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/debouncer.vhd:5' bound to instance 'debouncer_inst' of component 'debouncer' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/switch_manager.vhd:29]
+	Parameter WAIT_CYCLES bound to: 2000000 - type: integer 
+INFO: [Synth 8-3491] module 'debouncer' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/debouncer.vhd:5' bound to instance 'debouncer_inst' of component 'debouncer' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/switch_manager.vhd:29]
+	Parameter WAIT_CYCLES bound to: 2000000 - type: integer 
+INFO: [Synth 8-3491] module 'debouncer' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/debouncer.vhd:5' bound to instance 'debouncer_inst' of component 'debouncer' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/switch_manager.vhd:29]
+	Parameter WAIT_CYCLES bound to: 2000000 - type: integer 
+INFO: [Synth 8-3491] module 'debouncer' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/debouncer.vhd:5' bound to instance 'debouncer_inst' of component 'debouncer' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/switch_manager.vhd:29]
+	Parameter WAIT_CYCLES bound to: 2000000 - type: integer 
+INFO: [Synth 8-3491] module 'debouncer' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/debouncer.vhd:5' bound to instance 'debouncer_inst' of component 'debouncer' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/switch_manager.vhd:29]
+INFO: [Synth 8-256] done synthesizing module 'switch_manager' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/switch_manager.vhd:12]
+INFO: [Synth 8-3491] module 'oled_ctrl' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_ctrl.vhd:12' bound to instance 'i_oled' of component 'oled_ctrl' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:318]
 INFO: [Synth 8-638] synthesizing module 'oled_ctrl' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_ctrl.vhd:25]
 INFO: [Synth 8-3491] module 'oled_init' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_init.vhd:13' bound to instance 'Initialize' of component 'oled_init' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_ctrl.vhd:75]
 INFO: [Synth 8-638] synthesizing module 'oled_init' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_init.vhd:27]
@@ -98,18 +133,18 @@ INFO: [Synth 8-638] synthesizing module 'ascii_rom' [C:/Users/frabo/a/Programmin
 INFO: [Synth 8-256] done synthesizing module 'ascii_rom' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/ascii_rom.vhd:19]
 INFO: [Synth 8-256] done synthesizing module 'oled_writer' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_writer.vhd:26]
 INFO: [Synth 8-256] done synthesizing module 'oled_ctrl' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_ctrl.vhd:25]
-INFO: [Synth 8-3491] module 'sm_control' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/motor/stepper_motor.vhd:20' bound to instance 'i_motor' of component 'sm_control' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:315]
+INFO: [Synth 8-3491] module 'sm_control' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/motor/stepper_motor.vhd:20' bound to instance 'i_motor' of component 'sm_control' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:330]
 INFO: [Synth 8-638] synthesizing module 'sm_control' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/motor/stepper_motor.vhd:39]
 INFO: [Synth 8-256] done synthesizing module 'sm_control' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/motor/stepper_motor.vhd:39]
-INFO: [Synth 8-3491] module 'fft_top' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:5' bound to instance 'i_fft' of component 'fft_top' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:332]
+INFO: [Synth 8-3491] module 'fft_top' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:5' bound to instance 'i_fft' of component 'fft_top' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:347]
 INFO: [Synth 8-638] synthesizing module 'fft_top' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:22]
 INFO: [Synth 8-3491] module 'integrate_and_dump' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/integrate_and_dump.vhd:5' bound to instance 'U_DOWNSAMPLE' of component 'integrate_and_dump' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:119]
 INFO: [Synth 8-638] synthesizing module 'integrate_and_dump' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/integrate_and_dump.vhd:20]
 INFO: [Synth 8-256] done synthesizing module 'integrate_and_dump' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/integrate_and_dump.vhd:20]
 INFO: [Synth 8-3491] module 'fft_ping_pong' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_ping_pong.vhd:5' bound to instance 'U_BUFFER' of component 'fft_ping_pong' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:127]
 INFO: [Synth 8-638] synthesizing module 'fft_ping_pong' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_ping_pong.vhd:18]
-INFO: [Synth 8-3491] module 'blk_mem_gen_0' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-7884-Aloy/realtime/blk_mem_gen_0_stub.vhdl:6' bound to instance 'your_bram_inst' of component 'blk_mem_gen_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_ping_pong.vhd:50]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-7884-Aloy/realtime/blk_mem_gen_0_stub.vhdl:25]
+INFO: [Synth 8-3491] module 'blk_mem_gen_0' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-7208-Aloy/realtime/blk_mem_gen_0_stub.vhdl:6' bound to instance 'your_bram_inst' of component 'blk_mem_gen_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_ping_pong.vhd:50]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-7208-Aloy/realtime/blk_mem_gen_0_stub.vhdl:25]
 INFO: [Synth 8-256] done synthesizing module 'fft_ping_pong' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_ping_pong.vhd:18]
 WARNING: [Synth 8-5640] Port 'm_axis_data_tuser' is missing in component declaration [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:85]
 WARNING: [Synth 8-5640] Port 'event_tlast_unexpected' is missing in component declaration [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:85]
@@ -117,30 +152,30 @@ WARNING: [Synth 8-5640] Port 'event_tlast_missing' is missing in component decla
 WARNING: [Synth 8-5640] Port 'event_status_channel_halt' is missing in component declaration [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:85]
 WARNING: [Synth 8-5640] Port 'event_data_in_channel_halt' is missing in component declaration [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:85]
 WARNING: [Synth 8-5640] Port 'event_data_out_channel_halt' is missing in component declaration [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:85]
-INFO: [Synth 8-3491] module 'xfft_0' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-7884-Aloy/realtime/xfft_0_stub.vhdl:6' bound to instance 'U_FFT' of component 'xfft_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:138]
-INFO: [Synth 8-638] synthesizing module 'xfft_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-7884-Aloy/realtime/xfft_0_stub.vhdl:38]
+INFO: [Synth 8-3491] module 'xfft_0' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-7208-Aloy/realtime/xfft_0_stub.vhdl:6' bound to instance 'U_FFT' of component 'xfft_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:138]
+INFO: [Synth 8-638] synthesizing module 'xfft_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-7208-Aloy/realtime/xfft_0_stub.vhdl:38]
 INFO: [Synth 8-3491] module 'peak_finder' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/peak_finder.vhd:5' bound to instance 'U_PEAK_FINDER' of component 'peak_finder' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:157]
 INFO: [Synth 8-638] synthesizing module 'peak_finder' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/peak_finder.vhd:21]
 INFO: [Synth 8-256] done synthesizing module 'peak_finder' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/peak_finder.vhd:21]
 INFO: [Synth 8-256] done synthesizing module 'fft_top' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:22]
-INFO: [Synth 8-113] binding component instance 'BUFG_inst' to cell 'BUFG' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:347]
-INFO: [Synth 8-256] done synthesizing module 'audio_testbench' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:36]
-WARNING: [Synth 8-6014] Unused sequential element hphone_r_reg was removed.  [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:171]
+INFO: [Synth 8-113] binding component instance 'BUFG_inst' to cell 'BUFG' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:362]
+INFO: [Synth 8-256] done synthesizing module 'audio_testbench' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:39]
+WARNING: [Synth 8-6014] Unused sequential element hphone_r_reg was removed.  [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:214]
 WARNING: [Synth 8-7129] Port addr[10] in module ascii_rom is either unconnected or has no load
 WARNING: [Synth 8-7129] Port hphone_r_valid_dummy in module audio_top is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1154.609 ; gain = 619.707
+Finished RTL Elaboration : Time (s): cpu = 00:00:28 ; elapsed = 00:00:34 . Memory (MB): peak = 1154.461 ; gain = 619.023
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1154.609 ; gain = 619.707
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:28 ; elapsed = 00:00:34 . Memory (MB): peak = 1154.461 ; gain = 619.023
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1154.609 ; gain = 619.707
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:28 ; elapsed = 00:00:34 . Memory (MB): peak = 1154.461 ; gain = 619.023
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 1154.609 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.157 . Memory (MB): peak = 1154.461 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 3 Unisim elements for replacement
 WARNING: [Netlist 29-432] The IBUFG primitive 'i_audio/i_clocking/clkin1_buf' has been retargeted to an IBUF primitive only. No BUFG will be added. If a global buffer is intended, please instantiate an available global clock primitive from the current architecture.
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -154,32 +189,32 @@ Parsing XDC File [c:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.gen/so
 Finished Parsing XDC File [c:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.gen/sources_1/ip/xfft_0/xfft_0/xfft_0_in_context.xdc] for cell 'i_fft/U_FFT'
 Parsing XDC File [C:/Users/frabo/a/Programming/Vivado/speaker_3/constraints/zed_audio.xdc]
 INFO: [Timing 38-2] Deriving generated clocks [C:/Users/frabo/a/Programming/Vivado/speaker_3/constraints/zed_audio.xdc:4]
-WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 34]]'. [C:/Users/frabo/a/Programming/Vivado/speaker_3/constraints/zed_audio.xdc:61]
-WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 13]]'. [C:/Users/frabo/a/Programming/Vivado/speaker_3/constraints/zed_audio.xdc:62]
+WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 34]]'. [C:/Users/frabo/a/Programming/Vivado/speaker_3/constraints/zed_audio.xdc:95]
+WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 13]]'. [C:/Users/frabo/a/Programming/Vivado/speaker_3/constraints/zed_audio.xdc:96]
 Finished Parsing XDC File [C:/Users/frabo/a/Programming/Vivado/speaker_3/constraints/zed_audio.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/frabo/a/Programming/Vivado/speaker_3/constraints/zed_audio.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/audio_testbench_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/audio_testbench_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1243.109 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1242.398 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 2 instances were transformed.
   IBUFG => IBUF: 1 instance 
   IOBUF => IOBUF (IBUF, OBUFT): 1 instance 
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1243.109 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.083 . Memory (MB): peak = 1242.398 ; gain = 0.000
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'i_fft/U_BUFFER/your_bram_inst' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1243.109 ; gain = 708.207
+Finished Constraint Validation : Time (s): cpu = 00:01:00 ; elapsed = 00:01:12 . Memory (MB): peak = 1242.398 ; gain = 706.961
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1243.109 ; gain = 708.207
+Finished Loading Part and Timing Information : Time (s): cpu = 00:01:00 ; elapsed = 00:01:12 . Memory (MB): peak = 1242.398 ; gain = 706.961
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -187,7 +222,7 @@ Start Applying 'set_property' XDC Constraints
 Applied set_property KEEP_HIERARCHY = SOFT for i_fft/U_BUFFER/your_bram_inst. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for i_fft/U_FFT. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1243.109 ; gain = 708.207
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:00 ; elapsed = 00:01:12 . Memory (MB): peak = 1242.398 ; gain = 706.961
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'i3c2'
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'spi_ctrl'
@@ -228,7 +263,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using e
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using encoding 'one-hot' in module 'oled_ctrl'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1243.109 ; gain = 708.207
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:06 ; elapsed = 00:01:19 . Memory (MB): peak = 1242.398 ; gain = 706.961
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -243,6 +278,7 @@ Detailed RTL Component Info :
 	   2 Input    8 Bit       Adders := 1     
 	   2 Input    5 Bit       Adders := 2     
 	   2 Input    4 Bit       Adders := 46    
+	   8 Input    4 Bit       Adders := 1     
 	   2 Input    3 Bit       Adders := 1     
 	   2 Input    2 Bit       Adders := 1     
 +---XORs : 
@@ -264,7 +300,7 @@ Detailed RTL Component Info :
 	                5 Bit    Registers := 10    
 	                4 Bit    Registers := 7     
 	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 55    
+	                1 Bit    Registers := 70    
 +---Multipliers : 
 	              32x32  Multipliers := 2     
 +---ROMs : 
@@ -301,7 +337,7 @@ Detailed RTL Component Info :
 	  13 Input    3 Bit        Muxes := 1     
 	   3 Input    3 Bit        Muxes := 1     
 	  31 Input    2 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 66    
+	   2 Input    1 Bit        Muxes := 78    
 	  13 Input    1 Bit        Muxes := 6     
 	  14 Input    1 Bit        Muxes := 2     
 	   5 Input    1 Bit        Muxes := 24    
@@ -471,7 +507,7 @@ WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[42]__0) i
 WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/pwr_real_reg[41]__0) is unused and will be removed from module fft_top.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 1243.109 ; gain = 708.207
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:32 ; elapsed = 00:01:50 . Memory (MB): peak = 1242.398 ; gain = 706.961
 ---------------------------------------------------------------------------------
  Sort Area is  U_PEAK_FINDER/pwr_imag0_6 : 0 0 : 3137 5856 : Used 1 time 0
  Sort Area is  U_PEAK_FINDER/pwr_imag0_6 : 0 1 : 2719 5856 : Used 1 time 0
@@ -487,25 +523,24 @@ Start ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 
 ROM: Preliminary Mapping Report
-+----------------+----------------------------------------------------------------------------+---------------+----------------+
-|Module Name     | RTL Object                                                                 | Depth x Width | Implemented As | 
-+----------------+----------------------------------------------------------------------------+---------------+----------------+
-|oled_init       | after_state                                                                | 32x1          | LUT            | 
-|oled_init       | after_state                                                                | 32x5          | LUT            | 
-|oled_init       | temp_sdata                                                                 | 32x1          | LUT            | 
-|oled_init       | temp_sdata                                                                 | 32x8          | LUT            | 
-|oled_writer     | after_state                                                                | 32x1          | LUT            | 
-|oled_writer     | temp_addr                                                                  | 32x1          | LUT            | 
-|audio_top       | Inst_adau1761_izedboard/Inst_i2c/Inst_adau1761_configuraiton_data/data_reg | 1024x9        | Block RAM      | 
-|oled_writer     | after_state                                                                | 32x1          | LUT            | 
-|oled_writer     | temp_addr                                                                  | 32x1          | LUT            | 
-|oled_writer     | char_lib_comp/dout_reg                                                     | 1024x8        | Block RAM      | 
-|oled_ctrl       | Initialize/after_state                                                     | 32x5          | LUT            | 
-|oled_ctrl       | Initialize/temp_sdata                                                      | 32x8          | LUT            | 
-|oled_ctrl       | Initialize/after_state                                                     | 32x1          | LUT            | 
-|oled_ctrl       | Initialize/temp_sdata                                                      | 32x1          | LUT            | 
-|audio_testbench | sel                                                                        | 256x24        | Block RAM      | 
-+----------------+----------------------------------------------------------------------------+---------------+----------------+
++------------+----------------------------------------------------------------------------+---------------+----------------+
+|Module Name | RTL Object                                                                 | Depth x Width | Implemented As | 
++------------+----------------------------------------------------------------------------+---------------+----------------+
+|oled_init   | after_state                                                                | 32x1          | LUT            | 
+|oled_init   | after_state                                                                | 32x5          | LUT            | 
+|oled_init   | temp_sdata                                                                 | 32x1          | LUT            | 
+|oled_init   | temp_sdata                                                                 | 32x8          | LUT            | 
+|oled_writer | after_state                                                                | 32x1          | LUT            | 
+|oled_writer | temp_addr                                                                  | 32x1          | LUT            | 
+|audio_top   | Inst_adau1761_izedboard/Inst_i2c/Inst_adau1761_configuraiton_data/data_reg | 1024x9        | Block RAM      | 
+|oled_writer | after_state                                                                | 32x1          | LUT            | 
+|oled_writer | temp_addr                                                                  | 32x1          | LUT            | 
+|oled_writer | char_lib_comp/dout_reg                                                     | 1024x8        | Block RAM      | 
+|oled_ctrl   | Initialize/after_state                                                     | 32x5          | LUT            | 
+|oled_ctrl   | Initialize/temp_sdata                                                      | 32x8          | LUT            | 
+|oled_ctrl   | Initialize/after_state                                                     | 32x1          | LUT            | 
+|oled_ctrl   | Initialize/temp_sdata                                                      | 32x1          | LUT            | 
++------------+----------------------------------------------------------------------------+---------------+----------------+
 
 
 DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
@@ -531,23 +566,21 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1397.578 ; gain = 862.676
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:05 ; elapsed = 00:02:26 . Memory (MB): peak = 1383.242 ; gain = 847.805
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 1435.449 ; gain = 900.547
+Finished Timing Optimization : Time (s): cpu = 00:02:09 ; elapsed = 00:02:31 . Memory (MB): peak = 1421.648 ; gain = 886.211
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-7052] The timing for the instance i_audio/Inst_adau1761_izedboard/Inst_i2c/Inst_adau1761_configuraiton_data/data_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance i_oled/Writer/char_lib_comp/dout_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance sel (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
-INFO: [Synth 8-7052] The timing for the instance sel (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1453.023 ; gain = 918.121
+Finished Technology Mapping : Time (s): cpu = 00:02:11 ; elapsed = 00:02:33 . Memory (MB): peak = 1438.973 ; gain = 903.535
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -565,37 +598,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 1632.305 ; gain = 1097.402
+Finished IO Insertion : Time (s): cpu = 00:02:24 ; elapsed = 00:02:48 . Memory (MB): peak = 1617.551 ; gain = 1082.113
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 1632.305 ; gain = 1097.402
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:24 ; elapsed = 00:02:48 . Memory (MB): peak = 1617.551 ; gain = 1082.113
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 1632.305 ; gain = 1097.402
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:25 ; elapsed = 00:02:49 . Memory (MB): peak = 1617.551 ; gain = 1082.113
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 1632.305 ; gain = 1097.402
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:25 ; elapsed = 00:02:49 . Memory (MB): peak = 1617.551 ; gain = 1082.113
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 1633.324 ; gain = 1098.422
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:25 ; elapsed = 00:02:49 . Memory (MB): peak = 1618.648 ; gain = 1083.211
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 1633.324 ; gain = 1098.422
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:25 ; elapsed = 00:02:49 . Memory (MB): peak = 1618.648 ; gain = 1083.211
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -605,8 +638,9 @@ Static Shift Register Report:
 +----------------+---------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
 |Module Name     | RTL Name                                                                  | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
 +----------------+---------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
-|audio_testbench | i_audio/Inst_adau1761_izedboard/Inst_i2s_data_interface/bclk_delay_reg[1] | 9      | 1     | NO           | YES                | YES               | 1      | 0       | 
+|audio_testbench | i_audio/Inst_adau1761_izedboard/Inst_i2s_data_interface/bclk_delay_reg[1] | 6      | 1     | NO           | NO                 | YES               | 1      | 0       | 
 |audio_testbench | i_audio/sample_clk_48k_d3_48_reg                                          | 3      | 1     | NO           | NO                 | YES               | 1      | 0       | 
+|audio_testbench | i_audio/Inst_adau1761_izedboard/Inst_i2s_data_interface/sr_in_reg[71]     | 72     | 1     | NO           | NO                 | YES               | 0      | 3       | 
 |audio_testbench | i_fft/U_PEAK_FINDER/bin_delay_3_reg[12]                                   | 3      | 13    | NO           | NO                 | YES               | 13     | 0       | 
 +----------------+---------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
 
@@ -648,52 +682,53 @@ Report Cell Usage:
 |1     |blk_mem_gen_0_bbox |     1|
 |2     |xfft_0_bbox        |     1|
 |3     |BUFG               |     2|
-|4     |CARRY4             |   119|
+|4     |CARRY4             |   177|
 |5     |DSP48E1            |     9|
-|8     |LUT1               |    66|
-|9     |LUT2               |   339|
-|10    |LUT3               |    75|
+|8     |LUT1               |   101|
+|9     |LUT2               |   412|
+|10    |LUT3               |    91|
 |11    |LUT4               |   191|
 |12    |LUT5               |    90|
-|13    |LUT6               |   174|
+|13    |LUT6               |   172|
 |14    |MMCME2_ADV         |     1|
 |15    |MUXF7              |    11|
 |16    |MUXF8              |     1|
-|17    |RAMB18E1           |     3|
-|20    |SRL16E             |    15|
-|21    |FDRE               |   846|
+|17    |RAMB18E1           |     2|
+|19    |SRL16E             |    15|
+|20    |SRLC32E            |     3|
+|21    |FDRE               |  1079|
 |22    |FDSE               |    22|
-|23    |IBUF               |     4|
+|23    |IBUF               |    13|
 |24    |IBUFG              |     1|
 |25    |IOBUF              |     1|
-|26    |OBUF               |    11|
+|26    |OBUF               |    19|
 +------+-------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 1633.324 ; gain = 1098.422
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:25 ; elapsed = 00:02:49 . Memory (MB): peak = 1618.648 ; gain = 1083.211
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 128 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:21 ; elapsed = 00:00:29 . Memory (MB): peak = 1633.324 ; gain = 1009.922
-Synthesis Optimization Complete : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 1633.324 ; gain = 1098.422
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:49 ; elapsed = 00:02:39 . Memory (MB): peak = 1618.648 ; gain = 995.273
+Synthesis Optimization Complete : Time (s): cpu = 00:02:26 ; elapsed = 00:02:50 . Memory (MB): peak = 1618.648 ; gain = 1083.211
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 1633.324 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 146 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.054 . Memory (MB): peak = 1618.648 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 203 Unisim elements for replacement
 WARNING: [Netlist 29-432] The IBUFG primitive 'i_audio/i_clocking/clkin1_buf' has been retargeted to an IBUF primitive only. No BUFG will be added. If a global buffer is intended, please instantiate an available global clock primitive from the current architecture.
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. i_audio/i_clocking/clkin1_buf 
 Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1641.605 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1625.992 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 1 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 1 instance 
 
-Synth Design complete | Checksum: 1157d89f
+Synth Design complete | Checksum: 9ba4716d
 INFO: [Common 17-83] Releasing license: Synthesis
-110 Infos, 120 Warnings, 0 Critical Warnings and 0 Errors encountered.
+129 Infos, 120 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:32 ; elapsed = 00:00:36 . Memory (MB): peak = 1641.605 ; gain = 1344.012
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1641.605 ; gain = 0.000
+synth_design: Time (s): cpu = 00:02:43 ; elapsed = 00:03:27 . Memory (MB): peak = 1625.992 ; gain = 1328.402
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 1625.992 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/audio_testbench.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file audio_testbench_utilization_synth.rpt -pb audio_testbench_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri May  1 15:50:39 2026...
+INFO: [Common 17-206] Exiting Vivado at Fri May  1 19:34:22 2026...

@@ -34,9 +34,9 @@ architecture Structural of fft_top is
     -- 3. FFT Configuration & Internal Routing
     signal s_axis_config_tdata : std_logic_vector(15 downto 0) := x"5555";
     signal s_axis_config_tvalid : std_logic := '1';
-    
+
     signal config_tready : std_logic;
-    signal config_done   : std_logic := '0';    
+    signal config_done : std_logic := '0';
 
     -- Add this new signal to pad your audio with a zeroed imaginary part
     signal complex_axis_tdata : std_logic_vector(63 downto 0);
@@ -167,7 +167,7 @@ begin
     complex_axis_tdata <= x"00000000" & axis_tdata;
     aresetn <= not reset;
     -- Instance 5: Index to Frequency Conversion (Fixed Point Math)
-process (clk)
+    process (clk)
     begin
         if rising_edge(clk) then
             if reset = '1' then
@@ -185,17 +185,17 @@ process (clk)
 
                 -- Integer part (upper bits)
                 peak_freq_hz <= std_logic_vector(resize(freq_scaled(28 downto 16), 16));
-                
+
                 -- Multiply the fraction by 10. The new integer part is our 0-9 digit
                 tenths_calc <= freq_scaled(15 downto 0) * to_unsigned(10, 4);
-                
+
                 -- The upper 4 bits of this result hold the 0-9 value
                 peak_freq_tenths <= std_logic_vector(tenths_calc(19 downto 16));
             end if;
         end if;
     end process;
-    
-    process(clk)
+
+    process (clk)
     begin
         if rising_edge(clk) then
             if reset = '1' then

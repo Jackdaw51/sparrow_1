@@ -76,19 +76,19 @@ architecture Behavioral of audio_testbench is
     component button_manager
         port (
             clk_100_buffered : in std_logic; --Clock
-            buttons_in  : in  std_logic_vector(4 downto 0);
-            buttons_deb : out std_logic_vector(4 downto 0)
+            buttons_in : in std_logic_vector(4 downto 0);
+            buttons_deb : out std_logic_vector(4 downto 0);
+            btnl_impulse : out std_logic;
+            btnr_impulse : out std_logic
         );
     end component;
 
     component switch_manager
         port (
             clk_100_buffered : in std_logic; --Clock
-            switches_in  : in  std_logic_vector(7 downto 0);
+            switches_in : in std_logic_vector(7 downto 0);
             switches_deb : out std_logic_vector(7 downto 0);
-            switches_valid : out std_logic;
-            btnl_impulse: out std_logic;
-            btnr_impulse: out std_logic
+            switches_valid : out std_logic
         );
     end component;
 
@@ -187,43 +187,41 @@ architecture Behavioral of audio_testbench is
 
 begin
 
-    sine_wave_proc : process (clk_100_buffered)
-    begin
-        if rising_edge(clk_100_buffered) then
-
-            hphone_valid <= '0';
-            hphone_l <= (others => '0');
-            hphone_r <= (others => '0');
-
-            if clean_reset = '0' and new_sample = '1' then
-                hphone_valid <= '1';
-                hphone_l <= diapason_sample;
-                hphone_r <= diapason_sample;
-            end if;
-
-        end if;
-    end process;
-
-    -----------------------------------------------------
-    -- TEST 2: loopback "line in" data to headphone output
-    -- loopback_proc : process (clk_100_buffered)
+    -- sine_wave_proc : process (clk_100_buffered)
     -- begin
-    --     if (clk_100_buffered'event and clk_100_buffered = '1') then
+    --     if rising_edge(clk_100_buffered) then
+
     --         hphone_valid <= '0';
     --         hphone_l <= (others => '0');
     --         hphone_r <= (others => '0');
 
     --         if clean_reset = '0' and new_sample = '1' then
-
     --             hphone_valid <= '1';
-    --             hphone_l <= line_in_r;
-    --             hphone_r <= line_in_r;
+    --             hphone_l <= diapason_sample;
+    --             hphone_r <= diapason_sample;
     --         end if;
+
     --     end if;
     -- end process;
 
-    
-    raw_data_proc : process (clk_100_buffered)
+    -----------------------------------------------------
+    -- TEST 2: loopback "line in" data to headphone output
+    loopback_proc : process (clk_100_buffered)
+    begin
+        if (clk_100_buffered'event and clk_100_buffered = '1') then
+            hphone_valid <= '0';
+            hphone_l <= (others => '0');
+            hphone_r <= (others => '0');
+
+            if clean_reset = '0' and new_sample = '1' then
+
+                hphone_valid <= '1';
+                hphone_l <= line_in_r;
+                hphone_r <= line_in_r;
+            end if;
+        end if;
+    end process;
+    oled_data_proc : process (clk_100_buffered)
         variable counter : integer range 0 to 48000 := 48000;
         variable second_counter : integer range 0 to 999999 := 0;
     begin
@@ -302,19 +300,19 @@ begin
         audio_out => diapason_sample
     );
 
-    btn_man : button_manager port map(
+    i_btn_man : button_manager port map(
         clk_100_buffered => clk_100_buffered,
         buttons_in => btn_in,
-        buttons_deb => btn_deb
+        buttons_deb => btn_deb,
+        btnl_impulse => open,
+        btnr_impulse => open
     );
 
-    sw_man : switch_manager port map(
+    i_sw_man : switch_manager port map(
         clk_100_buffered => clk_100_buffered,
         switches_in => sw_in,
         switches_deb => sw_deb,
-        switches_valid => open,
-        btnl_impulse => open,
-        btnr_impulse => open
+        switches_valid => open
     );
 
     i_oled : oled_ctrl port map(
@@ -351,7 +349,7 @@ begin
         reset => clean_reset, -- Active High Reset
 
         -- Physical Interface (from Audio Codec)
-        adc_data_in => diapason_sample,
+        adc_data_in => line_in_r,
         adc_valid_in => new_sample,
 
         -- Final Output (To your OLED or Logic Analyzer)

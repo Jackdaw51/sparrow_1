@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1777643398" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/audio_testbench.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1777656637" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/audio_testbench.dcp">
   <File Type="PA-TCL" Name="audio_testbench.tcl"/>
   <File Type="REPORTS-TCL" Name="audio_testbench_reports.tcl"/>
   <File Type="RDS-RDS" Name="audio_testbench.vds"/>
@@ -41,7 +41,19 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/hdl/buttons/button_manager.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/hdl/audio/clocking.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/hdl/buttons/debouncer.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -126,6 +138,12 @@
       </FileInfo>
     </File>
     <File Path="$PPRDIR/hdl/motor/stepper_motor.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/hdl/buttons/switch_manager.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>

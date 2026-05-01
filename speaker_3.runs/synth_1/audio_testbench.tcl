@@ -82,7 +82,9 @@ read_vhdl -library xil_defaultlib {
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/adau1761_izedboard.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/ascii_rom.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/audio_top.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/button_manager.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/clocking.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/debouncer.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/delay.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_ping_pong.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd
@@ -97,6 +99,7 @@ read_vhdl -library xil_defaultlib {
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/sine_wave_440hz.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/spi_ctrl.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/motor/stepper_motor.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/switch_manager.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd
 }
 read_ip -quiet C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci

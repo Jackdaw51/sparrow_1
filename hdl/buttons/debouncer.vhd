@@ -1,15 +1,15 @@
 library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.NUMERIC_STD.ALL;
+use IEEE.STD_LOGIC_1164.all;
+use IEEE.NUMERIC_STD.all;
 
 entity debouncer is
-    Generic (
+    generic (
         WAIT_CYCLES : integer := 2_000_000 -- 20ms at 100MHz
     );
-    Port (
-        clk_100    : in  std_logic;
-        sig_in : in  std_logic;
-        sig_out: out std_logic
+    port (
+        clk_100 : in std_logic;
+        sig_in : in std_logic;
+        sig_out : out std_logic
     );
 end debouncer;
 
@@ -17,7 +17,7 @@ architecture Behavioral of debouncer is
     signal count : integer range 0 to WAIT_CYCLES := 0;
     signal state : std_logic := '0';
 begin
-    process(clk_100)
+    process (clk_100)
     begin
         if rising_edge(clk_100) then
             if sig_in /= state then
