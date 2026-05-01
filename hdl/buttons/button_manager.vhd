@@ -63,4 +63,6 @@ begin
         end if;
     end process;
 
+    buttons_deb <= btn_deb;
+
 end Structural;
