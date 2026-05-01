@@ -12,8 +12,11 @@ use UNISIM.VComponents.all;
 
 entity audio_testbench is
     port (
-        clk_100 : in std_logic; -- 100 mhz master takt 
-        reset_btn : in std_logic; -- Connected to a push button (e.g., BTNC)
+        clk_100 : in std_logic; -- 100 mhz master takt
+
+        sw_in : std_logic_vector(7 downto 0);
+        btn_in : std_logic_vector(4 downto 0);
+        led_out : out std_logic_vector(7 downto 0);
 
         AC_ADR0 : out std_logic; -- control signals to ADAU chip
         AC_ADR1 : out std_logic;
@@ -67,6 +70,25 @@ architecture Behavioral of audio_testbench is
             ce_48k : in std_logic;
             reset : in std_logic;
             audio_out : out std_logic_vector (23 downto 0)
+        );
+    end component;
+
+    component button_manager
+        port (
+            clk_100_buffered : in std_logic; --Clock
+            buttons_in  : in  std_logic_vector(4 downto 0);
+            buttons_deb : out std_logic_vector(4 downto 0)
+        );
+    end component;
+
+    component switch_manager
+        port (
+            clk_100_buffered : in std_logic; --Clock
+            switches_in  : in  std_logic_vector(7 downto 0);
+            switches_deb : out std_logic_vector(7 downto 0);
+            switches_valid : out std_logic;
+            btnl_impulse: out std_logic;
+            btnr_impulse: out std_logic
         );
     end component;
 
@@ -138,14 +160,17 @@ architecture Behavioral of audio_testbench is
     signal line_in_l, line_in_r : std_logic_vector (23 downto 0);
 
     signal diapason_sample : std_logic_vector (23 downto 0);
-    -- Signals for the 2-stage synchronizer
-    signal sync_0, sync_1 : std_logic := '0';
 
-    -- Counter for the 20ms delay (assuming 100MHz clock)
-    signal debounce_counter : integer range 0 to 2_000_000 := 0;
+    -- Buttons and switches
+    signal btn_deb : std_logic_vector(4 downto 0);
+    signal sw_deb : std_logic_vector(7 downto 0);
+    alias reset_btn_deb : std_logic is btn_deb(0);
+    alias up_btn_deb : std_logic is btn_deb(1);
+    alias down_btn_deb : std_logic is btn_deb(2);
+    alias left_btn_deb : std_logic is btn_deb(3);
+    alias right_btn_deb : std_logic is btn_deb(4);
 
     -- Internal register to hold the stable state
-    signal stable_reset : std_logic := '0';
     signal clean_reset : std_logic := '0';
 
     signal sample_acc : unsigned(15 downto 0) := (others => '0');
@@ -197,32 +222,7 @@ begin
     --     end if;
     -- end process;
 
-    BTNC_debounce_proc : process (clk_100_buffered)
-    begin
-        if rising_edge(clk_100_buffered) then
-
-            -- Double-flop synchronizer to prevent metastability
-            sync_0 <= reset_btn;
-            sync_1 <= sync_0;
-
-            -- Debounce logic
-            if sync_1 /= stable_reset then
-                -- The input differs from our stable state; start/continue counting
-                if debounce_counter < 2_000_000 then
-                    debounce_counter <= debounce_counter + 1;
-                else
-                    -- The signal has been stable for 20ms, update the state
-                    stable_reset <= sync_1;
-                    debounce_counter <= 0;
-                end if;
-            else
-                -- The input matches the stable state (or is bouncing); reset the counter
-                debounce_counter <= 0;
-            end if;
-
-        end if;
-    end process;
-
+    
     raw_data_proc : process (clk_100_buffered)
         variable counter : integer range 0 to 48000 := 48000;
         variable second_counter : integer range 0 to 999999 := 0;
@@ -265,8 +265,10 @@ begin
             end if;
         end if;
     end process;
+
     -- Assign the stable internal signal to output
-    clean_reset <= stable_reset;
+    clean_reset <= reset_btn_deb;
+    led_out <= sw_deb;
 
     i_audio : audio_top port map(
         clk_100 => clk_100_buffered,
@@ -298,6 +300,21 @@ begin
         ce_48k => new_sample,
         reset => clean_reset,
         audio_out => diapason_sample
+    );
+
+    btn_man : button_manager port map(
+        clk_100_buffered => clk_100_buffered,
+        buttons_in => btn_in,
+        buttons_deb => btn_deb
+    );
+
+    sw_man : switch_manager port map(
+        clk_100_buffered => clk_100_buffered,
+        switches_in => sw_in,
+        switches_deb => sw_deb,
+        switches_valid => open,
+        btnl_impulse => open,
+        btnr_impulse => open
     );
 
     i_oled : oled_ctrl port map(
