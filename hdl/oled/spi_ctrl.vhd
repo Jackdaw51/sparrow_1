@@ -12,14 +12,14 @@ use ieee.std_logic_arith.all;
 use ieee.std_logic_unsigned.all;
 
 entity spi_ctrl is
-    Port (
-        clk_100      : in std_logic; -- System clok (100MHz)
-        rst          : in std_logic; -- Global synchronous reset
-        en           : in std_logic; -- Block enable pin
-        sdata        : in std_logic_vector (7 downto 0); -- Byte to be sent
-        sdout        : out std_logic; -- Serial data out
-        oled_sclk    : out std_logic; -- OLED serial clock
-        fin          : out std_logic); -- Finish flag for block
+    port (
+        clk_100 : in std_logic; -- System clok (100MHz)
+        rst : in std_logic; -- Global synchronous reset
+        en : in std_logic; -- Block enable pin
+        sdata : in std_logic_vector (7 downto 0); -- Byte to be sent
+        sdout : out std_logic; -- Serial data out
+        oled_sclk : out std_logic; -- OLED serial clock
+        fin : out std_logic); -- Finish flag for block
 end spi_ctrl;
 
 architecture behavioral of spi_ctrl is
@@ -28,11 +28,11 @@ architecture behavioral of spi_ctrl is
 
     signal current_state : states := Idle; -- Signal for state machine
 
-    signal shift_register   : std_logic_vector (7 downto 0); -- Shift register to shift out sdata saved when en was set
-    signal shift_counter    : std_logic_vector (3 downto 0); -- Keeps track how many bits were sent
-    signal clk_divided      : std_logic := '1'; -- Used as oled_sclk
-    signal counter          : std_logic_vector (4 downto 0) := (others => '0'); -- Count clocks to be used to divide clk
-    signal temp_sdata       : std_logic := '1'; -- Tied to sdout
+    signal shift_register : std_logic_vector (7 downto 0); -- Shift register to shift out sdata saved when en was set
+    signal shift_counter : std_logic_vector (3 downto 0); -- Keeps track how many bits were sent
+    signal clk_divided : std_logic := '1'; -- Used as oled_sclk
+    signal counter : std_logic_vector (4 downto 0) := (others => '0'); -- Count clocks to be used to divide clk
+    signal temp_sdata : std_logic := '1'; -- Tied to sdout
 
     signal falling : std_logic := '0'; -- Signal indicating that the clk has just fell
 
@@ -41,7 +41,8 @@ begin
     clk_divided <= not counter(4); -- oled_sclk = clk / 32
     oled_sclk <= clk_divided;
     sdout <= temp_sdata;
-    fin <= '1' when current_state = Done else '0';
+    fin <= '1' when current_state = Done else
+        '0';
 
     state_machine : process (clk_100)
     begin

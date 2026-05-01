@@ -40,7 +40,7 @@ begin
     Checker : process (clk_100_buffered)
         variable count : integer range 0 to 8;
     begin
-        if rising_edge(clk_100_buffered) then
+        if rising_edge(clk) then
             count := 0;
             for i in sw_deb'range loop
                 if sw_deb(i) = '1' then

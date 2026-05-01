@@ -12,11 +12,11 @@ use ieee.std_logic_unsigned.all;
 
 entity delay is
     port (
-        clk_100     : in std_logic; -- System clock
-        rst         : in std_logic;  -- Global synchronous reset
-        delay_ms    : in std_logic_vector (11 downto 0); -- Amount of ms to delay
-        delay_en    : in std_logic; -- Delay enable
-        delay_fin   : out std_logic); -- Delay finish flag
+        clk_100 : in std_logic; -- System clock
+        rst : in std_logic; -- Global synchronous reset
+        delay_ms : in std_logic_vector (11 downto 0); -- Amount of ms to delay
+        delay_en : in std_logic; -- Delay enable
+        delay_fin : out std_logic); -- Delay finish flag
 end delay;
 
 architecture behavioral of delay is
@@ -29,7 +29,8 @@ architecture behavioral of delay is
 
 begin
     -- delay_fin goes high when delay is done
-    delay_fin <= '1' when (current_state = Done and delay_en = '1') else '0';
+    delay_fin <= '1' when (current_state = Done and delay_en = '1') else
+        '0';
 
     -- State machine for Delay block
     state_machine : process (clk_100)
@@ -57,8 +58,6 @@ begin
             end if;
         end if;
     end process state_machine;
-
-
     -- Creates ms_counter that counts at 1KHz
     clk_div : process (clk_100)
     begin
