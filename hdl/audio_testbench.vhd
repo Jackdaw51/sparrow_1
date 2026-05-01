@@ -75,20 +75,20 @@ architecture Behavioral of audio_testbench is
 
     component button_manager
         port (
-            clk_100_buffered : in std_logic; --Clock
+            clk : in std_logic; --Clock
             buttons_in  : in  std_logic_vector(4 downto 0);
-            buttons_deb : out std_logic_vector(4 downto 0)
+            buttons_deb : out std_logic_vector(4 downto 0);
+            btnl_impulse: out std_logic;
+            btnr_impulse: out std_logic
         );
     end component;
 
     component switch_manager
         port (
-            clk_100_buffered : in std_logic; --Clock
+            clk : in std_logic; --Clock
             switches_in  : in  std_logic_vector(7 downto 0);
             switches_deb : out std_logic_vector(7 downto 0);
-            switches_valid : out std_logic;
-            btnl_impulse: out std_logic;
-            btnr_impulse: out std_logic
+            switches_valid : out std_logic
         );
     end component;
 
@@ -303,18 +303,18 @@ begin
     );
 
     btn_man : button_manager port map(
-        clk_100_buffered => clk_100_buffered,
+        clk => clk_100_buffered,
         buttons_in => btn_in,
-        buttons_deb => btn_deb
+        buttons_deb => btn_deb,
+        btnl_impulse => open,
+        btnr_impulse => open
     );
 
     sw_man : switch_manager port map(
-        clk_100_buffered => clk_100_buffered,
+        clk => clk_100_buffered,
         switches_in => sw_in,
         switches_deb => sw_deb,
-        switches_valid => open,
-        btnl_impulse => open,
-        btnr_impulse => open
+        switches_valid => open
     );
 
     i_oled : oled_ctrl port map(
