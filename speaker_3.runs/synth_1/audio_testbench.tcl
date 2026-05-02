@@ -56,9 +56,11 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 3
-set_param xicom.use_bs_reader 1
+set_param synth.incrementalSynthesisCache C:/Users/frabo/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-12344-Aloy/incrSyn
+set_param checkpoint.writeSynthRtdsInDcp 1
 set_msg_config -id {Common 17-41} -limit 10000000
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg484-1
 
@@ -82,7 +84,9 @@ read_vhdl -library xil_defaultlib {
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/adau1761_izedboard.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/ascii_rom.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/audio_top.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/button_manager.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/clocking.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/debouncer.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/delay.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_ping_pong.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd
@@ -93,10 +97,11 @@ read_vhdl -library xil_defaultlib {
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_ctrl.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_init.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_writer.vhd
-  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/peak_finder.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/sine_wave_440hz.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/smart_peak_finder.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/spi_ctrl.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/motor/stepper_motor.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/switch_manager.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd
 }
 read_ip -quiet C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci

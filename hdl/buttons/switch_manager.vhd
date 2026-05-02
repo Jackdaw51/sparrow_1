@@ -3,23 +3,20 @@ use IEEE.STD_LOGIC_1164.all;
 
 entity switch_manager is
     port (
-        clk : in std_logic; --Clock 100MHz buffered
-        switches_in  : in  std_logic_vector(7 downto 0);
+        clk : in std_logic; --Clock
+        switches_in : in std_logic_vector(7 downto 0);
         switches_deb : out std_logic_vector(7 downto 0);
         switches_valid : out std_logic
     );
 end entity switch_manager;
-
-
 architecture Structural of switch_manager is
     -- Component declaration
     component debouncer
-        Generic (
+        generic (
             WAIT_CYCLES : integer
         );
-        Port (
-            clk : in std_logic;
-            sig_in : in std_logic;
+        port (
+            clk, sig_in : in std_logic;
             sig_out : out std_logic
         );
     end component;
@@ -28,19 +25,19 @@ architecture Structural of switch_manager is
 
 begin
     -- The "Loop Unrolling" (Generate Statement)
-    GEN_DEBOUNCERS: for i in 0 to 7 generate
+    GEN_DEBOUNCERS : for i in 0 to 7 generate
         debouncer_inst : debouncer
-            generic map (
-                WAIT_CYCLES => 2_000_000 -- 20ms for mechanical switches
-            )
-            port map (
-                clk     => clk,
-                sig_in  => switches_in(i),
-                sig_out => sw_deb(i)
-            );
+        generic map(
+            WAIT_CYCLES => 2_000_000 -- 20ms for mechanical switches
+        )
+        port map(
+            clk => clk,
+            sig_in => switches_in(i),
+            sig_out => sw_deb(i)
+        );
     end generate GEN_DEBOUNCERS;
 
-    Checker: process (clk)
+    Checker : process (clk)
         variable count : integer range 0 to 8;
     begin
         if rising_edge(clk) then
