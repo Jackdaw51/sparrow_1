@@ -3,11 +3,7 @@ use IEEE.STD_LOGIC_1164.all;
 
 entity button_manager is
     port (
-<<<<<<< HEAD
-        clk_100_buffered : in std_logic; --Clock
-=======
         clk : in std_logic; --Clock 100MHz buffered
->>>>>>> a42aa0fc0478297de293e3f690a2fe84d8722e7c
         buttons_in : in std_logic_vector(4 downto 0);
         buttons_deb : out std_logic_vector(4 downto 0);
         btnl_impulse : out std_logic;
@@ -21,12 +17,8 @@ architecture Structural of button_manager is
             WAIT_CYCLES : integer
         );
         port (
-<<<<<<< HEAD
-            clk_100, sig_in : in std_logic;
-=======
             clk : in std_logic;
             sig_in : in std_logic;
->>>>>>> a42aa0fc0478297de293e3f690a2fe84d8722e7c
             sig_out : out std_logic
         );
     end component;
@@ -41,29 +33,17 @@ begin
             WAIT_CYCLES => 2_000_000 -- 20ms for mechanical switches
         )
         port map(
-<<<<<<< HEAD
-            clk_100 => clk_100_buffered,
-=======
             clk => clk,
->>>>>>> a42aa0fc0478297de293e3f690a2fe84d8722e7c
             sig_in => buttons_in(i),
             sig_out => btn_deb(i)
         );
     end generate GEN_DEBOUNCERS;
 
-<<<<<<< HEAD
-    Impulse_generator : process (clk_100_buffered)
-        variable btnl_prev : std_logic := '0';
-        variable btnr_prev : std_logic := '0';
-    begin
-        if rising_edge(clk_100_buffered) then
-=======
     Impulse_generator : process (clk)
         variable btnl_prev : std_logic := '0';
         variable btnr_prev : std_logic := '0';
     begin
         if rising_edge(clk) then
->>>>>>> a42aa0fc0478297de293e3f690a2fe84d8722e7c
             -- Generate impulse for btnl (button 0)
             if btn_deb(3) = '1' and btnl_prev = '0' then
                 btnl_impulse <= '1';
