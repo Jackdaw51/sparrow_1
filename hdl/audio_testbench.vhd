@@ -27,12 +27,15 @@ entity audio_testbench is
         AC_MCLK : out std_logic;
         AC_SCK : out std_logic;
         AC_SDA : inout std_logic;
+
         oled_sdin : out std_logic;
         oled_sclk : out std_logic;
         oled_dc : out std_logic;
         oled_res : out std_logic;
         oled_vbat : out std_logic;
-        oled_vdd : out std_logic
+        oled_vdd : out std_logic;
+
+        sm_pins : out std_logic_vector(3 downto 0)
     );
 end audio_testbench;
 
@@ -150,6 +153,7 @@ architecture Behavioral of audio_testbench is
 
         );
     end component;
+
     signal clk_100_buffered : std_logic;
 
     signal counter : unsigned (5 downto 0);
@@ -336,10 +340,10 @@ begin
         direction => '0', -- 0 rotate clockwise, 1 rotate coutner-clockwise
 
         -- Signals controlling the stepper motor
-        sm_c_1 => open,
-        sm_c_2 => open,
-        sm_c_3 => open,
-        sm_c_4 => open,
+        sm_c_1 => sm_pins(0),
+        sm_c_2 => sm_pins(1),
+        sm_c_3 => sm_pins(2),
+        sm_c_4 => sm_pins(3),
 
         motor_ready => open -- Signal to indicate motor is ready for next command
     );

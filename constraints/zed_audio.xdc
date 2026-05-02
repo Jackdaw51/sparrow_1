@@ -77,6 +77,15 @@ set_property PACKAGE_PIN U14 [get_ports {led_out[7]}];  # "LD7"
 set_property IOSTANDARD LVCMOS33 [get_ports {led_out[*]}]
 
 
+# PMOD JA - Bank 13 (3.3V)
+set_property PACKAGE_PIN Y11  [get_ports {sm_pins[0]}];  # "JA1"
+set_property PACKAGE_PIN AA11 [get_ports {sm_pins[1]}];  # "JA2"
+set_property PACKAGE_PIN Y10  [get_ports {sm_pins[2]}];  # "JA3"
+set_property PACKAGE_PIN AA9  [get_ports {sm_pins[3]}];  # "JA4"
+# Set IOSTANDARD to 3.3V
+set_property IOSTANDARD LVCMOS33 [get_ports {sm_pins[*]}]
+
+
 
 # I2C Data Interface to ADAU1761 (for configuration)
 set_property PACKAGE_PIN AB4 [get_ports AC_SCK]
