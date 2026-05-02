@@ -3,7 +3,7 @@ use IEEE.STD_LOGIC_1164.all;
 
 entity switch_manager is
     port (
-        clk_100_buffered : in std_logic; --Clock
+        clk : in std_logic; --Clock
         switches_in : in std_logic_vector(7 downto 0);
         switches_deb : out std_logic_vector(7 downto 0);
         switches_valid : out std_logic
@@ -16,7 +16,7 @@ architecture Structural of switch_manager is
             WAIT_CYCLES : integer
         );
         port (
-            clk_100, sig_in : in std_logic;
+            clk, sig_in : in std_logic;
             sig_out : out std_logic
         );
     end component;
@@ -31,13 +31,13 @@ begin
             WAIT_CYCLES => 2_000_000 -- 20ms for mechanical switches
         )
         port map(
-            clk_100 => clk_100_buffered,
+            clk => clk,
             sig_in => switches_in(i),
             sig_out => sw_deb(i)
         );
     end generate GEN_DEBOUNCERS;
 
-    Checker : process (clk_100_buffered)
+    Checker : process (clk)
         variable count : integer range 0 to 8;
     begin
         if rising_edge(clk) then
