@@ -101,7 +101,8 @@ architecture Structural of fft_top is
         );
     end component;
 
-    component peak_finder
+    -- component peak_finder
+    component smart_peak_finder
         port (
             clk : in std_logic;
             reset : in std_logic;
@@ -154,7 +155,8 @@ begin
     );
 
     -- Instance 4: Peak Power Detector
-    U_PEAK_FINDER : peak_finder
+    -- U_PEAK_FINDER : peak_finder
+    U_PEAK_FINDER : smart_peak_finder
     port map(
         clk => clk, reset => reset,
         s_axis_tdata => fft_data_internal,

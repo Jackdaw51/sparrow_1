@@ -58,6 +58,7 @@ if {$::dispatch::connected} {
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param synth.incrementalSynthesisCache C:/Users/frabo/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-12344-Aloy/incrSyn
 set_param checkpoint.writeSynthRtdsInDcp 1
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
@@ -96,8 +97,8 @@ read_vhdl -library xil_defaultlib {
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_ctrl.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_init.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_writer.vhd
-  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/peak_finder.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/sine_wave_440hz.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/smart_peak_finder.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/spi_ctrl.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/motor/stepper_motor.vhd
   C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/switch_manager.vhd
