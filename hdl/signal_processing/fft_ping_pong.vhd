@@ -7,7 +7,7 @@ entity fft_ping_pong is
         clk           : in  std_logic;
         reset         : in  std_logic;
         din_data      : in  std_logic_vector(31 downto 0);
-        din_valid     : in  std_logic;
+        din_valid     : in  std_logic; --Basically a ce at 4.8 khz
         m_axis_tdata  : out std_logic_vector(31 downto 0);
         m_axis_tvalid : out std_logic;
         m_axis_tlast  : out std_logic;

@@ -67,7 +67,7 @@ begin
     real_part <= signed(s_axis_tdata(63 downto 32));
     imag_part <= signed(s_axis_tdata(31 downto 0));
     pwr_full <= unsigned(real_part * real_part) + unsigned(imag_part * imag_part);
-    pwr_val_16 <= pwr_full(47 downto 32);
+    pwr_val_16 <= pwr_full(47 downto 32); -- Downsamples them to 16 bits to have a final 48 bits value
 
     process (clk)
     begin

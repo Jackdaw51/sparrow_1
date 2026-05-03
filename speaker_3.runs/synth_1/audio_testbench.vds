@@ -3,8 +3,8 @@
 # SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Sat May  2 19:19:25 2026
-# Process ID         : 15728
+# Start of session at: Sat May  2 19:34:09 2026
+# Process ID         : 8016
 # Current directory  : C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1
 # Command line       : vivado.exe -log audio_testbench.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source audio_testbench.tcl
 # Log file           : C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/audio_testbench.vds
@@ -19,7 +19,7 @@
 # Host memory        : 16802 MB
 # Swap memory        : 2818 MB
 # Total Virtual      : 19621 MB
-# Available Virtual  : 4934 MB
+# Available Virtual  : 3149 MB
 #-----------------------------------------------------------
 source audio_testbench.tcl -notrace
 Command: read_checkpoint -auto_incremental -incremental C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.srcs/utils_1/imports/synth_1/audio_testbench.dcp
@@ -34,13 +34,13 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 4768
+INFO: [Synth 8-7075] Helper process launched with PID 19864
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1005.918 ; gain = 469.555
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1006.293 ; gain = 468.582
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-9112] actual for formal port 's_axis_config_tvalid' is neither a static name nor a globally static expression [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:144]
-INFO: [Synth 8-638] synthesizing module 'audio_testbench' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:39]
-INFO: [Synth 8-3491] module 'audio_top' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/audio_top.vhd:45' bound to instance 'i_audio' of component 'audio_top' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:271]
+INFO: [Synth 8-638] synthesizing module 'audio_testbench' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:42]
+INFO: [Synth 8-3491] module 'audio_top' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/audio_top.vhd:45' bound to instance 'i_audio' of component 'audio_top' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:275]
 INFO: [Synth 8-638] synthesizing module 'audio_top' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/audio_top.vhd:74]
 INFO: [Synth 8-3491] module 'clocking' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/clocking.vhd:30' bound to instance 'i_clocking' of component 'clocking' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/audio_top.vhd:124]
 INFO: [Synth 8-638] synthesizing module 'clocking' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/clocking.vhd:42]
@@ -84,10 +84,10 @@ INFO: [Synth 8-638] synthesizing module 'i2s_data_interface' [C:/Users/frabo/a/P
 INFO: [Synth 8-256] done synthesizing module 'i2s_data_interface' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/i2s_data_interface.vhd:26]
 INFO: [Synth 8-256] done synthesizing module 'adau1761_izedboard' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/adau1761_izedboard.vhd:47]
 INFO: [Synth 8-256] done synthesizing module 'audio_top' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/audio_top.vhd:74]
-INFO: [Synth 8-3491] module 'sine_wave_440hz' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/sine_wave_440hz.vhd:6' bound to instance 'i_440hz' of component 'sine_wave_440hz' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:296]
+INFO: [Synth 8-3491] module 'sine_wave_440hz' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/sine_wave_440hz.vhd:6' bound to instance 'i_440hz' of component 'sine_wave_440hz' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:300]
 INFO: [Synth 8-638] synthesizing module 'sine_wave_440hz' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/sine_wave_440hz.vhd:15]
 INFO: [Synth 8-256] done synthesizing module 'sine_wave_440hz' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/sine_wave_440hz.vhd:15]
-INFO: [Synth 8-3491] module 'button_manager' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/button_manager.vhd:4' bound to instance 'i_btn_man' of component 'button_manager' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:303]
+INFO: [Synth 8-3491] module 'button_manager' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/button_manager.vhd:4' bound to instance 'i_btn_man' of component 'button_manager' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:307]
 INFO: [Synth 8-638] synthesizing module 'button_manager' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/button_manager.vhd:13]
 	Parameter WAIT_CYCLES bound to: 2000000 - type: integer 
 INFO: [Synth 8-3491] module 'debouncer' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/debouncer.vhd:5' bound to instance 'debouncer_inst' of component 'debouncer' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/button_manager.vhd:31]
@@ -103,7 +103,7 @@ INFO: [Synth 8-3491] module 'debouncer' declared at 'C:/Users/frabo/a/Programmin
 	Parameter WAIT_CYCLES bound to: 2000000 - type: integer 
 INFO: [Synth 8-3491] module 'debouncer' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/debouncer.vhd:5' bound to instance 'debouncer_inst' of component 'debouncer' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/button_manager.vhd:31]
 INFO: [Synth 8-256] done synthesizing module 'button_manager' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/button_manager.vhd:13]
-INFO: [Synth 8-3491] module 'switch_manager' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/switch_manager.vhd:4' bound to instance 'i_sw_man' of component 'switch_manager' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:311]
+INFO: [Synth 8-3491] module 'switch_manager' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/switch_manager.vhd:4' bound to instance 'i_sw_man' of component 'switch_manager' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:315]
 INFO: [Synth 8-638] synthesizing module 'switch_manager' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/switch_manager.vhd:12]
 	Parameter WAIT_CYCLES bound to: 2000000 - type: integer 
 INFO: [Synth 8-3491] module 'debouncer' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/debouncer.vhd:5' bound to instance 'debouncer_inst' of component 'debouncer' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/switch_manager.vhd:29]
@@ -122,7 +122,7 @@ INFO: [Synth 8-3491] module 'debouncer' declared at 'C:/Users/frabo/a/Programmin
 	Parameter WAIT_CYCLES bound to: 2000000 - type: integer 
 INFO: [Synth 8-3491] module 'debouncer' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/debouncer.vhd:5' bound to instance 'debouncer_inst' of component 'debouncer' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/switch_manager.vhd:29]
 INFO: [Synth 8-256] done synthesizing module 'switch_manager' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/switch_manager.vhd:12]
-INFO: [Synth 8-3491] module 'oled_ctrl' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_ctrl.vhd:12' bound to instance 'i_oled' of component 'oled_ctrl' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:318]
+INFO: [Synth 8-3491] module 'oled_ctrl' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_ctrl.vhd:12' bound to instance 'i_oled' of component 'oled_ctrl' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:322]
 INFO: [Synth 8-638] synthesizing module 'oled_ctrl' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_ctrl.vhd:25]
 INFO: [Synth 8-3491] module 'oled_init' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_init.vhd:13' bound to instance 'Initialize' of component 'oled_init' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_ctrl.vhd:97]
 INFO: [Synth 8-638] synthesizing module 'oled_init' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_init.vhd:27]
@@ -142,18 +142,18 @@ INFO: [Synth 8-638] synthesizing module 'ascii_rom' [C:/Users/frabo/a/Programmin
 INFO: [Synth 8-256] done synthesizing module 'ascii_rom' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/ascii_rom.vhd:19]
 INFO: [Synth 8-256] done synthesizing module 'oled_writer' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_writer.vhd:27]
 INFO: [Synth 8-256] done synthesizing module 'oled_ctrl' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_ctrl.vhd:25]
-INFO: [Synth 8-3491] module 'sm_control' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/motor/stepper_motor.vhd:20' bound to instance 'i_motor' of component 'sm_control' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:330]
+INFO: [Synth 8-3491] module 'sm_control' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/motor/stepper_motor.vhd:20' bound to instance 'i_motor' of component 'sm_control' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:334]
 INFO: [Synth 8-638] synthesizing module 'sm_control' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/motor/stepper_motor.vhd:39]
 INFO: [Synth 8-256] done synthesizing module 'sm_control' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/motor/stepper_motor.vhd:39]
-INFO: [Synth 8-3491] module 'fft_top' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:5' bound to instance 'i_fft' of component 'fft_top' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:347]
+INFO: [Synth 8-3491] module 'fft_top' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:5' bound to instance 'i_fft' of component 'fft_top' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:351]
 INFO: [Synth 8-638] synthesizing module 'fft_top' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:22]
 INFO: [Synth 8-3491] module 'integrate_and_dump' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/integrate_and_dump.vhd:5' bound to instance 'U_DOWNSAMPLE' of component 'integrate_and_dump' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:120]
 INFO: [Synth 8-638] synthesizing module 'integrate_and_dump' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/integrate_and_dump.vhd:20]
 INFO: [Synth 8-256] done synthesizing module 'integrate_and_dump' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/integrate_and_dump.vhd:20]
 INFO: [Synth 8-3491] module 'fft_ping_pong' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_ping_pong.vhd:5' bound to instance 'U_BUFFER' of component 'fft_ping_pong' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:128]
 INFO: [Synth 8-638] synthesizing module 'fft_ping_pong' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_ping_pong.vhd:18]
-INFO: [Synth 8-3491] module 'blk_mem_gen_0' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-15728-Aloy/realtime/blk_mem_gen_0_stub.vhdl:6' bound to instance 'your_bram_inst' of component 'blk_mem_gen_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_ping_pong.vhd:50]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-15728-Aloy/realtime/blk_mem_gen_0_stub.vhdl:25]
+INFO: [Synth 8-3491] module 'blk_mem_gen_0' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-8016-Aloy/realtime/blk_mem_gen_0_stub.vhdl:6' bound to instance 'your_bram_inst' of component 'blk_mem_gen_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_ping_pong.vhd:50]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-8016-Aloy/realtime/blk_mem_gen_0_stub.vhdl:25]
 INFO: [Synth 8-256] done synthesizing module 'fft_ping_pong' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_ping_pong.vhd:18]
 WARNING: [Synth 8-5640] Port 'm_axis_data_tuser' is missing in component declaration [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:85]
 WARNING: [Synth 8-5640] Port 'event_tlast_unexpected' is missing in component declaration [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:85]
@@ -161,30 +161,30 @@ WARNING: [Synth 8-5640] Port 'event_tlast_missing' is missing in component decla
 WARNING: [Synth 8-5640] Port 'event_status_channel_halt' is missing in component declaration [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:85]
 WARNING: [Synth 8-5640] Port 'event_data_in_channel_halt' is missing in component declaration [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:85]
 WARNING: [Synth 8-5640] Port 'event_data_out_channel_halt' is missing in component declaration [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:85]
-INFO: [Synth 8-3491] module 'xfft_0' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-15728-Aloy/realtime/xfft_0_stub.vhdl:6' bound to instance 'U_FFT' of component 'xfft_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:139]
-INFO: [Synth 8-638] synthesizing module 'xfft_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-15728-Aloy/realtime/xfft_0_stub.vhdl:38]
+INFO: [Synth 8-3491] module 'xfft_0' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-8016-Aloy/realtime/xfft_0_stub.vhdl:6' bound to instance 'U_FFT' of component 'xfft_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:139]
+INFO: [Synth 8-638] synthesizing module 'xfft_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-8016-Aloy/realtime/xfft_0_stub.vhdl:38]
 INFO: [Synth 8-3491] module 'smart_peak_finder' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/smart_peak_finder.vhd:5' bound to instance 'U_PEAK_FINDER' of component 'smart_peak_finder' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:159]
 INFO: [Synth 8-638] synthesizing module 'smart_peak_finder' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/smart_peak_finder.vhd:21]
 INFO: [Synth 8-256] done synthesizing module 'smart_peak_finder' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/smart_peak_finder.vhd:21]
 INFO: [Synth 8-256] done synthesizing module 'fft_top' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:22]
-INFO: [Synth 8-113] binding component instance 'BUFG_inst' to cell 'BUFG' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:362]
-INFO: [Synth 8-256] done synthesizing module 'audio_testbench' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:39]
-WARNING: [Synth 8-6014] Unused sequential element hphone_r_reg was removed.  [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:214]
+INFO: [Synth 8-113] binding component instance 'BUFG_inst' to cell 'BUFG' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:366]
+INFO: [Synth 8-256] done synthesizing module 'audio_testbench' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:42]
+WARNING: [Synth 8-6014] Unused sequential element hphone_r_reg was removed.  [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:218]
 WARNING: [Synth 8-7129] Port addr[10] in module ascii_rom is either unconnected or has no load
 WARNING: [Synth 8-7129] Port hphone_r_valid_dummy in module audio_top is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1164.090 ; gain = 627.727
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1165.266 ; gain = 627.555
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1164.090 ; gain = 627.727
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1165.266 ; gain = 627.555
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1164.090 ; gain = 627.727
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1165.266 ; gain = 627.555
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.040 . Memory (MB): peak = 1164.090 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.041 . Memory (MB): peak = 1165.266 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 3 Unisim elements for replacement
 WARNING: [Netlist 29-432] The IBUFG primitive 'i_audio/i_clocking/clkin1_buf' has been retargeted to an IBUF primitive only. No BUFG will be added. If a global buffer is intended, please instantiate an available global clock primitive from the current architecture.
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -198,32 +198,32 @@ Parsing XDC File [c:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.gen/so
 Finished Parsing XDC File [c:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.gen/sources_1/ip/xfft_0/xfft_0/xfft_0_in_context.xdc] for cell 'i_fft/U_FFT'
 Parsing XDC File [C:/Users/frabo/a/Programming/Vivado/speaker_3/constraints/zed_audio.xdc]
 INFO: [Timing 38-2] Deriving generated clocks [C:/Users/frabo/a/Programming/Vivado/speaker_3/constraints/zed_audio.xdc:4]
-WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 34]]'. [C:/Users/frabo/a/Programming/Vivado/speaker_3/constraints/zed_audio.xdc:95]
-WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 13]]'. [C:/Users/frabo/a/Programming/Vivado/speaker_3/constraints/zed_audio.xdc:96]
+WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 34]]'. [C:/Users/frabo/a/Programming/Vivado/speaker_3/constraints/zed_audio.xdc:104]
+WARNING: [Vivado 12-584] No ports matched '[get_ports -of_objects [get_iobanks 13]]'. [C:/Users/frabo/a/Programming/Vivado/speaker_3/constraints/zed_audio.xdc:105]
 Finished Parsing XDC File [C:/Users/frabo/a/Programming/Vivado/speaker_3/constraints/zed_audio.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/frabo/a/Programming/Vivado/speaker_3/constraints/zed_audio.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/audio_testbench_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/audio_testbench_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1246.812 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1249.797 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 2 instances were transformed.
   IBUFG => IBUF: 1 instance 
   IOBUF => IOBUF (IBUF, OBUFT): 1 instance 
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1246.812 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.019 . Memory (MB): peak = 1249.797 ; gain = 0.000
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'i_fft/U_BUFFER/your_bram_inst' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1246.812 ; gain = 710.449
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1249.797 ; gain = 712.086
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1246.812 ; gain = 710.449
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1249.797 ; gain = 712.086
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -231,7 +231,7 @@ Start Applying 'set_property' XDC Constraints
 Applied set_property KEEP_HIERARCHY = SOFT for i_fft/U_BUFFER/your_bram_inst. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for i_fft/U_FFT. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1246.812 ; gain = 710.449
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1249.797 ; gain = 712.086
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'i3c2'
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'spi_ctrl'
@@ -281,7 +281,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using e
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'smart_peak_finder'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1246.812 ; gain = 710.449
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1249.797 ; gain = 712.086
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -290,7 +290,7 @@ Detailed RTL Component Info :
 +---Adders : 
 	   2 Input   48 Bit       Adders := 1     
 	   2 Input   28 Bit       Adders := 1     
-	   2 Input   16 Bit       Adders := 3     
+	   2 Input   16 Bit       Adders := 2     
 	   2 Input   13 Bit       Adders := 3     
 	   2 Input   10 Bit       Adders := 2     
 	   2 Input    8 Bit       Adders := 1     
@@ -309,7 +309,7 @@ Detailed RTL Component Info :
 	               28 Bit    Registers := 1     
 	               24 Bit    Registers := 7     
 	               20 Bit    Registers := 1     
-	               16 Bit    Registers := 9     
+	               16 Bit    Registers := 8     
 	               13 Bit    Registers := 7     
 	               12 Bit    Registers := 1     
 	               11 Bit    Registers := 1     
@@ -364,11 +364,11 @@ Detailed RTL Component Info :
 	   3 Input    3 Bit        Muxes := 1     
 	  31 Input    2 Bit        Muxes := 1     
 	   2 Input    2 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 79    
+	   2 Input    1 Bit        Muxes := 80    
 	  13 Input    1 Bit        Muxes := 6     
 	  14 Input    1 Bit        Muxes := 2     
 	   5 Input    1 Bit        Muxes := 24    
-	   3 Input    1 Bit        Muxes := 16    
+	   3 Input    1 Bit        Muxes := 15    
 	  28 Input    1 Bit        Muxes := 9     
 	  31 Input    1 Bit        Muxes := 9     
 	   6 Input    1 Bit        Muxes := 2     
@@ -463,7 +463,7 @@ WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/hps_power_reg[19]) is 
 WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/hps_power_reg[18]) is unused and will be removed from module fft_top.
 WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/hps_power_reg[17]) is unused and will be removed from module fft_top.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1246.812 ; gain = 710.449
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 1249.797 ; gain = 712.086
 ---------------------------------------------------------------------------------
  Sort Area is  U_PEAK_FINDER/_0 : 0 0 : 3101 5754 : Used 1 time 0
  Sort Area is  U_PEAK_FINDER/_0 : 0 1 : 2653 5754 : Used 1 time 0
@@ -539,13 +539,13 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 1411.539 ; gain = 875.176
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 1419.301 ; gain = 881.590
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 1415.766 ; gain = 879.402
+Finished Timing Optimization : Time (s): cpu = 00:00:30 ; elapsed = 00:00:34 . Memory (MB): peak = 1423.945 ; gain = 886.234
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -573,7 +573,7 @@ INFO: [Synth 8-7052] The timing for the instance i_fft/U_PEAK_FINDER/bram1_reg_1
 INFO: [Synth 8-7052] The timing for the instance i_fft/U_PEAK_FINDER/bram3_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance i_fft/U_PEAK_FINDER/bram2_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 1444.395 ; gain = 908.031
+Finished Technology Mapping : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 1452.586 ; gain = 914.875
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -591,37 +591,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1642.711 ; gain = 1106.348
+Finished IO Insertion : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 1650.418 ; gain = 1112.707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1642.711 ; gain = 1106.348
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 1650.418 ; gain = 1112.707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1642.711 ; gain = 1106.348
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:34 ; elapsed = 00:00:38 . Memory (MB): peak = 1650.418 ; gain = 1112.707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1642.711 ; gain = 1106.348
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:34 ; elapsed = 00:00:38 . Memory (MB): peak = 1650.418 ; gain = 1112.707
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1644.695 ; gain = 1108.332
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:34 ; elapsed = 00:00:38 . Memory (MB): peak = 1652.391 ; gain = 1114.680
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1644.695 ; gain = 1108.332
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:34 ; elapsed = 00:00:38 . Memory (MB): peak = 1652.391 ; gain = 1114.680
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -697,16 +697,16 @@ Report Cell Usage:
 |27    |IBUF               |    13|
 |28    |IBUFG              |     1|
 |29    |IOBUF              |     1|
-|30    |OBUF               |    19|
+|30    |OBUF               |    23|
 +------+-------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1644.695 ; gain = 1108.332
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:34 ; elapsed = 00:00:38 . Memory (MB): peak = 1652.391 ; gain = 1114.680
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 35 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:32 . Memory (MB): peak = 1644.695 ; gain = 1025.609
-Synthesis Optimization Complete : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1644.695 ; gain = 1108.332
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:35 . Memory (MB): peak = 1652.391 ; gain = 1030.148
+Synthesis Optimization Complete : Time (s): cpu = 00:00:34 ; elapsed = 00:00:38 . Memory (MB): peak = 1652.391 ; gain = 1114.680
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 1644.695 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.021 . Memory (MB): peak = 1652.391 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 201 Unisim elements for replacement
 WARNING: [Netlist 29-432] The IBUFG primitive 'i_audio/i_clocking/clkin1_buf' has been retargeted to an IBUF primitive only. No BUFG will be added. If a global buffer is intended, please instantiate an available global clock primitive from the current architecture.
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -714,17 +714,17 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. i_audio/i_clocking/clkin1_buf 
 Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1644.695 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1665.203 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 1 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 1 instance 
 
-Synth Design complete | Checksum: 868e2f16
+Synth Design complete | Checksum: e8fa956b
 INFO: [Common 17-83] Releasing license: Synthesis
 134 Infos, 51 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 1644.695 ; gain = 1346.535
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1644.695 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:38 ; elapsed = 00:00:44 . Memory (MB): peak = 1665.203 ; gain = 1366.395
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1665.203 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/audio_testbench.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file audio_testbench_utilization_synth.rpt -pb audio_testbench_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat May  2 19:20:08 2026...
+INFO: [Common 17-206] Exiting Vivado at Sat May  2 19:34:57 2026...
