@@ -8,7 +8,7 @@
   **** SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
   **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
   **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-  **** Start of session at: Sat May  2 19:34:09 2026
+  **** Start of session at: Sun May  3 16:27:30 2026
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 
@@ -25,9 +25,9 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 19864
+INFO: [Synth 8-7075] Helper process launched with PID 23544
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1006.293 ; gain = 468.582
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1004.434 ; gain = 469.344
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-9112] actual for formal port 's_axis_config_tvalid' is neither a static name nor a globally static expression [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:144]
 INFO: [Synth 8-638] synthesizing module 'audio_testbench' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:42]
@@ -143,8 +143,8 @@ INFO: [Synth 8-638] synthesizing module 'integrate_and_dump' [C:/Users/frabo/a/P
 INFO: [Synth 8-256] done synthesizing module 'integrate_and_dump' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/integrate_and_dump.vhd:20]
 INFO: [Synth 8-3491] module 'fft_ping_pong' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_ping_pong.vhd:5' bound to instance 'U_BUFFER' of component 'fft_ping_pong' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:128]
 INFO: [Synth 8-638] synthesizing module 'fft_ping_pong' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_ping_pong.vhd:18]
-INFO: [Synth 8-3491] module 'blk_mem_gen_0' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-8016-Aloy/realtime/blk_mem_gen_0_stub.vhdl:6' bound to instance 'your_bram_inst' of component 'blk_mem_gen_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_ping_pong.vhd:50]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-8016-Aloy/realtime/blk_mem_gen_0_stub.vhdl:25]
+INFO: [Synth 8-3491] module 'blk_mem_gen_0' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-22500-Aloy/realtime/blk_mem_gen_0_stub.vhdl:6' bound to instance 'your_bram_inst' of component 'blk_mem_gen_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_ping_pong.vhd:50]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-22500-Aloy/realtime/blk_mem_gen_0_stub.vhdl:25]
 INFO: [Synth 8-256] done synthesizing module 'fft_ping_pong' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_ping_pong.vhd:18]
 WARNING: [Synth 8-5640] Port 'm_axis_data_tuser' is missing in component declaration [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:85]
 WARNING: [Synth 8-5640] Port 'event_tlast_unexpected' is missing in component declaration [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:85]
@@ -152,8 +152,8 @@ WARNING: [Synth 8-5640] Port 'event_tlast_missing' is missing in component decla
 WARNING: [Synth 8-5640] Port 'event_status_channel_halt' is missing in component declaration [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:85]
 WARNING: [Synth 8-5640] Port 'event_data_in_channel_halt' is missing in component declaration [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:85]
 WARNING: [Synth 8-5640] Port 'event_data_out_channel_halt' is missing in component declaration [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:85]
-INFO: [Synth 8-3491] module 'xfft_0' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-8016-Aloy/realtime/xfft_0_stub.vhdl:6' bound to instance 'U_FFT' of component 'xfft_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:139]
-INFO: [Synth 8-638] synthesizing module 'xfft_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-8016-Aloy/realtime/xfft_0_stub.vhdl:38]
+INFO: [Synth 8-3491] module 'xfft_0' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-22500-Aloy/realtime/xfft_0_stub.vhdl:6' bound to instance 'U_FFT' of component 'xfft_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:139]
+INFO: [Synth 8-638] synthesizing module 'xfft_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-22500-Aloy/realtime/xfft_0_stub.vhdl:38]
 INFO: [Synth 8-3491] module 'smart_peak_finder' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/smart_peak_finder.vhd:5' bound to instance 'U_PEAK_FINDER' of component 'smart_peak_finder' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:159]
 INFO: [Synth 8-638] synthesizing module 'smart_peak_finder' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/smart_peak_finder.vhd:21]
 INFO: [Synth 8-256] done synthesizing module 'smart_peak_finder' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/smart_peak_finder.vhd:21]
@@ -164,18 +164,18 @@ WARNING: [Synth 8-6014] Unused sequential element hphone_r_reg was removed.  [C:
 WARNING: [Synth 8-7129] Port addr[10] in module ascii_rom is either unconnected or has no load
 WARNING: [Synth 8-7129] Port hphone_r_valid_dummy in module audio_top is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1165.266 ; gain = 627.555
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1163.441 ; gain = 628.352
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1165.266 ; gain = 627.555
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1163.441 ; gain = 628.352
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1165.266 ; gain = 627.555
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1163.441 ; gain = 628.352
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.041 . Memory (MB): peak = 1165.266 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.039 . Memory (MB): peak = 1163.441 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 3 Unisim elements for replacement
 WARNING: [Netlist 29-432] The IBUFG primitive 'i_audio/i_clocking/clkin1_buf' has been retargeted to an IBUF primitive only. No BUFG will be added. If a global buffer is intended, please instantiate an available global clock primitive from the current architecture.
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -196,25 +196,25 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/audio_testbench_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1249.797 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1258.941 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 2 instances were transformed.
   IBUFG => IBUF: 1 instance 
   IOBUF => IOBUF (IBUF, OBUFT): 1 instance 
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.019 . Memory (MB): peak = 1249.797 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 1258.941 ; gain = 0.000
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'i_fft/U_BUFFER/your_bram_inst' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1249.797 ; gain = 712.086
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1258.941 ; gain = 723.852
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1249.797 ; gain = 712.086
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1258.941 ; gain = 723.852
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -222,7 +222,7 @@ Start Applying 'set_property' XDC Constraints
 Applied set_property KEEP_HIERARCHY = SOFT for i_fft/U_BUFFER/your_bram_inst. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for i_fft/U_FFT. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1249.797 ; gain = 712.086
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1258.941 ; gain = 723.852
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'i3c2'
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'spi_ctrl'
@@ -272,14 +272,14 @@ INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using e
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'smart_peak_finder'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1249.797 ; gain = 712.086
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1258.941 ; gain = 723.852
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input   48 Bit       Adders := 1     
+	   2 Input   64 Bit       Adders := 1     
 	   2 Input   28 Bit       Adders := 1     
 	   2 Input   16 Bit       Adders := 2     
 	   2 Input   13 Bit       Adders := 3     
@@ -294,21 +294,21 @@ Detailed RTL Component Info :
 	   2 Input      1 Bit         XORs := 1     
 +---Registers : 
 	              127 Bit    Registers := 1     
-	               64 Bit    Registers := 1     
+	               64 Bit    Registers := 4     
 	               48 Bit    Registers := 2     
-	               32 Bit    Registers := 1     
+	               32 Bit    Registers := 3     
 	               28 Bit    Registers := 1     
 	               24 Bit    Registers := 7     
 	               20 Bit    Registers := 1     
 	               16 Bit    Registers := 8     
-	               13 Bit    Registers := 7     
+	               13 Bit    Registers := 10    
 	               12 Bit    Registers := 1     
 	               11 Bit    Registers := 1     
 	               10 Bit    Registers := 3     
 	                9 Bit    Registers := 2     
 	                8 Bit    Registers := 85    
 	                5 Bit    Registers := 10    
-	                4 Bit    Registers := 7     
+	                4 Bit    Registers := 9     
 	                2 Bit    Registers := 2     
 	                1 Bit    Registers := 70    
 +---Multipliers : 
@@ -323,15 +323,13 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   2 Input   64 Bit        Muxes := 1     
 	   3 Input   48 Bit        Muxes := 1     
-	   2 Input   32 Bit        Muxes := 1     
 	   2 Input   24 Bit        Muxes := 1     
 	   2 Input   16 Bit        Muxes := 3     
 	  13 Input   16 Bit        Muxes := 1     
 	   5 Input   16 Bit        Muxes := 2     
 	   2 Input   15 Bit        Muxes := 13    
-	   3 Input   13 Bit        Muxes := 1     
+	   3 Input   13 Bit        Muxes := 5     
 	  31 Input   12 Bit        Muxes := 1     
-	   2 Input   12 Bit        Muxes := 2     
 	   2 Input   10 Bit        Muxes := 5     
 	  13 Input   10 Bit        Muxes := 1     
 	   5 Input   10 Bit        Muxes := 1     
@@ -355,7 +353,7 @@ Detailed RTL Component Info :
 	   3 Input    3 Bit        Muxes := 1     
 	  31 Input    2 Bit        Muxes := 1     
 	   2 Input    2 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 80    
+	   2 Input    1 Bit        Muxes := 81    
 	  13 Input    1 Bit        Muxes := 6     
 	  14 Input    1 Bit        Muxes := 2     
 	   5 Input    1 Bit        Muxes := 24    
@@ -381,30 +379,6 @@ Start Cross Boundary and Area Optimization
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 WARNING: [Synth 8-6040] Register Inst_adau1761_izedboard/Inst_i2c/Inst_i3c2/pcnext_reg_rep driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.
 WARNING: [Synth 8-6040] Register temp_addr_reg driving address of a ROM cannot be packed in BRAM/URAM because of presence of initial value.
-DSP Report: Generating DSP U_PEAK_FINDER/, operation Mode is: A*B.
-DSP Report: operator U_PEAK_FINDER/ is absorbed into DSP U_PEAK_FINDER/.
-DSP Report: operator U_PEAK_FINDER/ is absorbed into DSP U_PEAK_FINDER/.
-DSP Report: Generating DSP U_PEAK_FINDER/, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator U_PEAK_FINDER/ is absorbed into DSP U_PEAK_FINDER/.
-DSP Report: operator U_PEAK_FINDER/ is absorbed into DSP U_PEAK_FINDER/.
-DSP Report: Generating DSP U_PEAK_FINDER/, operation Mode is: A*B.
-DSP Report: operator U_PEAK_FINDER/ is absorbed into DSP U_PEAK_FINDER/.
-DSP Report: operator U_PEAK_FINDER/ is absorbed into DSP U_PEAK_FINDER/.
-DSP Report: Generating DSP U_PEAK_FINDER/, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator U_PEAK_FINDER/ is absorbed into DSP U_PEAK_FINDER/.
-DSP Report: operator U_PEAK_FINDER/ is absorbed into DSP U_PEAK_FINDER/.
-DSP Report: Generating DSP U_PEAK_FINDER/, operation Mode is: A*B.
-DSP Report: operator U_PEAK_FINDER/ is absorbed into DSP U_PEAK_FINDER/.
-DSP Report: operator U_PEAK_FINDER/ is absorbed into DSP U_PEAK_FINDER/.
-DSP Report: Generating DSP U_PEAK_FINDER/, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator U_PEAK_FINDER/ is absorbed into DSP U_PEAK_FINDER/.
-DSP Report: operator U_PEAK_FINDER/ is absorbed into DSP U_PEAK_FINDER/.
-DSP Report: Generating DSP U_PEAK_FINDER/, operation Mode is: A*B.
-DSP Report: operator U_PEAK_FINDER/ is absorbed into DSP U_PEAK_FINDER/.
-DSP Report: operator U_PEAK_FINDER/ is absorbed into DSP U_PEAK_FINDER/.
-DSP Report: Generating DSP U_PEAK_FINDER/, operation Mode is: (PCIN>>17)+A*B.
-DSP Report: operator U_PEAK_FINDER/ is absorbed into DSP U_PEAK_FINDER/.
-DSP Report: operator U_PEAK_FINDER/ is absorbed into DSP U_PEAK_FINDER/.
 DSP Report: Generating DSP U_PEAK_FINDER/mult_stage_1_reg, operation Mode is: (A*B)'.
 DSP Report: register U_PEAK_FINDER/mult_stage_1_reg is absorbed into DSP U_PEAK_FINDER/mult_stage_1_reg.
 DSP Report: operator P0 is absorbed into DSP U_PEAK_FINDER/mult_stage_1_reg.
@@ -417,6 +391,42 @@ DSP Report: register U_PEAK_FINDER/hps_power_reg is absorbed into DSP U_PEAK_FIN
 DSP Report: register U_PEAK_FINDER/hps_power_reg is absorbed into DSP U_PEAK_FINDER/hps_power_reg.
 DSP Report: operator U_PEAK_FINDER/ is absorbed into DSP U_PEAK_FINDER/hps_power_reg.
 DSP Report: operator U_PEAK_FINDER/ is absorbed into DSP U_PEAK_FINDER/hps_power_reg.
+DSP Report: Generating DSP U_PEAK_FINDER/imag_sq0, operation Mode is: A2*B.
+DSP Report: register U_PEAK_FINDER/imag_sq0 is absorbed into DSP U_PEAK_FINDER/imag_sq0.
+DSP Report: operator U_PEAK_FINDER/imag_sq0 is absorbed into DSP U_PEAK_FINDER/imag_sq0.
+DSP Report: operator U_PEAK_FINDER/imag_sq0 is absorbed into DSP U_PEAK_FINDER/imag_sq0.
+DSP Report: Generating DSP U_PEAK_FINDER/imag_sq_reg, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register U_PEAK_FINDER/imag_sq_reg is absorbed into DSP U_PEAK_FINDER/imag_sq_reg.
+DSP Report: operator U_PEAK_FINDER/imag_sq0 is absorbed into DSP U_PEAK_FINDER/imag_sq_reg.
+DSP Report: operator U_PEAK_FINDER/imag_sq0 is absorbed into DSP U_PEAK_FINDER/imag_sq_reg.
+DSP Report: Generating DSP U_PEAK_FINDER/imag_sq0, operation Mode is: A2*B2.
+DSP Report: register U_PEAK_FINDER/imag_sq0 is absorbed into DSP U_PEAK_FINDER/imag_sq0.
+DSP Report: register U_PEAK_FINDER/imag_sq0 is absorbed into DSP U_PEAK_FINDER/imag_sq0.
+DSP Report: operator U_PEAK_FINDER/imag_sq0 is absorbed into DSP U_PEAK_FINDER/imag_sq0.
+DSP Report: operator U_PEAK_FINDER/imag_sq0 is absorbed into DSP U_PEAK_FINDER/imag_sq0.
+DSP Report: Generating DSP U_PEAK_FINDER/imag_sq_reg, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register U_PEAK_FINDER/imag_sq_reg is absorbed into DSP U_PEAK_FINDER/imag_sq_reg.
+DSP Report: register U_PEAK_FINDER/imag_sq_reg is absorbed into DSP U_PEAK_FINDER/imag_sq_reg.
+DSP Report: operator U_PEAK_FINDER/imag_sq0 is absorbed into DSP U_PEAK_FINDER/imag_sq_reg.
+DSP Report: operator U_PEAK_FINDER/imag_sq0 is absorbed into DSP U_PEAK_FINDER/imag_sq_reg.
+DSP Report: Generating DSP U_PEAK_FINDER/real_sq0, operation Mode is: A2*B.
+DSP Report: register U_PEAK_FINDER/real_sq0 is absorbed into DSP U_PEAK_FINDER/real_sq0.
+DSP Report: operator U_PEAK_FINDER/real_sq0 is absorbed into DSP U_PEAK_FINDER/real_sq0.
+DSP Report: operator U_PEAK_FINDER/real_sq0 is absorbed into DSP U_PEAK_FINDER/real_sq0.
+DSP Report: Generating DSP U_PEAK_FINDER/real_sq_reg, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: register U_PEAK_FINDER/real_sq_reg is absorbed into DSP U_PEAK_FINDER/real_sq_reg.
+DSP Report: operator U_PEAK_FINDER/real_sq0 is absorbed into DSP U_PEAK_FINDER/real_sq_reg.
+DSP Report: operator U_PEAK_FINDER/real_sq0 is absorbed into DSP U_PEAK_FINDER/real_sq_reg.
+DSP Report: Generating DSP U_PEAK_FINDER/real_sq0, operation Mode is: A2*B2.
+DSP Report: register U_PEAK_FINDER/real_sq0 is absorbed into DSP U_PEAK_FINDER/real_sq0.
+DSP Report: register U_PEAK_FINDER/real_sq0 is absorbed into DSP U_PEAK_FINDER/real_sq0.
+DSP Report: operator U_PEAK_FINDER/real_sq0 is absorbed into DSP U_PEAK_FINDER/real_sq0.
+DSP Report: operator U_PEAK_FINDER/real_sq0 is absorbed into DSP U_PEAK_FINDER/real_sq0.
+DSP Report: Generating DSP U_PEAK_FINDER/real_sq_reg, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register U_PEAK_FINDER/real_sq_reg is absorbed into DSP U_PEAK_FINDER/real_sq_reg.
+DSP Report: register U_PEAK_FINDER/real_sq_reg is absorbed into DSP U_PEAK_FINDER/real_sq_reg.
+DSP Report: operator U_PEAK_FINDER/real_sq0 is absorbed into DSP U_PEAK_FINDER/real_sq_reg.
+DSP Report: operator U_PEAK_FINDER/real_sq0 is absorbed into DSP U_PEAK_FINDER/real_sq_reg.
 DSP Report: Generating DSP freq_scaled_reg, operation Mode is: ((A:0x9600)*B2)'.
 DSP Report: register U_PEAK_FINDER/peak_bin_index_reg is absorbed into DSP freq_scaled_reg.
 DSP Report: register freq_scaled_reg is absorbed into DSP freq_scaled_reg.
@@ -453,20 +463,90 @@ WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/hps_power_reg[20]) is 
 WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/hps_power_reg[19]) is unused and will be removed from module fft_top.
 WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/hps_power_reg[18]) is unused and will be removed from module fft_top.
 WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/hps_power_reg[17]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[47]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[46]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[45]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[44]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[43]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[42]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[41]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[40]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[39]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[38]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[37]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[36]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[35]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[34]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[33]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[32]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[31]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[30]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[29]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[28]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[27]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[26]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[25]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[24]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[23]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[22]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[21]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[20]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[19]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[18]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[17]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[47]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[46]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[45]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[44]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[43]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[42]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[41]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[40]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[39]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[38]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[37]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[36]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[35]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[34]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[33]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[32]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[31]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[30]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[29]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[28]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[27]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[26]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[25]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[24]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[23]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[22]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[21]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[20]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[19]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[18]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/imag_sq_reg[17]__0) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/real_sq_reg[47]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/real_sq_reg[46]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/real_sq_reg[45]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/real_sq_reg[44]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/real_sq_reg[43]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/real_sq_reg[42]) is unused and will be removed from module fft_top.
+WARNING: [Synth 8-3332] Sequential element (U_PEAK_FINDER/real_sq_reg[41]) is unused and will be removed from module fft_top.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:26 . Memory (MB): peak = 1249.797 ; gain = 712.086
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 1258.941 ; gain = 723.852
 ---------------------------------------------------------------------------------
- Sort Area is  U_PEAK_FINDER/_0 : 0 0 : 3101 5754 : Used 1 time 0
- Sort Area is  U_PEAK_FINDER/_0 : 0 1 : 2653 5754 : Used 1 time 0
- Sort Area is  U_PEAK_FINDER/_6 : 0 0 : 3101 5754 : Used 1 time 0
- Sort Area is  U_PEAK_FINDER/_6 : 0 1 : 2653 5754 : Used 1 time 0
- Sort Area is  U_PEAK_FINDER/_3 : 0 0 : 2634 5119 : Used 1 time 0
- Sort Area is  U_PEAK_FINDER/_3 : 0 1 : 2485 5119 : Used 1 time 0
- Sort Area is  U_PEAK_FINDER/_7 : 0 0 : 2634 5119 : Used 1 time 0
- Sort Area is  U_PEAK_FINDER/_7 : 0 1 : 2485 5119 : Used 1 time 0
- Sort Area is  U_PEAK_FINDER/_a : 0 0 : 2605 4923 : Used 1 time 0
- Sort Area is  U_PEAK_FINDER/_a : 0 1 : 2318 4923 : Used 1 time 0
- Sort Area is  U_PEAK_FINDER/mult_stage_1_reg_8 : 0 0 : 1978 1978 : Used 1 time 0
+ Sort Area is  U_PEAK_FINDER/imag_sq0_b : 0 0 : 3137 5856 : Used 1 time 0
+ Sort Area is  U_PEAK_FINDER/imag_sq0_b : 0 1 : 2719 5856 : Used 1 time 0
+ Sort Area is  U_PEAK_FINDER/real_sq0_5 : 0 0 : 3137 5856 : Used 1 time 0
+ Sort Area is  U_PEAK_FINDER/real_sq0_5 : 0 1 : 2719 5856 : Used 1 time 0
+ Sort Area is  U_PEAK_FINDER/imag_sq0_c : 0 0 : 2652 5185 : Used 1 time 0
+ Sort Area is  U_PEAK_FINDER/imag_sq0_c : 0 1 : 2533 5185 : Used 1 time 0
+ Sort Area is  U_PEAK_FINDER/real_sq0_8 : 0 0 : 2652 5185 : Used 1 time 0
+ Sort Area is  U_PEAK_FINDER/real_sq0_8 : 0 1 : 2533 5185 : Used 1 time 0
+ Sort Area is  U_PEAK_FINDER/_2 : 0 0 : 2605 4923 : Used 1 time 0
+ Sort Area is  U_PEAK_FINDER/_2 : 0 1 : 2318 4923 : Used 1 time 0
+ Sort Area is  U_PEAK_FINDER/mult_stage_1_reg_0 : 0 0 : 1978 1978 : Used 1 time 0
  Sort Area is  freq_scaled_reg_d : 0 0 : 541 541 : Used 1 time 0
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -508,17 +588,17 @@ DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding R
 +------------------+------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 |Module Name       | DSP Mapping      | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
 +------------------+------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|fft_top           | A*B              | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fft_top           | (PCIN>>17)+A*B   | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fft_top           | A*B              | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fft_top           | (PCIN>>17)+A*B   | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fft_top           | A*B              | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fft_top           | (PCIN>>17)+A*B   | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fft_top           | A*B              | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fft_top           | (PCIN>>17)+A*B   | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
 |smart_peak_finder | (A*B)'           | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 1    | 0    | 
 |fft_top           | A*B2             | 18     | 17     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
 |fft_top           | (PCIN>>17)+A2*B  | 17     | 16     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|fft_top           | A2*B             | 18     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|fft_top           | (PCIN>>17)+A*B   | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|fft_top           | A2*B2            | 18     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|fft_top           | (PCIN>>17)+A2*B  | 18     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|fft_top           | A2*B             | 18     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|fft_top           | (PCIN>>17)+A*B   | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|fft_top           | A2*B2            | 18     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|fft_top           | (PCIN>>17)+A2*B  | 18     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 1    | 
 |fft_top           | ((A:0x9600)*B2)' | 13     | 16     | -      | -      | 29     | 1    | 0    | -    | -    | -     | 1    | 0    | 
 +------------------+------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 
@@ -530,13 +610,13 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 1419.301 ; gain = 881.590
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 1412.773 ; gain = 877.684
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:30 ; elapsed = 00:00:34 . Memory (MB): peak = 1423.945 ; gain = 886.234
+Finished Timing Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:30 . Memory (MB): peak = 1419.840 ; gain = 884.750
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -564,7 +644,7 @@ INFO: [Synth 8-7052] The timing for the instance i_fft/U_PEAK_FINDER/bram1_reg_1
 INFO: [Synth 8-7052] The timing for the instance i_fft/U_PEAK_FINDER/bram3_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance i_fft/U_PEAK_FINDER/bram2_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 1452.586 ; gain = 914.875
+Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 1451.520 ; gain = 916.430
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -582,37 +662,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 1650.418 ; gain = 1112.707
+Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1643.199 ; gain = 1108.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:34 ; elapsed = 00:00:37 . Memory (MB): peak = 1650.418 ; gain = 1112.707
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1643.199 ; gain = 1108.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:34 ; elapsed = 00:00:38 . Memory (MB): peak = 1650.418 ; gain = 1112.707
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1643.199 ; gain = 1108.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:34 ; elapsed = 00:00:38 . Memory (MB): peak = 1650.418 ; gain = 1112.707
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1643.199 ; gain = 1108.109
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:34 ; elapsed = 00:00:38 . Memory (MB): peak = 1652.391 ; gain = 1114.680
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1646.129 ; gain = 1111.039
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:34 ; elapsed = 00:00:38 . Memory (MB): peak = 1652.391 ; gain = 1114.680
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1646.129 ; gain = 1111.039
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -625,6 +705,9 @@ Static Shift Register Report:
 |audio_testbench | i_audio/Inst_adau1761_izedboard/Inst_i2s_data_interface/bclk_delay_reg[1] | 6      | 1     | NO           | NO                 | YES               | 1      | 0       | 
 |audio_testbench | i_audio/sample_clk_48k_d3_48_reg                                          | 3      | 1     | NO           | NO                 | YES               | 1      | 0       | 
 |audio_testbench | i_audio/Inst_adau1761_izedboard/Inst_i2s_data_interface/sr_in_reg[71]     | 72     | 1     | NO           | NO                 | YES               | 0      | 3       | 
+|audio_testbench | i_fft/U_PEAK_FINDER/index_delay_reg[3][12]                                | 4      | 13    | YES          | NO                 | YES               | 13     | 0       | 
+|audio_testbench | i_fft/U_PEAK_FINDER/valid_delay_reg[3]                                    | 4      | 1     | YES          | NO                 | YES               | 1      | 0       | 
+|audio_testbench | i_fft/U_PEAK_FINDER/last_delay_reg[3]                                     | 4      | 1     | YES          | NO                 | YES               | 1      | 0       | 
 +----------------+---------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
 
 ---------------------------------------------------------------------------------
@@ -635,22 +718,22 @@ Start Writing Synthesis Report
 ---------------------------------------------------------------------------------
 
 DSP Final Report (the ' indicates corresponding REG is set)
-+------------------+------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name       | DSP Mapping      | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+------------------+------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|fft_top           | A*B              | 17     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fft_top           | (A'*B)'          | 13     | 16     | -      | -      | 29     | 1    | 0    | -    | -    | -     | 0    | 1    | 
-|fft_top           | PCIN>>17+A*B     | 30     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fft_top           | A*B              | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fft_top           | PCIN>>17+A*B     | 17     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fft_top           | A*B              | 17     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fft_top           | PCIN>>17+A*B     | 30     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fft_top           | A*B              | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|fft_top           | PCIN>>17+A*B     | 17     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|smart_peak_finder | (A*B)'           | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
-|fft_top           | A*B'             | 17     | 16     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
-|fft_top           | (PCIN>>17+A'*B)' | 16     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 1    | 
-+------------------+------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
++------------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name       | DSP Mapping       | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|fft_top           | A*B'              | 17     | 16     | -      | -      | 48     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|fft_top           | (A'*B)'           | 13     | 16     | -      | -      | 29     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|smart_peak_finder | (A*B)'            | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 0    | 1    | 
+|fft_top           | (PCIN>>17+A'*B)'  | 16     | 15     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 1    | 
+|fft_top           | A'*B'             | 17     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|fft_top           | (PCIN>>17+A'*B')' | 30     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 1    | 
+|fft_top           | A'*B'             | 17     | 17     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|fft_top           | (PCIN>>17+A'*B')' | 17     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 1    | 
+|fft_top           | A'*B'             | 17     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|fft_top           | (PCIN>>17+A'*B')' | 30     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 1    | 
+|fft_top           | A'*B'             | 17     | 17     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|fft_top           | (PCIN>>17+A'*B')' | 17     | 18     | -      | -      | 48     | 1    | 1    | -    | -    | -     | 0    | 1    | 
++------------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 
 
 Report BlackBoxes: 
@@ -668,54 +751,53 @@ Report Cell Usage:
 |1     |blk_mem_gen_0_bbox |     1|
 |2     |xfft_0_bbox        |     1|
 |3     |BUFG               |     2|
-|4     |CARRY4             |   169|
+|4     |CARRY4             |   187|
 |5     |DSP48E1            |    12|
-|10    |LUT1               |   102|
-|11    |LUT2               |   426|
-|12    |LUT3               |    99|
-|13    |LUT4               |   190|
-|14    |LUT5               |   110|
-|15    |LUT6               |   186|
-|16    |MMCME2_ADV         |     1|
-|17    |MUXF7              |    10|
-|18    |MUXF8              |     1|
+|11    |LUT1               |   104|
+|12    |LUT2               |   552|
+|13    |LUT3               |   114|
+|14    |LUT4               |   203|
+|15    |LUT5               |   131|
+|16    |LUT6               |   207|
+|17    |MMCME2_ADV         |     1|
+|18    |MUXF7              |    11|
 |19    |RAMB18E1           |     2|
 |21    |RAMB36E1           |     4|
-|23    |SRL16E             |     2|
+|23    |SRL16E             |    17|
 |24    |SRLC32E            |     3|
-|25    |FDRE               |  1002|
-|26    |FDSE               |    23|
+|25    |FDRE               |  1235|
+|26    |FDSE               |    26|
 |27    |IBUF               |    13|
 |28    |IBUFG              |     1|
 |29    |IOBUF              |     1|
 |30    |OBUF               |    23|
 +------+-------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:34 ; elapsed = 00:00:38 . Memory (MB): peak = 1652.391 ; gain = 1114.680
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1646.129 ; gain = 1111.039
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 35 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:35 . Memory (MB): peak = 1652.391 ; gain = 1030.148
-Synthesis Optimization Complete : Time (s): cpu = 00:00:34 ; elapsed = 00:00:38 . Memory (MB): peak = 1652.391 ; gain = 1114.680
+Synthesis finished with 0 errors, 0 critical warnings and 159 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:26 ; elapsed = 00:00:33 . Memory (MB): peak = 1646.129 ; gain = 1015.539
+Synthesis Optimization Complete : Time (s): cpu = 00:00:33 ; elapsed = 00:00:36 . Memory (MB): peak = 1646.129 ; gain = 1111.039
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.021 . Memory (MB): peak = 1652.391 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 201 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 1646.129 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 219 Unisim elements for replacement
 WARNING: [Netlist 29-432] The IBUFG primitive 'i_audio/i_clocking/clkin1_buf' has been retargeted to an IBUF primitive only. No BUFG will be added. If a global buffer is intended, please instantiate an available global clock primitive from the current architecture.
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. i_audio/i_clocking/clkin1_buf 
 Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1665.203 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1646.129 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 1 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 1 instance 
 
-Synth Design complete | Checksum: e8fa956b
+Synth Design complete | Checksum: 4869ed9d
 INFO: [Common 17-83] Releasing license: Synthesis
-134 Infos, 51 Warnings, 0 Critical Warnings and 0 Errors encountered.
+135 Infos, 120 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:38 ; elapsed = 00:00:44 . Memory (MB): peak = 1665.203 ; gain = 1366.395
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1665.203 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:37 ; elapsed = 00:00:42 . Memory (MB): peak = 1646.129 ; gain = 1348.078
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1646.129 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/audio_testbench.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file audio_testbench_utilization_synth.rpt -pb audio_testbench_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat May  2 19:34:57 2026...
+INFO: [Common 17-206] Exiting Vivado at Sun May  3 16:28:15 2026...

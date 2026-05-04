@@ -39,11 +39,17 @@ architecture Behavioral of smart_peak_finder is
     attribute ram_style of bram3 : signal is "block";
 
     -- FFT Unpacking & Power Calculation Signals
-    signal fft_valid : std_logic := '0';
     signal fft_bin_index : unsigned(12 downto 0) := (others => '0');
-    signal real_part, imag_part : signed(31 downto 0);
-    signal pwr_full : unsigned(63 downto 0);
-    signal pwr_val_16 : unsigned(15 downto 0);
+    signal real_part, imag_part : signed(31 downto 0) := (others => '0');
+    signal real_sq, imag_sq : signed(63 downto 0) := (others => '0');
+    signal pwr_full : unsigned(63 downto 0) := (others => '0');
+    signal pwr_val_16 : unsigned(15 downto 0) := (others => '0');
+
+    -- Delay Line (Conveyor Belt) Signals for Pipelining
+    signal valid_delay : std_logic_vector(3 downto 0) := (others => '0');
+    signal last_delay : std_logic_vector(3 downto 0) := (others => '0');
+    type index_pipe_t is array (0 to 3) of unsigned(12 downto 0);
+    signal index_delay : index_pipe_t := (others => (others => '0'));
 
     -- Pointers and Counters
     signal mod3_counter : integer range 0 to 2 := 0;
@@ -60,14 +66,12 @@ architecture Behavioral of smart_peak_finder is
     signal index_delay1, index_delay2, index_delay3 : unsigned(12 downto 0) := (others => '0');
 
     constant MAX_SEARCH_BIN : integer := 4095;
+    constant NOISE_THRESHOLD : unsigned(47 downto 0) := to_unsigned(32768, 48);
+    -- Lower it
+
+    -- 4 stage pipeline for writing, 3 stage pipeline for hps
 
 begin
-
-    fft_valid <= s_axis_tvalid;
-    real_part <= signed(s_axis_tdata(63 downto 32));
-    imag_part <= signed(s_axis_tdata(31 downto 0));
-    pwr_full <= unsigned(real_part * real_part) + unsigned(imag_part * imag_part);
-    pwr_val_16 <= pwr_full(47 downto 32); -- Downsamples them to 16 bits to have a final 48 bits value
 
     process (clk)
     begin
@@ -81,10 +85,22 @@ begin
                 fft_bin_index <= (others => '0');
                 search_index <= (others => '0');
                 max_hps_pwr <= (others => '0');
+
+                -- Resetting Pipeline Registers
+                valid_delay <= (others => '0');
+                last_delay <= (others => '0');
+                index_delay <= (others => (others => '0'));
+                real_part <= (others => '0');
+                imag_part <= (others => '0');
+                real_sq <= (others => '0');
+                imag_sq <= (others => '0');
+                pwr_full <= (others => '0');
+                pwr_val_16 <= (others => '0');
             else
                 peak_ready <= '0';
 
-                if fft_valid = '1' then
+                -- track index
+                if s_axis_tvalid = '1' then
                     if s_axis_tlast = '1' then
                         fft_bin_index <= (others => '0');
                     else
@@ -92,13 +108,47 @@ begin
                     end if;
                 end if;
 
-                -- PORT A: write 
-                if fft_valid = '1' then
-                    if fft_bin_index < 4096 then
-                        bram1(to_integer(fft_bin_index)) <= pwr_val_16;
+                -- Shift Registers for Control Signals
+                valid_delay <= valid_delay(2 downto 0) & s_axis_tvalid;
+                last_delay <= last_delay(2 downto 0) & s_axis_tlast;
+                index_delay(0) <= fft_bin_index;
+                index_delay(1) <= index_delay(0);
+                index_delay(2) <= index_delay(1);
+                index_delay(3) <= index_delay(2);
 
-                        if fft_bin_index(0) = '0' then
-                            bram2(to_integer(fft_bin_index(12 downto 1))) <= pwr_val_16;
+                -- math pipeline
+                -- Stage 1: Unpack
+                real_part <= signed(s_axis_tdata(63 downto 32));
+                imag_part <= signed(s_axis_tdata(31 downto 0));
+
+                -- Stage 2: Multiply
+                real_sq <= real_part * real_part;
+                imag_sq <= imag_part * imag_part;
+
+                -- Stage 3: Add
+                pwr_full <= unsigned(real_sq) + unsigned(imag_sq);
+
+                -- Downsamples them to 16 bits to have a final 48 bits value
+                -- Stage 4: Truncate with SATURATION (Ceiling) and FLOOR
+                if pwr_full(63 downto 48) /= x"0000" then
+                    -- CEILING: The signal is massive. Max it out to prevent wrapping.
+                    pwr_val_16 <= x"FFFF";
+                elsif pwr_full > 0 and pwr_full(47 downto 32) = x"0000" then
+                    -- FLOOR: weak signal, but not zero. Force to 1 so HPS doesn't multiply by zero.
+                    pwr_val_16 <= x"0001";
+                else
+                    -- NORMAL: Signal perfectly fits in the middle bits.
+                    pwr_val_16 <= pwr_full(47 downto 32);
+                end if;
+
+                -- PORT A: write 
+                -- We now use the delayed signals that perfectly match pwr_val_16
+                if valid_delay(3) = '1' then
+                    if index_delay(3) < 4096 then
+                        bram1(to_integer(index_delay(3))) <= pwr_val_16;
+
+                        if index_delay(3)(0) = '0' then
+                            bram2(to_integer(index_delay(3)(12 downto 1))) <= pwr_val_16;
                         end if;
 
                         if mod3_counter = 2 then
@@ -110,7 +160,7 @@ begin
                         end if;
                     end if;
 
-                    if s_axis_tlast = '1' then
+                    if last_delay(3) = '1' then
                         bram3_ptr <= 0;
                         mod3_counter <= 0;
                     end if;
@@ -121,14 +171,22 @@ begin
 
                     when IDLE =>
                         search_index <= (others => '0');
-                        max_hps_pwr <= (others => '0');
+                        -- THE NOISE GATE: Require a minimum power to register a note
+                        max_hps_pwr <= NOISE_THRESHOLD;
 
-                        if fft_valid = '1' and s_axis_tlast = '1' then
+                        -- SILENCE DEFAULT: Clear the old note, if no bin beats the threshold, it stays 0.
+                        peak_bin_index <= (others => '0');
+
+                        index_delay1 <= (others => '0');
+                        index_delay2 <= (others => '0');
+                        index_delay3 <= (others => '0');
+
+                        -- Wait for the delayed last signal so BRAM writes are completely finished
+                        if valid_delay(3) = '1' and last_delay(3) = '1' then
                             state <= SEARCH_PEAK;
                         end if;
 
                     when SEARCH_PEAK =>
-
                         -- CLOCK 0: Read from BRAMs Safely (1 Read Port per BRAM!)
                         if search_index <= MAX_SEARCH_BIN then
                             val1 <= bram1(to_integer(search_index));

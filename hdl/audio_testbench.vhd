@@ -238,7 +238,7 @@ begin
                 counter := counter - 1;
                 if counter = 0 then
                     -- raw_data <= std_logic_vector(to_unsigned(second_counter, 16) & x"0000");
-                    raw_data <= peak_freq_hz & peak_freq_tenths & x"000";
+                    raw_data <= peak_freq_hz & peak_freq_tenths & std_logic_vector(to_unsigned(second_counter,12));
                     counter := 48000;
                     second_counter := second_counter + 1;
                 end if;
