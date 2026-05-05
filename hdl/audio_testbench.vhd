@@ -189,6 +189,9 @@ architecture Behavioral of audio_testbench is
     signal peak_freq_tenths : std_logic_vector (3 downto 0);
     signal peak_ready : std_logic;
 
+    signal sm_rotation : std_logic := '1';
+    signal sm_direction : std_logic;
+
 begin
 
     -- sine_wave_proc : process (clk_100_buffered)
@@ -228,6 +231,7 @@ begin
     oled_data_proc : process (clk_100_buffered)
         variable counter : integer range 0 to 48000 := 48000;
         variable second_counter : integer range 0 to 999999 := 0;
+        variable three_seconds : integer range 0 to 2 := 0;
     begin
         if rising_edge(clk_100_buffered) then
             if clean_reset = '1' then
@@ -238,10 +242,19 @@ begin
                 counter := counter - 1;
                 if counter = 0 then
                     -- raw_data <= std_logic_vector(to_unsigned(second_counter, 16) & x"0000");
-                    raw_data <= peak_freq_hz & peak_freq_tenths & std_logic_vector(to_unsigned(second_counter,12));
+                    raw_data <= peak_freq_hz & peak_freq_tenths & std_logic_vector(to_unsigned(second_counter, 12));
                     counter := 48000;
                     second_counter := second_counter + 1;
+                    
+                    
+                    if three_seconds = 2 then
+                        three_seconds := 0;
+                        sm_direction <= not sm_direction;
+                    else
+                        three_seconds := three_seconds + 1;
+                    end if;
                 end if;
+
             end if;
         end if;
     end process;
@@ -336,8 +349,8 @@ begin
         reset => clean_reset, --Reset
         ce_204_8 => en_204_8Hz, --Clock enable for 204.8Hz signal, used to time the steps
 
-        rotation => '0', -- If true rotate, 0 stop
-        direction => '0', -- 0 rotate clockwise, 1 rotate coutner-clockwise
+        rotation => sm_rotation, -- If true rotate, 0 stop
+        direction => sm_direction, -- 0 rotate clockwise, 1 rotate coutner-clockwise
 
         -- Signals controlling the stepper motor
         sm_c_1 => sm_pins(0),
