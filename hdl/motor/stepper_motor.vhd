@@ -39,7 +39,7 @@ end entity sm_control;
 architecture behavioral of sm_control is
 
     --Signal definition
-    signal phase : std_logic_vector(3 downto 0) := "0000"; -- 2-bit signal to control the motor phases
+    signal phase : std_logic_vector(7 downto 0) := "00000000"; -- 2-bit signal to control the motor phases
     signal active : std_logic := '0'; -- Indicate if motor was active
     -- Used to avoid backlash from guitar string tension
     signal stop_counter : integer range 0 to 614 := 0; -- Counter was originally 1023, idk if vivado accepts 614
@@ -49,7 +49,7 @@ begin
     begin
         if rising_edge(clk_100) then
             if reset = '1' then -- might need to change reset condition
-                phase <= "0000"; -- default phase;
+                phase <= "00000000"; -- default phase;
                 if active /= '1' then
                     active <= '0';
                     motor_ready <= '1';
@@ -65,11 +65,15 @@ begin
                         motor_ready <= '0';
                         stop_counter <= 0;
                         case phase is
-                            when "0000" => phase <= "0001";
-                            when "0001" => phase <= "0010";
-                            when "0010" => phase <= "0100";
-                            when "0100" => phase <= "1000";
-                            when "1000" => phase <= "0001"; -- Loop back to the first phase
+                            when "00000000" => phase <= "00000001";
+                            when "00000001" => phase <= "00000010";
+                            when "00000010" => phase <= "00000100";
+                            when "00000100" => phase <= "00001000";
+                            when "00001000" => phase <= "00010000";
+                            when "00010000" => phase <= "00100000";
+                            when "00100000" => phase <= "01000000";
+                            when "01000000" => phase <= "10000000";
+                            when "10000000" => phase <= "00000001"; -- Loop back to the first phase
                             when others => phase <= phase; -- In case of error, stand still
                         end case;
                     elsif rotation = '1' and direction = '1' then
@@ -77,11 +81,15 @@ begin
                         motor_ready <= '0';
                         stop_counter <= 0;
                         case phase is
-                            when "0000" => phase <= "1000";
-                            when "1000" => phase <= "0100";
-                            when "0100" => phase <= "0010";
-                            when "0010" => phase <= "0001";
-                            when "0001" => phase <= "1000";
+                            when "00000000" => phase <= "10000000";
+                            when "10000000" => phase <= "01000000";
+                            when "01000000" => phase <= "00100000";
+                            when "00100000" => phase <= "00010000";
+                            when "00010000" => phase <= "00001000";
+                            when "00001000" => phase <= "00000100";
+                            when "00000100" => phase <= "00000010";
+                            when "00000010" => phase <= "00000001";
+                            when "00000001" => phase <= "10000000";
                             when others => phase <= phase;
                         end case;
                     end if;
@@ -98,7 +106,7 @@ begin
                             stop_counter <= stop_counter + 1;
                         else
                             active <= '0'; -- After waiting, set active to false to turn off coils
-                            phase <= "0000";
+                            phase <= "00000000";
                             stop_counter <= 0; -- Reset counter for next time
                             motor_ready <= '1';
                         end if;
@@ -117,26 +125,46 @@ begin
             if ce_204_8 = '1' then
                 if active = '1' then
                     case phase is
-                        when "0001" =>
+                        when "00000001" =>
                             sm_c_1 <= '1';
                             sm_c_2 <= '1';
                             sm_c_3 <= '0';
                             sm_c_4 <= '0';
-                        when "0010" =>
+                        when "00000010" =>
+                            sm_c_1 <= '0';
+                            sm_c_2 <= '1';
+                            sm_c_3 <= '0';
+                            sm_c_4 <= '0';
+                        when "00000100" =>
                             sm_c_1 <= '0';
                             sm_c_2 <= '1';
                             sm_c_3 <= '1';
                             sm_c_4 <= '0';
-                        when "0100" =>
+                        when "00001000" =>
+                            sm_c_1 <= '0';
+                            sm_c_2 <= '0';
+                            sm_c_3 <= '1';
+                            sm_c_4 <= '0';
+                        when "00010000" =>
                             sm_c_1 <= '0';
                             sm_c_2 <= '0';
                             sm_c_3 <= '1';
                             sm_c_4 <= '1';
-                        when "1000" =>
+                        when "00100000" =>
+                            sm_c_1 <= '0';
+                            sm_c_2 <= '0';
+                            sm_c_3 <= '0';
+                            sm_c_4 <= '1';
+                        when "01000000" =>
                             sm_c_1 <= '1';
                             sm_c_2 <= '0';
                             sm_c_3 <= '0';
                             sm_c_4 <= '1';
+                        when "10000000" =>
+                            sm_c_1 <= '1';
+                            sm_c_2 <= '0';
+                            sm_c_3 <= '0';
+                            sm_c_4 <= '0';
                         when others =>
                             sm_c_1 <= '0';
                             sm_c_2 <= '0';
