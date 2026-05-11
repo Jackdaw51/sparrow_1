@@ -255,6 +255,7 @@ begin
         end if;
     end process;
 
+    -- NOT USED ANYMORE!!!!
     sm_clock_proc : process (clk_100_buffered)
     begin
         if rising_edge(clk_100_buffered) then
