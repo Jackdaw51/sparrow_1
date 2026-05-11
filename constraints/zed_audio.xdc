@@ -81,7 +81,6 @@ set_property IOSTANDARD LVCMOS33 [get_ports {led_out[*]}]
 set_property PACKAGE_PIN Y11  [get_ports {sm_pins[0]}];  # "JA1"
 set_property PACKAGE_PIN AA11 [get_ports {sm_pins[1]}];  # "JA2"
 set_property PACKAGE_PIN Y10  [get_ports {sm_pins[2]}];  # "JA3"
-set_property PACKAGE_PIN AA9  [get_ports {sm_pins[3]}];  # "JA4"
 # Set IOSTANDARD to 3.3V
 set_property IOSTANDARD LVCMOS33 [get_ports {sm_pins[*]}]
 

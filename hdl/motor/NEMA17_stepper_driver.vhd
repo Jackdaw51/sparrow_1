@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all;
 
-entity GuitarTuner_Driver is
+entity nema17_control is
     port (
         clk : in std_logic; -- 100MHz clock input
         reset : in std_logic;
@@ -15,9 +15,9 @@ entity GuitarTuner_Driver is
         dir_out : out std_logic;
         en_out : out std_logic -- Active Low
     );
-end GuitarTuner_Driver;
+end nema17_control;
 
-architecture Behavioral of GuitarTuner_Driver is
+architecture Behavioral of nema17_control is
     signal counter : unsigned(31 downto 0) := (others => '0');
     signal step_reg : std_logic := '0';
     signal limit_val : integer := 100_000; -- Default speed
