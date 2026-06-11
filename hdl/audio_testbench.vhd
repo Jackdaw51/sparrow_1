@@ -341,16 +341,16 @@ begin
         oled_vdd => oled_vdd
     );
 
-    i_motor: nema17_control port map(
+    i_motor : nema17_control port map(
         clk => clk_100_buffered,
         reset => clean_reset,
         rot_in => sm_rotation, -- If true rotate, 0 stop
         dir_in => sm_direction, -- 0 rotate clockwise, 1 rotate coutner-clockwise
-        speed_sel => '0', -- Use the first switch to toggle speed
+        speed_sel => sw_deb(7), -- Use the last switch to toggle speed (0 = fast, 1 = slow)
 
-        step_out => sm_pins(0), -- Step signal
-        dir_out => sm_pins(1), -- Motor direction
-        en_out => sm_pins(2) -- Enable signal (Active Low)
+        step_out => sm_pins(1), -- Step signal - JA2
+        dir_out => sm_pins(2), -- Motor direction - JA3
+        en_out => sm_pins(0) -- Enable signal (Active Low) - JA1
     );
 
     i_fft : fft_top port map(

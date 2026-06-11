@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1777973384" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/audio_testbench.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1781215866" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/audio_testbench.dcp">
   <File Type="PA-TCL" Name="audio_testbench.tcl"/>
   <File Type="REPORTS-TCL" Name="audio_testbench_reports.tcl"/>
   <File Type="RDS-RDS" Name="audio_testbench.vds"/>
@@ -13,6 +13,14 @@
     <Filter Type="Srcs"/>
     <File Path="$PPRDIR/hdl/audio/ADAU1761_interface.vhd">
       <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/motor/NEMA17_stepper_driver.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/hdl/motor/NEMA17_stepper_driver.vhd"/>
+        <Attr Name="ImportTime" Val="1780428719"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -137,12 +145,6 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/hdl/motor/stepper_motor.vhd">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PPRDIR/hdl/buttons/switch_manager.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -151,6 +153,13 @@
     </File>
     <File Path="$PPRDIR/hdl/audio_testbench.vhd">
       <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/hdl/motor/stepper_motor.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
