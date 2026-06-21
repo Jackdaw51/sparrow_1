@@ -1,0 +1,41 @@
+# Fdb version 4
+["bibtex main"] 1782034447.43283 "main.aux" "main.bbl" "main" 1782034448.25566 0
+  "./references.bib" 1782032927.6836 99 9c86b23a3c86883bd70b46f0e3146081 ""
+  "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
+  "main.aux" 1782034447.18507 628 533be1694a2409c4316927f264cba524 "pdflatex"
+  (generated)
+  "main.bbl"
+  "main.blg"
+  (rewritten before read)
+["pdflatex"] 1782034447.51224 "/home/frabo/exercises/windows/a/Programming/Vivado/speaker_3/report/main.tex" "main.pdf" "main" 1782034448.26185 0
+  "/etc/texmf/web2c/texmf.cnf" 1782033098.63327 475 c0e671620eb5563b2130f56340a5fde8 ""
+  "/home/frabo/exercises/windows/a/Programming/Vivado/speaker_3/report/main.tex" 1782034331.34399 421 195052984d925184a326fe7c24db7ae7 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1136768653 1524 4414a8315f39513458b80dfc63bff03a ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1136768653 1288 655e228510b4c2a1abe905c368440826 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr17.tfm" 1136768653 1292 296a67155bdbfc32aa9c636f21e91433 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1136768653 1124 6c73e740cf17375f03eec0ee63599741 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti12.tfm" 1136768653 1484 ed72f8f5cf654cda15ecc8e32bfcbee5 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1248133631 32080 340ef9bf63678554ee606688e7b5339d ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1248133631 32362 179c33bbf43f19adbb3825bb4e36e57a ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb" 1248133631 36118 fad905eba93cff5bce1e185fe980a177 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/base/report.cls" 1705352648 23203 f5d913095ece2233436f0e628619cd37 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo" 1705352648 8449 f07039d8e4e89f21078d9b5137579bfc ""
+  "/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def" 1704491087 30006 57b07afb710ee2f649c65cfbafda39c1 ""
+  "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
+  "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
+  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1782033105.72827 75955 f78456fd1308dc295dc476a68e28d85b ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1782033114 6800787 8674ed7857d446f69ad639fb7f93e16a ""
+  "chapters/intro.tex" 1782032892.22665 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "chapters/methods.tex" 1782033543.50636 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "chapters/results.tex" 1782034416.03179 14 a81776558888c2d061e4f68aac396597 ""
+  "main.aux" 1782034447.18507 628 533be1694a2409c4316927f264cba524 "pdflatex"
+  "main.bbl" 1782034446.71433 134 e78b905bdca7957d7fd72ea77cb856fd "bibtex main"
+  "main.toc" 1782034447.19622 167 ae1827ae0ecceaa73ddca11399c71e3b "pdflatex"
+  (generated)
+  "main.aux"
+  "main.log"
+  "main.pdf"
+  "main.toc"
+  (rewritten before read)
