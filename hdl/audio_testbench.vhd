@@ -181,7 +181,9 @@ architecture Behavioral of audio_testbench is
     signal en_204_8Hz : std_logic := '0';
 
     -- Increment value: (204.8 / 48000) * 2^16 = 279.62... (round to 280)
-    constant STEP_204_8 : unsigned(15 downto 0) := to_unsigned(280, 16);
+    
+    -- actually (100 / 48000) * 2^16 = 136.5 round to 136
+    constant STEP_204_8 : unsigned(15 downto 0) := to_unsigned(136, 16);
 
     signal raw_data : std_logic_vector(31 downto 0) := (others => '0');
 
