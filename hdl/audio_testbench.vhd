@@ -35,7 +35,7 @@ entity audio_testbench is
         oled_vbat : out std_logic;
         oled_vdd : out std_logic;
 
-        sm_pins : out std_logic_vector(3 downto 0)
+        sm_pins : out std_logic_vector(2 downto 0)
     );
 end audio_testbench;
 
@@ -117,22 +117,18 @@ architecture Behavioral of audio_testbench is
             oled_vdd : out std_logic);
     end component;
 
-    component sm_control
+    component nema17_control
         port (
-            clk_100 : in std_logic; --Clock
-            reset : in std_logic; --Reset
-            ce_204_8 : in std_logic; --Clock enable for 204.8Hz signal, used to time the steps
-
-            rotation : in std_logic; -- If true rotate, 0 stop
-            direction : in std_logic; -- 0 rotate clockwise, 1 rotate coutner-clockwise
-
-            -- Signals controlling the stepper motor
-            sm_c_1 : out std_logic;
-            sm_c_2 : out std_logic;
-            sm_c_3 : out std_logic;
-            sm_c_4 : out std_logic;
-
-            motor_ready : out std_logic -- Signal to indicate motor is ready for next command
+            clk : in std_logic; -- 100MHz clock input
+            reset : in std_logic;
+            -- Control Inputs
+            rot_in : in std_logic; -- '1' to rotate, '0' to stop
+            dir_in : in std_logic; -- '0' clockwise, '1' counter-clockwise
+            speed_sel : in std_logic; -- '0' for fast, '1' for fine tuning
+            -- Driver Outputs
+            step_out : out std_logic; -- Step pulse
+            dir_out : out std_logic;
+            en_out : out std_logic -- Active Low
         );
     end component;
 
@@ -261,6 +257,7 @@ begin
         end if;
     end process;
 
+    -- NOT USED ANYMORE!!!!
     sm_clock_proc : process (clk_100_buffered)
     begin
         if rising_edge(clk_100_buffered) then
@@ -346,21 +343,16 @@ begin
         oled_vdd => oled_vdd
     );
 
-    i_motor : sm_control port map(
-        clk_100 => clk_100_buffered, --Clock
-        reset => clean_reset, --Reset
-        ce_204_8 => en_204_8Hz, --Clock enable for 204.8Hz signal, used to time the steps
+    i_motor : nema17_control port map(
+        clk => clk_100_buffered,
+        reset => clean_reset,
+        rot_in => sm_rotation, -- If true rotate, 0 stop
+        dir_in => sm_direction, -- 0 rotate clockwise, 1 rotate coutner-clockwise
+        speed_sel => sw_deb(7), -- Use the last switch to toggle speed (0 = fast, 1 = slow)
 
-        rotation => sm_rotation, -- If true rotate, 0 stop
-        direction => sm_direction, -- 0 rotate clockwise, 1 rotate coutner-clockwise
-
-        -- Signals controlling the stepper motor
-        sm_c_1 => sm_pins(0),
-        sm_c_2 => sm_pins(1),
-        sm_c_3 => sm_pins(2),
-        sm_c_4 => sm_pins(3),
-
-        motor_ready => open -- Signal to indicate motor is ready for next command
+        step_out => sm_pins(1), -- Step signal - JA2
+        dir_out => sm_pins(2), -- Motor direction - JA3
+        en_out => sm_pins(0) -- Enable signal (Active Low) - JA1
     );
 
     i_fft : fft_top port map(

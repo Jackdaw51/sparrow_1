@@ -392,8 +392,9 @@ begin
                 data_screen(0, 3) <= to_ascii(data_in(7 downto 4));
                 data_screen(0, 4) <= x"2E"; -- Decimal point
                 data_screen(0, 5) <= to_ascii(data_in(3 downto 0));
-                data_screen(0, 6) <= x"48"; -- H
-                data_screen(0, 7) <= x"7A"; -- z
+                data_screen(0, 6) <= x"20"; -- space
+                data_screen(0, 7) <= x"48"; -- H
+                data_screen(0, 8) <= x"7A"; -- z
                 data_screen(1, 0) <= to_ascii(test_counter(15 downto 12));
                 data_screen(1, 1) <= to_ascii(test_counter(11 downto 8));
                 data_screen(1, 2) <= to_ascii(test_counter(7 downto 4));
