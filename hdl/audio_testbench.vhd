@@ -226,6 +226,8 @@ begin
             end if;
         end if;
     end process;
+
+
     oled_data_proc : process (clk_100_buffered)
         variable counter : integer range 0 to 48000 := 48000;
         variable second_counter : integer range 0 to 999999 := 0;
@@ -253,29 +255,6 @@ begin
                     end if;
                 end if;
 
-            end if;
-        end if;
-    end process;
-
-    -- NOT USED ANYMORE!!!!
-    sm_clock_proc : process (clk_100_buffered)
-    begin
-        if rising_edge(clk_100_buffered) then
-            if clean_reset = '1' then
-                sample_acc <= (others => '0');
-                en_204_8Hz <= '0';
-                -- Reset any other internal registers here
-            else
-                en_204_8Hz <= '0';
-                if new_sample = '1' then
-                    -- Every time a 48kHz sample arrives, we update the accumulator
-                    sample_acc <= sample_acc + STEP_204_8;
-
-                    -- Detect the rollover/overflow to create the 204.8Hz pulse
-                    if sample_acc < STEP_204_8 then
-                        en_204_8Hz <= '1';
-                    end if;
-                end if;
             end if;
         end if;
     end process;
@@ -348,7 +327,7 @@ begin
         reset => clean_reset,
         rot_in => sm_rotation, -- If true rotate, 0 stop
         dir_in => sm_direction, -- 0 rotate clockwise, 1 rotate coutner-clockwise
-        speed_sel => sw_deb(7), -- Use the last switch to toggle speed (0 = fast, 1 = slow)
+        speed_sel => 0, -- Use the last switch to toggle speed (0 = slow, 1 = fast)
 
         step_out => sm_pins(1), -- Step signal - JA2
         dir_out => sm_pins(2), -- Motor direction - JA3
@@ -363,7 +342,7 @@ begin
         adc_data_in => line_in_r,
         adc_valid_in => new_sample,
 
-        -- Final Output (To your OLED or Logic Analyzer)
+        -- Final Output 
         peak_freq_hz => peak_freq_hz,
         peak_ready => peak_ready,
 
