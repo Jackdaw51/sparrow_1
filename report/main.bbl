@@ -1,8 +1,8 @@
 \begin{thebibliography}{1}
 
-\bibitem{example}
-Someone.
-\newblock Example paper.
-\newblock {\em Journal}, 2020.
+\bibitem{github/audio}
+Mike Field.
+\newblock zedboard audio interface.
+\newblock \url{https://github.com/ems-kl/zedboard_audio}, 2015.
 
 \end{thebibliography}

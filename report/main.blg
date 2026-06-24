@@ -5,30 +5,30 @@ The style file: plain.bst
 Database file #1: references.bib
 You've used 1 entry,
             2118 wiz_defined-function locations,
-            502 strings with 4029 characters,
-and the built_in function-call counts, 224 in all, are:
+            502 strings with 4087 characters,
+and the built_in function-call counts, 228 in all, are:
 = -- 20
 > -- 7
 < -- 0
 + -- 3
 - -- 2
-* -- 10
-:= -- 48
+* -- 8
+:= -- 44
 add.period$ -- 3
 call.type$ -- 1
 change.case$ -- 4
 chr.to.int$ -- 0
 cite$ -- 1
-duplicate$ -- 10
-empty$ -- 18
+duplicate$ -- 7
+empty$ -- 23
 format.name$ -- 2
-if$ -- 42
+if$ -- 47
 int.to.chr$ -- 0
 int.to.str$ -- 1
-missing$ -- 1
+missing$ -- 0
 newline$ -- 8
 num.names$ -- 2
-pop$ -- 4
+pop$ -- 8
 preamble$ -- 1
 purify$ -- 3
 quote$ -- 0
