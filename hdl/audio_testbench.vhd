@@ -177,18 +177,19 @@ architecture Behavioral of audio_testbench is
     signal en_204_8Hz : std_logic := '0';
 
     -- Increment value: (204.8 / 48000) * 2^16 = 279.62... (round to 280)
-    
+
     -- actually (100 / 48000) * 2^16 = 136.5 round to 136
     constant STEP_204_8 : unsigned(15 downto 0) := to_unsigned(136, 16);
 
     signal raw_data : std_logic_vector(31 downto 0) := (others => '0');
-
     signal peak_freq_hz : std_logic_vector(15 downto 0);
     signal peak_freq_tenths : std_logic_vector (3 downto 0);
     signal peak_ready : std_logic;
 
-    signal sm_rotation : std_logic := '1';
+    signal sm_rotation : std_logic;
     signal sm_direction : std_logic;
+    signal switches_valid : std_logic;
+    signal target_freq : integer := 0;
 
 begin
 
@@ -209,6 +210,47 @@ begin
     --     end if;
     -- end process;
 
+    find_target_freq : process (clk_100_buffered)
+    begin
+        if rising_edge(clk_100_buffered) then
+            case sw_deb(5 downto 0) is
+                when "000001" => target_freq <= 82; -- E2
+                when "000010" => target_freq <= 110; -- A2
+                when "000100" => target_freq <= 147; -- D3
+                when "001000" => target_freq <= 196; -- G3
+                when "010000" => target_freq <= 247; -- B3
+                when "100000" => target_freq <= 330; -- E4
+                when others => target_freq <= 0;
+            end case;
+
+        end if;
+    end process;
+
+    gira_gira_lelica_romba_il_motor : process (clk_100_buffered)
+        variable val : integer;
+        variable temp: integer;
+    begin
+        if rising_edge(clk_100_buffered) then
+            sm_rotation <= '0';
+            led_out(7) <= '0';
+            temp := to_integer(unsigned(peak_freq_hz));
+
+            if target_freq /= 0 and temp /= 0 then
+                val := temp - target_freq;
+                if val <- 2 then
+                    sm_rotation <= '1';
+                    sm_direction <= '1';
+                elsif val > 2 then
+                    sm_rotation <= '1';
+                    sm_direction <= '0';
+                elsif abs(val) < 2 then
+                    led_out(7) <= '1';
+                end if;
+            end if;
+
+        end if;
+    end process;
+
     -----------------------------------------------------
     -- TEST 2: loopback "line in" data to headphone output
     loopback_proc : process (clk_100_buffered)
@@ -227,11 +269,9 @@ begin
         end if;
     end process;
 
-
     oled_data_proc : process (clk_100_buffered)
         variable counter : integer range 0 to 48000 := 48000;
         variable second_counter : integer range 0 to 999999 := 0;
-        variable three_seconds : integer range 0 to 2 := 0;
     begin
         if rising_edge(clk_100_buffered) then
             if clean_reset = '1' then
@@ -245,14 +285,6 @@ begin
                     raw_data <= peak_freq_hz & peak_freq_tenths & std_logic_vector(to_unsigned(second_counter, 12));
                     counter := 48000;
                     second_counter := second_counter + 1;
-                    
-                    
-                    if three_seconds = 2 then
-                        three_seconds := 0;
-                        sm_direction <= not sm_direction;
-                    else
-                        three_seconds := three_seconds + 1;
-                    end if;
                 end if;
 
             end if;
@@ -261,7 +293,7 @@ begin
 
     -- Assign the stable internal signal to output
     clean_reset <= reset_btn_deb;
-    led_out <= sw_deb;
+    led_out(6 downto 0) <= sw_deb (6 downto 0);
 
     i_audio : audio_top port map(
         clk_100 => clk_100_buffered,
@@ -307,7 +339,7 @@ begin
         clk => clk_100_buffered,
         switches_in => sw_in,
         switches_deb => sw_deb,
-        switches_valid => open
+        switches_valid => open -- Tells if only one switch is active, currently unused
     );
 
     i_oled : oled_ctrl port map(
@@ -327,7 +359,7 @@ begin
         reset => clean_reset,
         rot_in => sm_rotation, -- If true rotate, 0 stop
         dir_in => sm_direction, -- 0 rotate clockwise, 1 rotate coutner-clockwise
-        speed_sel => 0, -- Use the last switch to toggle speed (0 = slow, 1 = fast)
+        speed_sel => '0', -- Use the switch to toggle speed (0 = slow, 1 = fast), used during testing
 
         step_out => sm_pins(1), -- Step signal - JA2
         dir_out => sm_pins(2), -- Motor direction - JA3

@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/Users/lsand/Desktop/Passer1/sparrow_1/speaker_3.runs/synth_1/audio_testbench.tcl"
+  variable script "C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/audio_testbench.tcl"
   variable category "vivado_synth"
 }
 
@@ -56,7 +56,7 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 4
+set_param chipscope.maxJobs 3
 set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg484-1
@@ -65,47 +65,47 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir C:/Users/lsand/Desktop/Passer1/sparrow_1/speaker_3.cache/wt [current_project]
-set_property parent.project_path C:/Users/lsand/Desktop/Passer1/sparrow_1/speaker_3.xpr [current_project]
+set_property webtalk.parent_dir C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.cache/wt [current_project]
+set_property parent.project_path C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.xpr [current_project]
 set_property XPM_LIBRARIES XPM_MEMORY [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
 set_property board_part xilinx.com:zc702:part0:1.4 [current_project]
-set_property ip_output_repo c:/Users/lsand/Desktop/Passer1/sparrow_1/speaker_3.cache/ip [current_project]
+set_property ip_output_repo c:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
-  C:/Users/lsand/Desktop/Passer1/sparrow_1/hdl/audio/ADAU1761_interface.vhd
-  C:/Users/lsand/Desktop/Passer1/sparrow_1/speaker_3.srcs/sources_1/imports/motor/NEMA17_stepper_driver.vhd
-  C:/Users/lsand/Desktop/Passer1/sparrow_1/hdl/audio/adau1761_configuraiton_data.vhd
-  C:/Users/lsand/Desktop/Passer1/sparrow_1/hdl/audio/adau1761_izedboard.vhd
-  C:/Users/lsand/Desktop/Passer1/sparrow_1/hdl/oled/ascii_rom.vhd
-  C:/Users/lsand/Desktop/Passer1/sparrow_1/hdl/audio/audio_top.vhd
-  C:/Users/lsand/Desktop/Passer1/sparrow_1/hdl/buttons/button_manager.vhd
-  C:/Users/lsand/Desktop/Passer1/sparrow_1/hdl/audio/clocking.vhd
-  C:/Users/lsand/Desktop/Passer1/sparrow_1/hdl/buttons/debouncer.vhd
-  C:/Users/lsand/Desktop/Passer1/sparrow_1/hdl/oled/delay.vhd
-  C:/Users/lsand/Desktop/Passer1/sparrow_1/hdl/signal_processing/fft_ping_pong.vhd
-  C:/Users/lsand/Desktop/Passer1/sparrow_1/hdl/signal_processing/fft_top.vhd
-  C:/Users/lsand/Desktop/Passer1/sparrow_1/hdl/audio/i2c.vhd
-  C:/Users/lsand/Desktop/Passer1/sparrow_1/hdl/audio/i2s_data_interface.vhd
-  C:/Users/lsand/Desktop/Passer1/sparrow_1/hdl/audio/i3c2.vhd
-  C:/Users/lsand/Desktop/Passer1/sparrow_1/hdl/signal_processing/integrate_and_dump.vhd
-  C:/Users/lsand/Desktop/Passer1/sparrow_1/hdl/oled/oled_ctrl.vhd
-  C:/Users/lsand/Desktop/Passer1/sparrow_1/hdl/oled/oled_init.vhd
-  C:/Users/lsand/Desktop/Passer1/sparrow_1/hdl/oled/oled_writer.vhd
-  C:/Users/lsand/Desktop/Passer1/sparrow_1/hdl/sine_wave_440hz.vhd
-  C:/Users/lsand/Desktop/Passer1/sparrow_1/hdl/signal_processing/smart_peak_finder.vhd
-  C:/Users/lsand/Desktop/Passer1/sparrow_1/hdl/oled/spi_ctrl.vhd
-  C:/Users/lsand/Desktop/Passer1/sparrow_1/hdl/buttons/switch_manager.vhd
-  C:/Users/lsand/Desktop/Passer1/sparrow_1/hdl/audio_testbench.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/ADAU1761_interface.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/motor/NEMA17_stepper_driver.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/adau1761_configuraiton_data.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/adau1761_izedboard.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/ascii_rom.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/audio_top.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/button_manager.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/clocking.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/debouncer.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/delay.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_ping_pong.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/i2c.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/i2s_data_interface.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio/i3c2.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/integrate_and_dump.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_ctrl.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_init.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_writer.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/sine_wave_440hz.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/smart_peak_finder.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/spi_ctrl.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/buttons/switch_manager.vhd
+  C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd
 }
-read_ip -quiet C:/Users/lsand/Desktop/Passer1/sparrow_1/speaker_3.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci
-set_property used_in_implementation false [get_files -all c:/Users/lsand/Desktop/Passer1/sparrow_1/speaker_3.gen/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_ooc.xdc]
+read_ip -quiet C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci
+set_property used_in_implementation false [get_files -all c:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.gen/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_ooc.xdc]
 
-read_ip -quiet C:/Users/lsand/Desktop/Passer1/sparrow_1/speaker_3.srcs/sources_1/ip/xfft_0/xfft_0.xci
-set_property used_in_implementation false [get_files -all c:/Users/lsand/Desktop/Passer1/sparrow_1/speaker_3.gen/sources_1/ip/xfft_0/xfft_0_ooc.xdc]
+read_ip -quiet C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.srcs/sources_1/ip/xfft_0/xfft_0.xci
+set_property used_in_implementation false [get_files -all c:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.gen/sources_1/ip/xfft_0/xfft_0_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -116,12 +116,12 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/Users/lsand/Desktop/Passer1/sparrow_1/constraints/zed_audio.xdc
-set_property used_in_implementation false [get_files C:/Users/lsand/Desktop/Passer1/sparrow_1/constraints/zed_audio.xdc]
+read_xdc C:/Users/frabo/a/Programming/Vivado/speaker_3/constraints/zed_audio.xdc
+set_property used_in_implementation false [get_files C:/Users/frabo/a/Programming/Vivado/speaker_3/constraints/zed_audio.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
 
-read_checkpoint -auto_incremental -incremental C:/Users/lsand/Desktop/Passer1/sparrow_1/speaker_3.srcs/utils_1/imports/synth_1/audio_testbench.dcp
+read_checkpoint -auto_incremental -incremental C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.srcs/utils_1/imports/synth_1/audio_testbench.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

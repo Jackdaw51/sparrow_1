@@ -27,7 +27,7 @@ begin
     -- Set Speed: Lower limit_val = Faster pulses
     -- limit_val = f_clocl / (2 * f_step), where f_step is desired frequency of step pulses
     -- f_step = 100Hz for fast tuning, 25Hz for fine tuning
-    limit_val <= 500_000 when speed_sel = '1' else 1_000_000;
+    limit_val <= 750_000 when speed_sel = '1' else 2_000_000;
     
     process (clk)
     begin

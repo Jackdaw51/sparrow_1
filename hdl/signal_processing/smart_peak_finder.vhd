@@ -66,7 +66,7 @@ architecture Behavioral of smart_peak_finder is
     signal index_delay1, index_delay2, index_delay3 : unsigned(12 downto 0) := (others => '0');
 
     constant MAX_SEARCH_BIN : integer := 4095;
-    constant NOISE_THRESHOLD : unsigned(47 downto 0) := to_unsigned(32768, 48);
+    constant NOISE_THRESHOLD : unsigned(47 downto 0) := to_unsigned(512, 48);
     -- Lower it
 
     -- 4 stage pipeline for writing, 3 stage pipeline for hps
