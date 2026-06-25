@@ -17,7 +17,6 @@ end fft_ping_pong;
 
 architecture Structural of fft_ping_pong is
 
-    -- Component Declaration for the IP you generated
     COMPONENT blk_mem_gen_0
       PORT (
         clka  : IN STD_LOGIC;
@@ -58,7 +57,6 @@ begin
         doutb => m_axis_tdata -- Connects directly to FFT stream
       );
 
-    -- State Machine & Pointer Logic
     process(clk)
     begin
         if rising_edge(clk) then

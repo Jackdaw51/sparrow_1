@@ -143,11 +143,154 @@ architecture behavioral of oled_writer is
     signal temp_page : std_logic_vector (1 downto 0) := (others => '0'); -- Current page
     signal temp_index : integer range 0 to 15 := 0; -- Current character on page
 
-    -- FIX: Moved function to the architecture's declarative region
-    -- FIX: Added (3 downto 0) constraint to the input vector
+    
+    type note_record is record
+        freq_max   : integer; 
+        ascii_code : std_logic_vector(23 downto 0);
+    end record;
+    type note_array is array (0 to 99) of note_record;
+
+    -- Pre-compiled Look-Up Table (LUT) [Note][Diesis/Space][Ottava]
+    -- space = 0x20, '#' = 0x23, Numeri = 0x31-0x39
+    constant NOTE_LUT : note_array := (
+        ( 34, x"432031"),   -- C 1  
+        ( 36, x"432331"),   -- C#1  
+        ( 38, x"442031"),   -- D 1  
+        ( 40, x"442331"),   -- D#1  
+        ( 42, x"452031"),   -- E 1  
+        ( 45, x"462031"),   -- F 1  
+        ( 48, x"462331"),   -- F#1  
+        ( 50, x"472031"),   -- G 1  
+        ( 53, x"472331"),   -- G#1  
+        ( 57, x"412031"),   -- A 1  
+        ( 60, x"412331"),   -- A#1  
+        ( 64, x"422031"),   -- B 1  
+        ( 67, x"432032"),   -- C 2  
+        ( 71, x"432332"),   -- C#2  
+        ( 76, x"442032"),   -- D 2  
+        ( 80, x"442332"),   -- D#2  
+        ( 85, x"452032"),   -- E 2  (Start guitar extension, Low E ~82.4 Hz)
+        ( 90, x"462032"),   -- F 2  
+        ( 95, x"462332"),   -- F#2  
+        ( 101, x"472032"),  -- G 2  
+        ( 107, x"472332"),  -- G#2  
+        ( 113, x"412032"),  -- A 2  
+        ( 120, x"412332"),  -- A#2  
+        ( 127, x"422032"),  -- B 2  
+        ( 135, x"432033"),  -- C 3  
+        ( 143, x"432333"),  -- C#3  
+        ( 151, x"442033"),  -- D 3  
+        ( 160, x"442333"),  -- D#3  
+        ( 170, x"452033"),  -- E 3  
+        ( 180, x"462033"),  -- F 3  
+        ( 190, x"462333"),  -- F#3  
+        ( 202, x"472033"),  -- G 3  
+        ( 214, x"472333"),  -- G#3  
+        ( 227, x"412033"),  -- A 3  
+        ( 240, x"412333"),  -- A#3  
+        ( 254, x"422033"),  -- B 3  
+        ( 269, x"432034"),  -- C 4  (Middle C)
+        ( 285, x"432334"),  -- C#4  
+        ( 302, x"442034"),  -- D 4  
+        ( 320, x"442334"),  -- D#4  
+        ( 339, x"452034"),  -- E 4  
+        ( 360, x"462034"),  -- F 4  
+        ( 381, x"462334"),  -- F#4  
+        ( 404, x"472034"),  -- G 4  
+        ( 428, x"472334"),  -- G#4  
+        ( 453, x"412034"),  -- A 4  (Central A 440 Hz)
+        ( 480, x"412334"),  -- A#4  
+        ( 509, x"422034"),  -- B 4  
+        ( 539, x"432035"),  -- C 5  
+        ( 571, x"432335"),  -- C#5  
+        ( 605, x"442035"),  -- D 5  
+        ( 641, x"442335"),  -- D#5  
+        ( 679, x"452035"),  -- E 5  
+        ( 719, x"462035"),  -- F 5  
+        ( 762, x"462335"),  -- F#5  
+        ( 807, x"472035"),  -- G 5  
+        ( 855, x"472335"),  -- G#5  
+        ( 906, x"412035"),  -- A 5  
+        ( 960, x"412335"),  -- A#5  
+        ( 1017, x"422035"), -- B 5  
+        ( 1078, x"432036"), -- C 6  
+        ( 1142, x"432336"), -- C#6  
+        ( 1210, x"442036"), -- D 6  
+        ( 1282, x"442336"), -- D#6  
+        ( 1358, x"452036"), -- E 6  
+        ( 1438, x"462036"), -- F 6  
+        ( 1524, x"462336"), -- F#6  
+        ( 1615, x"472036"), -- G 6  
+        ( 1711, x"472336"), -- G#6  
+        ( 1812, x"412036"), -- A 6  
+        ( 1920, x"412336"), -- A#6  
+        ( 2034, x"422036"), -- B 6  
+        ( 2155, x"432037"), -- C 7  
+        ( 2283, x"432337"), -- C#7  
+        ( 2419, x"442037"), -- D 7  
+        ( 2563, x"442337"), -- D#7  
+        ( 2715, x"452037"), -- E 7  
+        ( 2877, x"462037"), -- F 7  
+        ( 3048, x"462337"), -- F#7  
+        ( 3229, x"472037"), -- G 7  
+        ( 3421, x"472337"), -- G#7  
+        ( 3625, x"412037"), -- A 7  
+        ( 3840, x"412337"), -- A#7  
+        ( 4069, x"422037"), -- B 7  
+        ( 4310, x"432038"), -- C 8  
+        ( 4567, x"432338"), -- C#8  
+        ( 4838, x"442038"), -- D 8  
+        ( 5126, x"442338"), -- D#8  
+        ( 5431, x"452038"), -- E 8  
+        ( 5754, x"462038"), -- F 8  
+        ( 6096, x"462338"), -- F#8  
+        ( 6458, x"472038"), -- G 8  
+        ( 6842, x"472338"), -- G#8  
+        ( 7249, x"412038"), -- A 8  
+        ( 7680, x"412338"), -- A#8  
+        ( 8137, x"422038"), -- B 8  
+        ( 8621, x"432039"), -- C 9  
+        ( 9134, x"432339"), -- C#9  
+        ( 9677, x"442039"), -- D 9  
+        ( 9999, x"442339")  -- D#9  (Max value)
+    );
+
+
+    function note_finder(x : in std_logic_vector(15 downto 0)) return std_logic_vector is
+        variable digit_thousands : integer;
+        variable digit_hundreds  : integer;
+        variable digit_tens      : integer;
+        variable digit_ones      : integer;
+        variable temp_freq : integer;
+        variable ascii     : std_logic_vector(23 downto 0) := x"2D2D2D"; -- Default "---"
+    begin
+        digit_thousands := conv_integer(x(15 downto 12));
+        digit_hundreds  := conv_integer(x(11 downto  8));
+        digit_tens      := conv_integer(x(7  downto  4));
+        digit_ones      := conv_integer(x(3  downto  0));
+        temp_freq := (digit_thousands * 1000) + 
+                     (digit_hundreds  * 100)  + 
+                     (digit_tens      * 10)   + 
+                     digit_ones;
+
+        -- Check if frequency is lower than C1 or out of scale
+        if temp_freq >= 30 and temp_freq <= 9999 then
+            -- Search inside Look Up Table
+            for i in 0 to NOTE_LUT'length - 1 loop -- The for cycle is 'fast' because the values are costants
+                if temp_freq <= NOTE_LUT(i).freq_max then
+                    ascii := NOTE_LUT(i).ascii_code;
+                    exit; -- Interrompe il ciclo appena trova la nota corretta
+                end if;
+            end loop;
+        end if;
+
+        return ascii;
+    end function note_finder;
+
+
     function to_ascii(x : in std_logic_vector(3 downto 0)) return std_logic_vector is
         variable ascii : std_logic_vector(7 downto 0);
-    begin -- FIX: Added missing 'begin' statement
+    begin
         case x is
             when "0000" => ascii := x"30"; -- 0
             when "0001" => ascii := x"31"; -- 1
@@ -381,11 +524,14 @@ begin
     end process;
 
     Data_converter : process (clk_100)
+        variable temp_chars: std_logic_vector(23 downto 0);
     begin
         if rising_edge(clk_100) then
             if rst = '1' then
                 data_screen <= clear_screen;
             else
+                temp_chars := note_finder(data_in(19 downto 4));
+
                 data_screen(0, 0) <= to_ascii(data_in(19 downto 16));
                 data_screen(0, 1) <= to_ascii(data_in(15 downto 12));
                 data_screen(0, 2) <= to_ascii(data_in(11 downto 8));
@@ -395,10 +541,18 @@ begin
                 data_screen(0, 6) <= x"20"; -- space
                 data_screen(0, 7) <= x"48"; -- H
                 data_screen(0, 8) <= x"7A"; -- z
-                data_screen(1, 0) <= to_ascii(test_counter(15 downto 12));
-                data_screen(1, 1) <= to_ascii(test_counter(11 downto 8));
-                data_screen(1, 2) <= to_ascii(test_counter(7 downto 4));
-                data_screen(1, 3) <= to_ascii(test_counter(3 downto 0));
+                data_screen(0, 9) <= x"20"; -- space
+                data_screen(0, 10) <= x"2D"; -- -
+                data_screen(0, 11) <= x"20"; -- space
+                data_screen(0, 12) <= temp_chars(23 downto 16);
+                data_screen(0, 13) <= temp_chars(15 downto 8);
+                data_screen(0, 14) <= temp_chars(7 downto 0);
+
+                data_screen(2, 0) <= to_ascii(test_counter(15 downto 12));
+                data_screen(2, 1) <= to_ascii(test_counter(11 downto 8));
+                data_screen(2, 2) <= to_ascii(test_counter(7 downto 4));
+                data_screen(2, 3) <= to_ascii(test_counter(3 downto 0));
+                data_screen(2, 3) <= x"73"; -- s
             end if;
         end if;
     end process;

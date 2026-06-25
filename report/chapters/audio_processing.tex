@@ -1,18 +1,110 @@
-SAMPLING
+\section{Sampling}
 
-The sampling of the data is performed using the ADAU1761 chip of the zedboard.
-It is a coder / decoder that samples the voltage level coming from the line in,
-and can also output it on the line out and do all sorts of transformation.
+The sampling of the data is performed using the ADAU1761 chip of the ZedBoard.
+It is a coder/decoder that samples the voltage level coming from the line-in,
+and can also output it on the line-out and do all sorts of transformations.
 The process of sampling has been facilitated by the use of the interface 
-developed by Mike Field \cite{github/audio}.
-It provides 24 bit samples in two's complement at 48kHz.
-\begin{figure}
+developed by Mike Field~\cite{github}. 
+
+\begin{figure}[htbp]
+    \centering 
     \includegraphics[width=0.8\textwidth]{figures/Audio_interface.png}
     \caption{This is a figure}
-\end{figure}
-\begin{figure}
-    \includegraphics[width=0.8\textwidth]{figures/audio_interface_BD.png}
+    \label{fig:audio_interface}
 \end{figure}
 
-DOWNSAMPLING
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/audio_interface_BD.png}
+    \caption{Audio interface block diagram.} 
+    \label{fig:audio_interface_bd}
+\end{figure}
+
+\section{Downsampling}
+
+We aim to perform the FFT on our samples to detect what is the frequency with the maximum power.
+But what resolution can we achieve? What is the range of frequencies we can measure?
+
+When we fill the FFT buffer, we are capturing a specific ``window'' of time. 
+If we collect $N$ samples, and take a new sample $f_s$ times per second, the total time it takes to fill that buffer is:
+\begin{equation}
+    T = \frac{N}{f_s}
+    \label{equation:time_window}
+\end{equation}
+The FFT assumes that the chunk of data we captured is one repeating cycle.
+Therefore, the absolute lowest frequency the FFT can see (other than 0~Hz DC) is a wave that completes exactly one full cycle inside our time window $T$.
+Thus: 
+\begin{equation}
+    f_{\min} = \frac{1}{T}
+    \label{equation:fmin}
+\end{equation}
+
+Substituting Equation~\ref{equation:time_window} into Equation~\ref{equation:fmin}, we get:
+\begin{equation}
+    f_{\min} = \frac{f_s}{N} = \Delta f
+    \label{equation:resolution}
+\end{equation}
+\textit{Since every bin of the FFT is spaced between one another in multiples of $\Delta f$.} 
+
+We derived the equation that tells us the resolution AND the minimum frequency detectable, but what about the maximum?
+The Nyquist theorem tells us that the maximum frequency we can detect through sampling is:
+\begin{equation}
+    f_s > 2 \cdot f_{\max}
+    \label{equation:Nyquist}
+\end{equation}
+So with $N$ fixed, to get a finer resolution (smaller $\Delta f$), we want to \textbf{lower} $f_s$, 
+but not too much; otherwise, we will not be able to detect some needed frequencies according to Equation~\ref{equation:Nyquist}.
+
+Here is where \textbf{downsampling} comes into play. We can decide how many samples to keep to achieve 
+a certain resolution.
+But instead of discarding 9 samples out of 10, we accumulate those 10 values into a register and use that 
+as our downsampled value.
+This method prevents spikes given by physical events (like picking a string)
+by effectively computing an \textit{unscaled average}.
+(Since we are looking for the biggest value in the FFT, we do not need to scale it back down).
+
+
+It also helps with another problem, \textbf{aliasing}: the Nyquist theorem (Equation~\ref{equation:Nyquist}), also 
+tells us that if the guitar produces some high frequency noises (which it does), the low $f_s$ will produce some low-frequency
+noise into the elaborated data.
+This accumulation helps with that because it acts as a \textbf{low pass filter}:\\
+In signal processing, summing $N$ subsequent samples is the same as \textbf{convolving} your
+audio with a "rectangular window", which in the frequency domain it has a frequency response
+given by the $sinc$ function:
+\begin{equation}
+    H(f)=\frac{\sin(\pi f M T_s)}{\sin(\pi f T_s)}
+\end{equation}  
+
+\textit{Where $M$ is the downsample factor (10), and $T_s$ is the sample period.}
+
+The low-frequencies are going to get amplified, while the high frequencies, which complete 
+one or multiple cycles during the window, will have their positive and negative halves 
+cancelled out.
+
+\section{The ping pong buffer}
+
+To prevent data loss while the FFT component is elaborating the data,
+we set up two buffers of 8192 entries in BRAM, and when one is full we start the 
+FFT on that data and start pushing new samples on the other buffer.
+
+\section{The FFT IP}
+
+For performing the FFT we use the Xilinx component set up like that:
+%Missing stuff
+\\
+The output of the FFT are the frequencies components values spread across 8192 bins. 
+
+\section{Smart peak finder}
+
+To find the fundamental frequency we want to find the most powerful component.
+First problem is that the resulting 8192 bins, having the sample rate at 4800 hz, are:
+\begin{itemize}
+    \item Bins 0 to 4095 represent the true positive frequencies from 0 Hz to 2,400 Hz (Nyquist Limit).
+    \item Bins 4096 to 8191 represent the negative frequencies wrapping backwards from 4,800 Hz down to 2,400 Hz.
+\end{itemize}
+Because the spectrum is mirrored, the peak energy is split equally in half.
+If one plays a 440 Hz tone, the FFT produces a massive spike at Bin 751 (+440 Hz),
+but it produces an identical massive spike at Bin 7441 (which is 4,800 Hz - 440 Hz = 4360 Hz)
+That's why we only search for the bins up to 4096.
+
 

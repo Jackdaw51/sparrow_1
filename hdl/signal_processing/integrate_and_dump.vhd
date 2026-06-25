@@ -4,8 +4,8 @@ use IEEE.NUMERIC_STD.all;
 
 entity integrate_and_dump is
     port (
-        clk : in std_logic; -- Main system clock (e.g., 100 MHz)
-        reset : in std_logic; -- Active high reset
+        clk : in std_logic;
+        reset : in std_logic;
 
         -- Input from audio codec (48 kHz sample rate)
         data_in : in std_logic_vector(23 downto 0);

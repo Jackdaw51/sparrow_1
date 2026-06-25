@@ -237,13 +237,13 @@ begin
 
             if target_freq /= 0 and temp /= 0 then
                 val := temp - target_freq;
-                if val <- 2 then
+                if val <- 1 then
                     sm_rotation <= '1';
                     sm_direction <= '1';
-                elsif val > 2 then
+                elsif val > 1 then
                     sm_rotation <= '1';
                     sm_direction <= '0';
-                elsif abs(val) < 2 then
+                elsif abs(val) < 1 then
                     led_out(7) <= '1';
                 end if;
             end if;
@@ -359,7 +359,7 @@ begin
         reset => clean_reset,
         rot_in => sm_rotation, -- If true rotate, 0 stop
         dir_in => sm_direction, -- 0 rotate clockwise, 1 rotate coutner-clockwise
-        speed_sel => '0', -- Use the switch to toggle speed (0 = slow, 1 = fast), used during testing
+        speed_sel => sw_deb(7), -- Use the switch to toggle speed (0 = slow, 1 = fast), used during testing
 
         step_out => sm_pins(1), -- Step signal - JA2
         dir_out => sm_pins(2), -- Motor direction - JA3
