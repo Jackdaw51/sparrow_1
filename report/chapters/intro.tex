@@ -1,1 +1,14 @@
-This project is realized completely in PL (Programmable Logic).
+The integration of digital signal processing (DSP) and automated electromechanical
+systems offers powerful solutions to real-world challenges.
+Musicians frequently face the time-consuming task of tuning their instruments,
+and while digital tuners can provide visual feedback, they still require manual adjustment by the performer.
+This project introduces an autonomous, hardware-driven solution: an automatic guitar
+tuning system implemented on a Xilinx Zedboard Development Kit using VHDL.
+
+The audio received directly from the guitar is processed thanks to a Fast Fourier Transform (FFT) algorithm,
+which identifies the fundamental frequency of the string being played.
+Such frequency is then compared to the desired target frequency, and allows the system to
+determine the necessary adjustments to bring the string into tune.
+
+By bypassing general-purpose microprocessors and implementing the core logic directly into the hardware of the Zedboard,
+the system achieves the low-latency, deterministic performance required for real-time audio analysis and motor control.
