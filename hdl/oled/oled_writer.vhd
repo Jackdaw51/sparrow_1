@@ -143,18 +143,11 @@ architecture behavioral of oled_writer is
     signal temp_page : std_logic_vector (1 downto 0) := (others => '0'); -- Current page
     signal temp_index : integer range 0 to 15 := 0; -- Current character on page
 
-    
-    type note_record is record
-        freq_max   : integer; 
-        ascii_code : std_logic_vector(23 downto 0);
-    end record;
-    type note_array is array (0 to 99) of note_record;
-
+ 
     type note_record is record
         freq_max   : std_logic_vector(15 downto 0); -- 4-digit BCD
-        ascii_code : std_logic_vector(23 downto 0);
+        ascii_code : std_logic_vector(23 downto 0); -- 3 ASCII characters
     end record;
-
     type note_array is array (0 to 59) of note_record;
 
     -- Pre-compiled Look-Up Table (LUT) [Note][Diesis/Space][Ottava]
@@ -231,9 +224,9 @@ architecture behavioral of oled_writer is
         if x >= x"0030" and x <= x"1000" then
             -- Search inside Look Up Table
             for i in 0 to NOTE_LUT'length - 1 loop -- The for cycle is 'fast' because the values are costants
-                if x <= NOTE_LUT(i).freq_max then
+                if x <= NOTE_LUT(i).freq_max then -- Search for closest note higher than input frequency
                     ascii := NOTE_LUT(i).ascii_code;
-                    exit; -- Interrompe il ciclo appena trova la nota corretta
+                    exit; -- Stops searching when the first match is found
                 end if;
             end loop;
         end if;
