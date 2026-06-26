@@ -102,9 +102,48 @@ First problem is that the resulting 8192 bins, having the sample rate at 4800 hz
     \item Bins 0 to 4095 represent the true positive frequencies from 0 Hz to 2,400 Hz (Nyquist Limit).
     \item Bins 4096 to 8191 represent the negative frequencies wrapping backwards from 4,800 Hz down to 2,400 Hz.
 \end{itemize}
+\paragraph{}
 Because the spectrum is mirrored, the peak energy is split equally in half.
 If one plays a 440 Hz tone, the FFT produces a massive spike at Bin 751 (+440 Hz),
 but it produces an identical massive spike at Bin 7441 (which is 4,800 Hz - 440 Hz = 4360 Hz)
 That's why we only search for the bins up to 4096.
 
+\paragraph{}
 
+But here comes another problem: when playing the notes on a guitar, you don't only get the fundamental
+frequency, you also get multiples of it, the \textbf{harmonics}, which sometimes can have
+an higher power than the fundamental, breaking the calculation.
+To get around this we implemented an algorithm called \textbf{Harmonic Product Spectrum (HPS)}:
+
+\paragraph{}
+
+We hold 3 BRAMs, that will contatin all the $real$ samples of $f_s$, $2f_s$, $3f_s$ respectively of sizes 4096, 2048, 1366.
+When the data comes out of the FFT block, it puts all the bins in the first BRAM, one in two bins in the second and
+one in three for the third BRAM.
+As a result, the harmonics will line up at the same index, so we can multiply them together and finally
+
+check for the \textbf{highest power}. A visual example of this can be seen in Figure~\ref{fig:hps}
+
+\begin{figure}[h]
+    \caption{Example of HPS result. \textit{Credits: sv.mazurka.org.uk}}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/hps.png}
+    \label{fig:hps}
+\end{figure}
+
+There are different problems with this approach:
+\begin{enumerate}
+    \item The full power calculation of the value of the bin takes 64 bits, and multiplying three of them together
+    would result in a 128 bits value, taking way too many DSP slices over the ZedBoard and risking timing violations.
+    \item All these operations cannot be done in the same clock cycle: multiplying 3 values together takes a long time.
+\end{enumerate}
+For the \textbf{first} problem we first calculate the power with the standard formula, with the difference of avoiding the square root,
+since we only care about the maximum, there's no need to square it back down:
+\begin{equation}
+    P = Re^2 + Im^2
+\end{equation}
+And from this 64 bits value we extract 16 bits, those between 48$^{th}$ and 32$^{nd}$.
+If the full power value is bigger than $2^{48}$ we set the 16 bits to 1s. If instead the full power 
+value is smaller than $2^{32}$ then we set the 16-bit value to 1 to avoid breaking the HPS multiplication.
+\paragraph{}
+For the \textbf{second} problem we set up a "conveyor belt" 

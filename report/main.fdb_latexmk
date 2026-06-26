@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1782382353.75106 "main.aux" "main.bbl" "main" 1782382354.86714 0
+["bibtex main"] 1782466234.49627 "main.aux" "main.bbl" "main" 1782466235.53226 0
   "./references.bib" 1782312701.91756 161 a29a62f7cc3175062708dc994ef12b36 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "main.aux" 1782382354.8086 1677 bad80502f56b7f8a45186ac9249120fb "pdflatex"
+  "main.aux" 1782466235.15206 2177 6254b611b5b5d2db56bacdb57e5588eb "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1782382353.79891 "/home/frabo/exercises/windows/a/Programming/Vivado/speaker_3/report/main.tex" "main.pdf" "main" 1782382354.87962 0
+["pdflatex"] 1782466234.5339 "/home/frabo/exercises/windows/a/Programming/Vivado/speaker_3/report/main.tex" "main.pdf" "main" 1782466235.54562 0
   "/etc/texmf/web2c/texmf.cnf" 1782033098.63327 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/frabo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk" 1782382353.56537 14040 99f9a1041af1653ec831a6c7cd0045ac ""
   "/home/frabo/exercises/windows/a/Programming/Vivado/speaker_3/report/main.tex" 1782310057.83967 521 71b978f2a47e0ccbd70e6cec9f305514 ""
@@ -67,15 +67,16 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1782033105.72827 75955 f78456fd1308dc295dc476a68e28d85b ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1782033114 6800787 8674ed7857d446f69ad639fb7f93e16a ""
-  "chapters/audio_processing.tex" 1782382352.25152 4715 570f3df8057cea1d6b46d47ea817427c ""
-  "chapters/intro.tex" 1782296530.56201 64 6ad7ae77d0d9ac361b1dc09b0d8c41bf ""
+  "chapters/audio_processing.tex" 1782466233.16121 7132 143ff2d0037e46bf5c3e79fbde2fb531 ""
+  "chapters/intro.tex" 1782403126.26475 1071 267313d3a43a7922517b5356fd357efc ""
   "chapters/methods.tex" 1782033543.50636 0 d41d8cd98f00b204e9800998ecf8427e ""
   "chapters/results.tex" 1782295629.04737 0 d41d8cd98f00b204e9800998ecf8427e ""
   "figures/Audio_interface.png" 1782296627.71568 30244 9239b5aba27d2e6e3ec43942a858b2e1 ""
   "figures/audio_interface_BD.png" 1782296651.40685 107010 942dc3fafb62ad2229cb3726cd400c32 ""
-  "main.aux" 1782382354.8086 1677 bad80502f56b7f8a45186ac9249120fb "pdflatex"
-  "main.bbl" 1782382353.97511 180 b57478f0f98ecb797b23665a858205b2 "bibtex main"
-  "main.toc" 1782382354.8159 479 b989cfce04582f7f9fbf2f886e123b02 "pdflatex"
+  "figures/hps.png" 1782463208.54869 18272 1d53c00291b03ed8783d382d35dece33 ""
+  "main.aux" 1782466235.15206 2177 6254b611b5b5d2db56bacdb57e5588eb "pdflatex"
+  "main.bbl" 1782466234.44701 180 b57478f0f98ecb797b23665a858205b2 "bibtex main"
+  "main.toc" 1782466235.15861 615 24c0af1dc80e2a0959ccf44277971a6a "pdflatex"
   (generated)
   "main.aux"
   "main.log"

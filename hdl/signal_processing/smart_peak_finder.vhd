@@ -66,7 +66,7 @@ architecture Behavioral of smart_peak_finder is
     signal index_delay1, index_delay2, index_delay3 : unsigned(12 downto 0) := (others => '0');
 
     constant MAX_SEARCH_BIN : integer := 4095;
-    constant NOISE_THRESHOLD : unsigned(47 downto 0) := to_unsigned(512, 48);
+    constant NOISE_THRESHOLD : unsigned(47 downto 0) := to_unsigned(256, 48);
     -- Lower it
 
     -- 4 stage pipeline for writing, 3 stage pipeline for hps
@@ -227,9 +227,24 @@ begin
 
                         -- CLOCK 3: Compare and Save Peak 
                         if index_delay3 > 0 then
-                            if hps_power > max_hps_pwr then
-                                max_hps_pwr <= hps_power;
-                                peak_bin_index <= std_logic_vector(index_delay3);
+                            if index_delay3 > 500 then
+                                if max_hps_pwr = NOISE_THRESHOLD then
+                                    max_hps_pwr <= "000" & max_hps_pwr(47 downto 3); 
+                                end if;
+                            end if;
+
+                            if index_delay3 > 1365 then
+                                -- prevents harmonics from showing up
+                                if ('0' & hps_power(47 downto 1)) > max_hps_pwr then
+                                    max_hps_pwr <= '0' & hps_power(47 downto 1);
+                                    peak_bin_index <= std_logic_vector(index_delay3);
+                                end if;
+                            else
+                                -- Normal, fully-validated HPS math for lower bins
+                                if hps_power > max_hps_pwr then
+                                    max_hps_pwr <= hps_power;
+                                    peak_bin_index <= std_logic_vector(index_delay3);
+                                end if;
                             end if;
                         end if;
 

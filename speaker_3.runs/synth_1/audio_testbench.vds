@@ -3,8 +3,8 @@
 # SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Thu Jun 25 17:51:49 2026
-# Process ID         : 17504
+# Start of session at: Fri Jun 26 16:36:15 2026
+# Process ID         : 3248
 # Current directory  : C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1
 # Command line       : vivado.exe -log audio_testbench.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source audio_testbench.tcl
 # Log file           : C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/audio_testbench.vds
@@ -17,9 +17,9 @@
 # CPU Physical cores : 8
 # CPU Logical cores  : 12
 # Host memory        : 16802 MB
-# Swap memory        : 3663 MB
-# Total Virtual      : 20466 MB
-# Available Virtual  : 3588 MB
+# Swap memory        : 3187 MB
+# Total Virtual      : 19990 MB
+# Available Virtual  : 3908 MB
 #-----------------------------------------------------------
 source audio_testbench.tcl -notrace
 Command: read_checkpoint -auto_incremental -incremental C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.srcs/utils_1/imports/synth_1/audio_testbench.dcp
@@ -34,9 +34,9 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 9900
+INFO: [Synth 8-7075] Helper process launched with PID 22504
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1005.012 ; gain = 469.336
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1005.684 ; gain = 469.836
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-9112] actual for formal port 's_axis_config_tvalid' is neither a static name nor a globally static expression [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:144]
 INFO: [Synth 8-638] synthesizing module 'audio_testbench' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:42]
@@ -135,9 +135,9 @@ INFO: [Synth 8-256] done synthesizing module 'delay' (0#1) [C:/Users/frabo/a/Pro
 INFO: [Synth 8-256] done synthesizing module 'oled_init' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_init.vhd:27]
 INFO: [Synth 8-3491] module 'oled_writer' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_writer.vhd:14' bound to instance 'Writer' of component 'oled_writer' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_ctrl.vhd:110]
 INFO: [Synth 8-638] synthesizing module 'oled_writer' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_writer.vhd:27]
-INFO: [Synth 8-3491] module 'spi_ctrl' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/spi_ctrl.vhd:14' bound to instance 'spi_comp' of component 'spi_ctrl' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_writer.vhd:319]
-INFO: [Synth 8-3491] module 'delay' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/delay.vhd:13' bound to instance 'delay_comp' of component 'delay' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_writer.vhd:329]
-INFO: [Synth 8-3491] module 'ascii_rom' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/ascii_rom.vhd:12' bound to instance 'char_lib_comp' of component 'ascii_rom' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_writer.vhd:337]
+INFO: [Synth 8-3491] module 'spi_ctrl' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/spi_ctrl.vhd:14' bound to instance 'spi_comp' of component 'spi_ctrl' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_writer.vhd:266]
+INFO: [Synth 8-3491] module 'delay' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/delay.vhd:13' bound to instance 'delay_comp' of component 'delay' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_writer.vhd:276]
+INFO: [Synth 8-3491] module 'ascii_rom' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/ascii_rom.vhd:12' bound to instance 'char_lib_comp' of component 'ascii_rom' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_writer.vhd:284]
 INFO: [Synth 8-638] synthesizing module 'ascii_rom' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/ascii_rom.vhd:19]
 INFO: [Synth 8-256] done synthesizing module 'ascii_rom' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/ascii_rom.vhd:19]
 INFO: [Synth 8-256] done synthesizing module 'oled_writer' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_writer.vhd:27]
@@ -153,8 +153,8 @@ INFO: [Synth 8-638] synthesizing module 'integrate_and_dump' [C:/Users/frabo/a/P
 INFO: [Synth 8-256] done synthesizing module 'integrate_and_dump' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/integrate_and_dump.vhd:20]
 INFO: [Synth 8-3491] module 'fft_ping_pong' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_ping_pong.vhd:5' bound to instance 'U_BUFFER' of component 'fft_ping_pong' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:128]
 INFO: [Synth 8-638] synthesizing module 'fft_ping_pong' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_ping_pong.vhd:18]
-INFO: [Synth 8-3491] module 'blk_mem_gen_0' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-17504-Aloy/realtime/blk_mem_gen_0_stub.vhdl:6' bound to instance 'your_bram_inst' of component 'blk_mem_gen_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_ping_pong.vhd:49]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-17504-Aloy/realtime/blk_mem_gen_0_stub.vhdl:25]
+INFO: [Synth 8-3491] module 'blk_mem_gen_0' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-3248-Aloy/realtime/blk_mem_gen_0_stub.vhdl:6' bound to instance 'your_bram_inst' of component 'blk_mem_gen_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_ping_pong.vhd:49]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-3248-Aloy/realtime/blk_mem_gen_0_stub.vhdl:25]
 INFO: [Synth 8-256] done synthesizing module 'fft_ping_pong' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_ping_pong.vhd:18]
 WARNING: [Synth 8-5640] Port 'm_axis_data_tuser' is missing in component declaration [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:85]
 WARNING: [Synth 8-5640] Port 'event_tlast_unexpected' is missing in component declaration [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:85]
@@ -162,36 +162,32 @@ WARNING: [Synth 8-5640] Port 'event_tlast_missing' is missing in component decla
 WARNING: [Synth 8-5640] Port 'event_status_channel_halt' is missing in component declaration [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:85]
 WARNING: [Synth 8-5640] Port 'event_data_in_channel_halt' is missing in component declaration [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:85]
 WARNING: [Synth 8-5640] Port 'event_data_out_channel_halt' is missing in component declaration [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:85]
-INFO: [Synth 8-3491] module 'xfft_0' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-17504-Aloy/realtime/xfft_0_stub.vhdl:6' bound to instance 'U_FFT' of component 'xfft_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:139]
-INFO: [Synth 8-638] synthesizing module 'xfft_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-17504-Aloy/realtime/xfft_0_stub.vhdl:38]
+INFO: [Synth 8-3491] module 'xfft_0' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-3248-Aloy/realtime/xfft_0_stub.vhdl:6' bound to instance 'U_FFT' of component 'xfft_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:139]
+INFO: [Synth 8-638] synthesizing module 'xfft_0' [C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/.Xil/Vivado-3248-Aloy/realtime/xfft_0_stub.vhdl:38]
 INFO: [Synth 8-3491] module 'smart_peak_finder' declared at 'C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/smart_peak_finder.vhd:5' bound to instance 'U_PEAK_FINDER' of component 'smart_peak_finder' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:159]
 INFO: [Synth 8-638] synthesizing module 'smart_peak_finder' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/smart_peak_finder.vhd:21]
 INFO: [Synth 8-256] done synthesizing module 'smart_peak_finder' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/smart_peak_finder.vhd:21]
 INFO: [Synth 8-256] done synthesizing module 'fft_top' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd:22]
 INFO: [Synth 8-113] binding component instance 'BUFG_inst' to cell 'BUFG' [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:384]
 INFO: [Synth 8-256] done synthesizing module 'audio_testbench' (0#1) [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:42]
-WARNING: [Synth 8-6014] Unused sequential element data_screen_reg[0,9] was removed.  [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_writer.vhd:375]
-WARNING: [Synth 8-6014] Unused sequential element data_screen_reg[0,11] was removed.  [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_writer.vhd:375]
+WARNING: [Synth 8-6014] Unused sequential element data_screen_reg[0,9] was removed.  [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_writer.vhd:322]
+WARNING: [Synth 8-6014] Unused sequential element data_screen_reg[0,11] was removed.  [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/oled/oled_writer.vhd:322]
 WARNING: [Synth 8-6014] Unused sequential element hphone_r_reg was removed.  [C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/audio_testbench.vhd:261]
 WARNING: [Synth 8-7129] Port addr[10] in module ascii_rom is either unconnected or has no load
-WARNING: [Synth 8-7129] Port test_counter[3] in module oled_writer is either unconnected or has no load
-WARNING: [Synth 8-7129] Port test_counter[2] in module oled_writer is either unconnected or has no load
-WARNING: [Synth 8-7129] Port test_counter[1] in module oled_writer is either unconnected or has no load
-WARNING: [Synth 8-7129] Port test_counter[0] in module oled_writer is either unconnected or has no load
 WARNING: [Synth 8-7129] Port hphone_r_valid_dummy in module audio_top is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1167.859 ; gain = 632.184
+Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1166.797 ; gain = 630.949
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1167.859 ; gain = 632.184
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1166.797 ; gain = 630.949
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1167.859 ; gain = 632.184
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1166.797 ; gain = 630.949
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.056 . Memory (MB): peak = 1167.859 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.062 . Memory (MB): peak = 1166.797 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 3 Unisim elements for replacement
 WARNING: [Netlist 29-432] The IBUFG primitive 'i_audio/i_clocking/clkin1_buf' has been retargeted to an IBUF primitive only. No BUFG will be added. If a global buffer is intended, please instantiate an available global clock primitive from the current architecture.
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -212,25 +208,25 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/audio_testbench_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1258.023 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1257.883 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 2 instances were transformed.
   IBUFG => IBUF: 1 instance 
   IOBUF => IOBUF (IBUF, OBUFT): 1 instance 
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 1258.023 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 1257.883 ; gain = 0.000
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'i_fft/U_BUFFER/your_bram_inst' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 1258.023 ; gain = 722.348
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1257.883 ; gain = 722.035
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 1258.023 ; gain = 722.348
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1257.883 ; gain = 722.035
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -238,7 +234,7 @@ Start Applying 'set_property' XDC Constraints
 Applied set_property KEEP_HIERARCHY = SOFT for i_fft/U_BUFFER/your_bram_inst. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for i_fft/U_FFT. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:16 . Memory (MB): peak = 1258.023 ; gain = 722.348
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1257.883 ; gain = 722.035
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'i3c2'
 INFO: [Synth 8-802] inferred FSM for state register 'current_state_reg' in module 'spi_ctrl'
@@ -288,7 +284,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'current_state_reg' using e
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'smart_peak_finder'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 1258.023 ; gain = 722.348
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1257.883 ; gain = 722.035
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -325,7 +321,7 @@ Detailed RTL Component Info :
 	               11 Bit    Registers := 1     
 	               10 Bit    Registers := 3     
 	                9 Bit    Registers := 2     
-	                8 Bit    Registers := 91    
+	                8 Bit    Registers := 92    
 	                5 Bit    Registers := 10    
 	                4 Bit    Registers := 8     
 	                2 Bit    Registers := 2     
@@ -341,7 +337,9 @@ Detailed RTL Component Info :
 	                    ROMs := 3     
 +---Muxes : 
 	   2 Input   64 Bit        Muxes := 1     
+	   2 Input   48 Bit        Muxes := 2     
 	   3 Input   48 Bit        Muxes := 1     
+	   2 Input   47 Bit        Muxes := 1     
 	   2 Input   32 Bit        Muxes := 2     
 	   2 Input   31 Bit        Muxes := 1     
 	   2 Input   24 Bit        Muxes := 1     
@@ -374,11 +372,11 @@ Detailed RTL Component Info :
 	   3 Input    3 Bit        Muxes := 1     
 	  31 Input    2 Bit        Muxes := 1     
 	   2 Input    2 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 58    
+	   2 Input    1 Bit        Muxes := 62    
 	  13 Input    1 Bit        Muxes := 6     
 	  14 Input    1 Bit        Muxes := 2     
 	   5 Input    1 Bit        Muxes := 20    
-	   3 Input    1 Bit        Muxes := 15    
+	   3 Input    1 Bit        Muxes := 16    
 	  28 Input    1 Bit        Muxes := 9     
 	  31 Input    1 Bit        Muxes := 9     
 ---------------------------------------------------------------------------------
@@ -451,10 +449,6 @@ DSP Report: Generating DSP freq_scaled_reg, operation Mode is: ((A:0x9600)*B2)'.
 DSP Report: register U_PEAK_FINDER/peak_bin_index_reg is absorbed into DSP freq_scaled_reg.
 DSP Report: register freq_scaled_reg is absorbed into DSP freq_scaled_reg.
 DSP Report: operator freq_scaled0 is absorbed into DSP freq_scaled_reg.
-WARNING: [Synth 8-7129] Port test_counter[3] in module oled_writer is either unconnected or has no load
-WARNING: [Synth 8-7129] Port test_counter[2] in module oled_writer is either unconnected or has no load
-WARNING: [Synth 8-7129] Port test_counter[1] in module oled_writer is either unconnected or has no load
-WARNING: [Synth 8-7129] Port test_counter[0] in module oled_writer is either unconnected or has no load
 WARNING: [Synth 8-7129] Port hphone_r_valid_dummy in module audio_top is either unconnected or has no load
 WARNING: [Synth 8-3332] Sequential element (i_fft/U_PEAK_FINDER/hps_power_reg[47]) is unused and will be removed from module audio_testbench.
 WARNING: [Synth 8-3332] Sequential element (i_fft/U_PEAK_FINDER/hps_power_reg[46]) is unused and will be removed from module audio_testbench.
@@ -558,7 +552,7 @@ WARNING: [Synth 8-3332] Sequential element (i_fft/U_PEAK_FINDER/real_sq_reg[42])
 WARNING: [Synth 8-3332] Sequential element (i_fft/U_PEAK_FINDER/real_sq_reg[41]) is unused and will be removed from module audio_testbench.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:31 . Memory (MB): peak = 1258.023 ; gain = 722.348
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 1257.883 ; gain = 722.035
 ---------------------------------------------------------------------------------
  Sort Area is  U_PEAK_FINDER/imag_sq0_b : 0 0 : 3137 5856 : Used 1 time 0
  Sort Area is  U_PEAK_FINDER/imag_sq0_b : 0 1 : 2719 5856 : Used 1 time 0
@@ -634,13 +628,13 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:34 ; elapsed = 00:00:38 . Memory (MB): peak = 1417.270 ; gain = 881.594
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 1423.367 ; gain = 887.520
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 1462.586 ; gain = 926.910
+Finished Timing Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1431.066 ; gain = 895.219
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -668,7 +662,7 @@ INFO: [Synth 8-7052] The timing for the instance i_fft/U_PEAK_FINDER/bram1_reg_1
 INFO: [Synth 8-7052] The timing for the instance i_fft/U_PEAK_FINDER/bram3_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance i_fft/U_PEAK_FINDER/bram2_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:37 ; elapsed = 00:00:41 . Memory (MB): peak = 1476.090 ; gain = 940.414
+Finished Technology Mapping : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1468.863 ; gain = 933.016
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -686,37 +680,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 1651.789 ; gain = 1116.113
+Finished IO Insertion : Time (s): cpu = 00:00:35 ; elapsed = 00:00:38 . Memory (MB): peak = 1653.152 ; gain = 1117.305
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 1651.789 ; gain = 1116.113
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:35 ; elapsed = 00:00:38 . Memory (MB): peak = 1653.152 ; gain = 1117.305
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 1651.789 ; gain = 1116.113
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:35 ; elapsed = 00:00:38 . Memory (MB): peak = 1653.152 ; gain = 1117.305
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 1651.789 ; gain = 1116.113
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:35 ; elapsed = 00:00:38 . Memory (MB): peak = 1653.152 ; gain = 1117.305
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 1655.805 ; gain = 1120.129
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:35 ; elapsed = 00:00:38 . Memory (MB): peak = 1656.344 ; gain = 1120.496
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 1655.805 ; gain = 1120.129
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:35 ; elapsed = 00:00:38 . Memory (MB): peak = 1656.344 ; gain = 1120.496
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -775,56 +769,56 @@ Report Cell Usage:
 |1     |blk_mem_gen_0_bbox |     1|
 |2     |xfft_0_bbox        |     1|
 |3     |BUFG               |     2|
-|4     |CARRY4             |   656|
+|4     |CARRY4             |   233|
 |5     |DSP48E1            |    12|
-|11    |LUT1               |   276|
-|12    |LUT2               |  2611|
-|13    |LUT3               |   208|
-|14    |LUT4               |   234|
-|15    |LUT5               |   163|
-|16    |LUT6               |   311|
+|11    |LUT1               |   139|
+|12    |LUT2               |   635|
+|13    |LUT3               |   179|
+|14    |LUT4               |   271|
+|15    |LUT5               |   211|
+|16    |LUT6               |   324|
 |17    |MMCME2_ADV         |     1|
-|18    |MUXF7              |    17|
-|19    |MUXF8              |     2|
+|18    |MUXF7              |    21|
+|19    |MUXF8              |     3|
 |20    |RAMB18E1           |     2|
 |22    |RAMB36E1           |     4|
 |24    |SRL16E             |    17|
 |25    |SRLC32E            |     3|
 |26    |FDCE               |    33|
 |27    |FDPE               |     1|
-|28    |FDRE               |  1287|
-|29    |FDSE               |    26|
+|28    |FDRE               |  1302|
+|29    |FDSE               |    27|
 |30    |IBUF               |    13|
 |31    |IBUFG              |     1|
 |32    |IOBUF              |     1|
 |33    |OBUF               |    22|
 +------+-------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 1655.805 ; gain = 1120.129
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:35 ; elapsed = 00:00:38 . Memory (MB): peak = 1656.344 ; gain = 1120.496
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 163 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:31 ; elapsed = 00:00:43 . Memory (MB): peak = 1655.805 ; gain = 1029.965
-Synthesis Optimization Complete : Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 1655.805 ; gain = 1120.129
+Synthesis finished with 0 errors, 0 critical warnings and 159 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:36 . Memory (MB): peak = 1656.344 ; gain = 1029.410
+Synthesis Optimization Complete : Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 1656.344 ; gain = 1120.496
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.046 . Memory (MB): peak = 1655.805 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 696 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.024 . Memory (MB): peak = 1656.344 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 278 Unisim elements for replacement
 WARNING: [Netlist 29-432] The IBUFG primitive 'i_audio/i_clocking/clkin1_buf' has been retargeted to an IBUF primitive only. No BUFG will be added. If a global buffer is intended, please instantiate an available global clock primitive from the current architecture.
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. i_audio/i_clocking/clkin1_buf 
 Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1655.805 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1669.094 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 1 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 1 instance 
 
-Synth Design complete | Checksum: 5700dffc
+Synth Design complete | Checksum: fb3cc886
 INFO: [Common 17-83] Releasing license: Synthesis
-135 Infos, 131 Warnings, 0 Critical Warnings and 0 Errors encountered.
+135 Infos, 123 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:45 ; elapsed = 00:00:52 . Memory (MB): peak = 1655.805 ; gain = 1357.605
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1655.805 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 1669.094 ; gain = 1370.254
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1669.094 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.runs/synth_1/audio_testbench.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file audio_testbench_utilization_synth.rpt -pb audio_testbench_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Jun 25 17:52:44 2026...
+INFO: [Common 17-206] Exiting Vivado at Fri Jun 26 16:37:03 2026...
