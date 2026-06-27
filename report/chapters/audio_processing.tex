@@ -5,24 +5,30 @@ It is a coder/decoder that samples the voltage level coming from the line-in,
 and can also output it on the line-out and do all sorts of transformations.
 The process of sampling has been facilitated by the use of the interface 
 developed by Mike Field~\cite{github}. 
+\paragraph{}
 
+In Figure~\ref{fig:audio_interface} and Figure~\ref{fig:audio_interface_bd} you can
+see the high level overview of the interface. We won't cover it in detail here, but you can
+check out the github repository~\cite{github}.
+\paragraph{}
 \begin{figure}[htbp]
     \centering 
-    \includegraphics[width=0.8\textwidth]{figures/Audio_interface.png}
-    \caption{This is a figure}
+    \includegraphics[width=0.5\textwidth]{figures/Audio_interface.png}
+    \caption{Audio interface overview}
     \label{fig:audio_interface}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.8\textwidth]{figures/audio_interface_BD.png}
+    \includegraphics[width=0.6\textwidth]{figures/audio_interface_BD.png}
     \caption{Audio interface block diagram.} 
     \label{fig:audio_interface_bd}
 \end{figure}
 
 \section{Downsampling}
 
-We aim to perform the FFT on our samples to detect what is the frequency with the maximum power.
+We aim to perform the Fast Fourier Transorm(FFT) on our samples to detect what 
+is the frequency with the maximum power, i.e. the fundamental frequency.
 But what resolution can we achieve? What is the range of frequencies we can measure?
 
 When we fill the FFT buffer, we are capturing a specific ``window'' of time. 
@@ -46,7 +52,7 @@ Substituting Equation~\ref{equation:time_window} into Equation~\ref{equation:fmi
 \end{equation}
 \textit{Since every bin of the FFT is spaced between one another in multiples of $\Delta f$.} 
 
-We derived the equation that tells us the resolution AND the minimum frequency detectable, but what about the maximum?
+We derived the equation that tells us the resolution \textbf{and} the minimum frequency detectable, but what about the maximum?
 The Nyquist theorem tells us that the maximum frequency we can detect through sampling is:
 \begin{equation}
     f_s > 2 \cdot f_{\max}
@@ -54,32 +60,43 @@ The Nyquist theorem tells us that the maximum frequency we can detect through sa
 \end{equation}
 So with $N$ fixed, to get a finer resolution (smaller $\Delta f$), we want to \textbf{lower} $f_s$, 
 but not too much; otherwise, we will not be able to detect some needed frequencies according to Equation~\ref{equation:Nyquist}.
+\textit{(The role of $N$ will be discussed in Section~\ref{section:fft})}
 
-Here is where \textbf{downsampling} comes into play. We can decide how many samples to keep to achieve 
-a certain resolution.
+\paragraph{}
+
+Here is where \textbf{downsampling} comes into play: We can decide how many samples to keep to achieve 
+a certain resolution (instead of changing the sample rate, which would be inconvenient).
 But instead of discarding 9 samples out of 10, we accumulate those 10 values into a register and use that 
 as our downsampled value.
-This method prevents spikes given by physical events (like picking a string)
+\paragraph{}
+This method in addition helps prevent spikes given by physical events (like picking a string)
 by effectively computing an \textit{unscaled average}.
 (Since we are looking for the biggest value in the FFT, we do not need to scale it back down).
 
-
-It also helps with another problem, \textbf{aliasing}: the Nyquist theorem (Equation~\ref{equation:Nyquist}), also 
+\paragraph{}
+Moreover, it helps with another problem, \textbf{aliasing}: the Nyquist theorem (Equation~\ref{equation:Nyquist}) also 
 tells us that if the guitar produces some high frequency noises (which it does), the low $f_s$ will produce some low-frequency
-noise into the elaborated data.
-This accumulation helps with that because it acts as a \textbf{low pass filter}:\\
+noise into the processed data. If you just dropped 9 out of 10 samples, all the frequencies multiple of $f_s$ would alias
+to 0 Hz (DC), giving power to the incorrect bin.
+A visual explanation can be found at dsprelated.com\cite{dsprelated}.
+The accumulation helps because it acts as a \textbf{low pass filter}:\\
 In signal processing, summing $N$ subsequent samples is the same as \textbf{convolving} your
-audio with a "rectangular window", which in the frequency domain it has a frequency response
+audio with a ``rectangular window''\cite{dsp}, which in the frequency domain has a frequency response
 given by the $sinc$ function:
 \begin{equation}
     H(f)=\frac{\sin(\pi f M T_s)}{\sin(\pi f T_s)}
+    \label{equation:FR}
 \end{equation}  
 
 \textit{Where $M$ is the downsample factor (10), and $T_s$ is the sample period.}
 
-The low-frequencies are going to get amplified, while the high frequencies, which complete 
-one or multiple cycles during the window, will have their positive and negative halves 
-cancelled out.
+This solves completely the ``alias to 0'' problem, becuase the Equation~\ref{equation:FR} has zeroes at multiples of $f_s$.
+Moreover, the low-frequencies pass through with maximum gain($M=10$), while the higher frequencies are attenuated.
+For example at our Nyquist limit:
+\begin{equation}
+    H(2400) = 6.39
+\end{equation}
+\textit{Which is $\approx63\%$ of maximum low-frequency amplitude.}
 
 \section{The ping pong buffer}
 
@@ -87,7 +104,7 @@ To prevent data loss while the FFT component is elaborating the data,
 we set up two buffers of 8192 entries in BRAM, and when one is full we start the 
 FFT on that data and start pushing new samples on the other buffer.
 
-\section{The FFT IP}
+\section{The FFT IP}\label{section:fft}
 
 For performing the FFT we use the Xilinx component set up like that:
 %Missing stuff
@@ -135,15 +152,36 @@ There are different problems with this approach:
 \begin{enumerate}
     \item The full power calculation of the value of the bin takes 64 bits, and multiplying three of them together
     would result in a 128 bits value, taking way too many DSP slices over the ZedBoard and risking timing violations.
-    \item All these operations cannot be done in the same clock cycle: multiplying 3 values together takes a long time.
+    \item The operations of calcultating the power and the HPS cannot be done in the same clock cycle: multiplication takes a long time.
 \end{enumerate}
 For the \textbf{first} problem we first calculate the power with the standard formula, with the difference of avoiding the square root,
 since we only care about the maximum, there's no need to square it back down:
 \begin{equation}
     P = Re^2 + Im^2
 \end{equation}
-And from this 64 bits value we extract 16 bits, those between 48$^{th}$ and 32$^{nd}$.
+And from this 64 bits value we extract 16 bits, those between 48$^{th}$ and 32$^{nd}$, which are the
+ones that carry the most useful information for us.
 If the full power value is bigger than $2^{48}$ we set the 16 bits to 1s. If instead the full power 
 value is smaller than $2^{32}$ then we set the 16-bit value to 1 to avoid breaking the HPS multiplication.
 \paragraph{}
-For the \textbf{second} problem we set up a "conveyor belt" 
+For the \textbf{second} problem we set up a ``conveyor belt'': a 4 stage pipeline for the \textbf{write}:
+\begin{enumerate}
+    \item Split real part and imaginary part.
+    \item Square each.
+    \item Add them together.
+    \item Extract the 16 bit value.
+\end{enumerate}
+and a 3-stage pipeline for the \textbf{HPS}:
+\begin{enumerate}
+    \item Multply value in BRAM1 with value in BRAM2.
+    \item Multply last result with value in BRAM3.
+    \item Compare and save the peak.
+\end{enumerate}
+\section{Outro}
+
+This is the conclusion to the part of the signal processing, that went from the very first
+sampling part to finding the fundamental frequency.
+It did so by downsampling the data to achieve a better resolution, setting up
+correct buffering to never do useless stalling, performing the FFT, and finding out
+the fundamental frequency overcoming many different problems.
+Now that we found that, we send the data to the OLED and the Stepper motor. 

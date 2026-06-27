@@ -1,8 +1,16 @@
 \begin{thebibliography}{1}
 
+\bibitem{dsprelated}
+dsprelated.com.
+\newblock \url{https://www.dsprelated.com/foundations/sampling.php}.
+
 \bibitem{github}
 Mike Field.
 \newblock zedboard audio interface.
 \newblock \url{https://github.com/ems-kl/zedboard_audio}, 2015.
+
+\bibitem{dsp}
+Richard~G. Lyons.
+\newblock {\em Understanding Digital Signal Processing, section 11.5}.
 
 \end{thebibliography}

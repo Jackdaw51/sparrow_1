@@ -1,12 +1,18 @@
 \contentsline {chapter}{\numberline {1}Introduction}{2}{}%
 \contentsline {section}{\numberline {1.1}Sampling}{2}{}%
-\contentsline {section}{\numberline {1.2}Downsampling}{4}{}%
-\contentsline {section}{\numberline {1.3}The ping pong buffer}{5}{}%
-\contentsline {section}{\numberline {1.4}The FFT IP}{5}{}%
-\contentsline {section}{\numberline {1.5}Smart peak finder}{5}{}%
-\contentsline {paragraph}{}{6}{}%
-\contentsline {paragraph}{}{6}{}%
+\contentsline {paragraph}{}{3}{}%
+\contentsline {paragraph}{}{3}{}%
+\contentsline {section}{\numberline {1.2}Downsampling}{3}{}%
+\contentsline {paragraph}{}{5}{}%
+\contentsline {paragraph}{}{5}{}%
+\contentsline {paragraph}{}{5}{}%
+\contentsline {section}{\numberline {1.3}The ping pong buffer}{6}{}%
+\contentsline {section}{\numberline {1.4}The FFT IP}{6}{}%
+\contentsline {section}{\numberline {1.5}Smart peak finder}{6}{}%
 \contentsline {paragraph}{}{6}{}%
 \contentsline {paragraph}{}{7}{}%
-\contentsline {chapter}{\numberline {2}Methods}{8}{}%
-\contentsline {chapter}{\numberline {3}Results}{9}{}%
+\contentsline {paragraph}{}{7}{}%
+\contentsline {paragraph}{}{8}{}%
+\contentsline {section}{\numberline {1.6}Outro}{8}{}%
+\contentsline {chapter}{\numberline {2}Methods}{9}{}%
+\contentsline {chapter}{\numberline {3}Results}{10}{}%
