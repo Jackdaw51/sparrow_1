@@ -120,16 +120,6 @@ INPUT ./figures/hps.png
 INPUT ./figures/hps.png
 INPUT ./figures/hps.png
 INPUT ./figures/hps.png
-INPUT ./chapters/methods.tex
-INPUT ./chapters/methods.tex
-INPUT ./chapters/methods.tex
-INPUT ./chapters/methods.tex
-INPUT chapters/methods.tex
-INPUT ./chapters/results.tex
-INPUT ./chapters/results.tex
-INPUT ./chapters/results.tex
-INPUT ./chapters/results.tex
-INPUT chapters/results.tex
 INPUT ./main.bbl
 INPUT ./main.bbl
 INPUT main.bbl
