@@ -23,7 +23,7 @@ architecture Behavioral of sine_wave_440hz is
     -- Define the Wheel (ROM type: 256 entries of 24-bit audio)
     type rom_type is array (0 to 255) of signed(23 downto 0);
 
-    -- The Magic Function: Calculates sine values during compilation
+    -- Calculates sine values during compilation
     impure function init_sine_rom return rom_type is
         variable temp_rom : rom_type;
         variable x : real;

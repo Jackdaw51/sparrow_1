@@ -11,45 +11,44 @@ entity fft_top is
         adc_data_in : in std_logic_vector(23 downto 0);
         adc_valid_in : in std_logic;
 
-        -- Final Output (To your OLED or Logic Analyzer)
+        -- Final Output
         peak_freq_hz : out std_logic_vector(15 downto 0);
         peak_ready : out std_logic;
 
-        peak_freq_tenths : out std_logic_vector(3 downto 0) -- A neat 0-9 digit for the OLED
+        peak_freq_tenths : out std_logic_vector(3 downto 0) -- A 0-9 digit for the OLED
     );
 end fft_top;
 
 architecture Structural of fft_top is
 
-    -- 1. Integrate & Dump Signals (4.8 kHz)
+    -- Integrate & Dump Signals (4.8 kHz)
     signal ds_data : std_logic_vector(31 downto 0);
     signal ds_valid : std_logic;
 
-    -- 2. Ping-Pong / BRAM Signals
+    -- Ping-Pong Signals
     signal axis_tdata : std_logic_vector(31 downto 0);
     signal axis_tvalid : std_logic;
     signal axis_tlast : std_logic;
     signal axis_tready : std_logic;
 
-    -- 3. FFT Configuration & Internal Routing
+    -- FFT Configuration & Internal Routing
     signal s_axis_config_tdata : std_logic_vector(15 downto 0) := x"5555";
     signal s_axis_config_tvalid : std_logic := '1';
 
     signal config_tready : std_logic;
     signal config_done : std_logic := '0';
 
-    -- Add this new signal to pad your audio with a zeroed imaginary part
+    -- signal to pad audio with a zeroed imaginary part
     signal complex_axis_tdata : std_logic_vector(63 downto 0);
 
     signal fft_data_internal : std_logic_vector(63 downto 0);
     signal fft_valid_internal : std_logic;
     signal fft_last_internal : std_logic;
 
-    -- 4. Peak Finder Output Signals
+    -- Peak Finder Output Signals
     signal peak_bin_index : std_logic_vector(12 downto 0);
     signal internal_ready : std_logic;
 
-    -- 5. Frequency Math Signals
     -- 13-bit index * 16-bit constant = 29-bit result
     signal freq_scaled : unsigned(28 downto 0);
 
@@ -57,7 +56,6 @@ architecture Structural of fft_top is
 
     signal tenths_calc : unsigned(19 downto 0);
 
-    -- Component Declarations
     component integrate_and_dump
         port (
             clk : in std_logic;
@@ -116,7 +114,6 @@ architecture Structural of fft_top is
 
 begin
 
-    -- Instance 1: Downsampler (48kHz -> 4.8kHz)
     U_DOWNSAMPLE : integrate_and_dump
     port map(
         clk => clk, reset => reset,
@@ -124,7 +121,6 @@ begin
         data_out => ds_data, valid_out => ds_valid
     );
 
-    -- Instance 2: Ping-Pong Buffer (BRAM Controller)
     U_BUFFER : fft_ping_pong
     port map(
         clk => clk, reset => reset,
@@ -135,7 +131,7 @@ begin
         m_axis_tready => axis_tready
     );
 
-    -- Instance 3: Xilinx FFT IP (8192-point engine)
+    -- Xilinx FFT IP (8192-point engine)
     U_FFT : xfft_0
     port map(
         aclk => clk,
@@ -154,7 +150,6 @@ begin
         event_frame_started => open
     );
 
-    -- Instance 4: Peak Power Detector
     -- U_PEAK_FINDER : peak_finder
     U_PEAK_FINDER : smart_peak_finder
     port map(
@@ -168,7 +163,7 @@ begin
 
     complex_axis_tdata <= x"00000000" & axis_tdata;
     aresetn <= not reset;
-    -- Instance 5: Index to Frequency Conversion (Fixed Point Math)
+    -- Index to Frequency Conversion (Fixed Point Math)
     process (clk)
     begin
         if rising_edge(clk) then
@@ -184,7 +179,7 @@ begin
                 if internal_ready = '1' then
                     freq_scaled <= unsigned(peak_bin_index) * to_unsigned(38400, 16);
                 end if;
-
+                -- 0.5859375 * 65536 = 38400 so we do bin * 38400 / 2^16
                 -- Integer part (upper bits)
                 peak_freq_hz <= std_logic_vector(resize(freq_scaled(28 downto 16), 16));
 
@@ -203,7 +198,7 @@ begin
             if reset = '1' then
                 config_done <= '0';
             elsif config_tready = '1' then
-                config_done <= '1'; -- Stop configuring once accepted!
+                config_done <= '1'; -- Stop configuring once accepted
             end if;
         end if;
     end process;

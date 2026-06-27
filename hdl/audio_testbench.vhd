@@ -1,12 +1,8 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
 use IEEE.NUMERIC_STD.all;
 
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
 library UNISIM;
 use UNISIM.VComponents.all;
 
@@ -141,11 +137,11 @@ architecture Behavioral of audio_testbench is
             adc_data_in : in std_logic_vector(23 downto 0);
             adc_valid_in : in std_logic;
 
-            -- Final Output (To your OLED or Logic Analyzer)
+            -- Final Output 
             peak_freq_hz : out std_logic_vector(15 downto 0);
             peak_ready : out std_logic;
 
-            peak_freq_tenths : out std_logic_vector(3 downto 0) -- A neat 0-9 digit for the OLED
+            peak_freq_tenths : out std_logic_vector(3 downto 0) -- 0-9 digit for the OLED
 
         );
     end component;
@@ -172,14 +168,6 @@ architecture Behavioral of audio_testbench is
 
     -- Internal register to hold the stable state
     signal clean_reset : std_logic := '0';
-
-    signal sample_acc : unsigned(15 downto 0) := (others => '0');
-    signal en_204_8Hz : std_logic := '0';
-
-    -- Increment value: (204.8 / 48000) * 2^16 = 279.62... (round to 280)
-
-    -- actually (100 / 48000) * 2^16 = 136.5 round to 136
-    constant STEP_204_8 : unsigned(15 downto 0) := to_unsigned(136, 16);
 
     signal raw_data : std_logic_vector(31 downto 0) := (others => '0');
     signal peak_freq_hz : std_logic_vector(15 downto 0);

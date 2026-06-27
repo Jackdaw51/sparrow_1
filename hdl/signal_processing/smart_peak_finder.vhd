@@ -129,7 +129,7 @@ begin
                 pwr_full <= unsigned(real_sq) + unsigned(imag_sq);
 
                 -- Downsamples them to 16 bits to have a final 48 bits value
-                -- Stage 4: Truncate with SATURATION (Ceiling) and FLOOR
+                -- Stage 4: Truncate with SATURATION and FLOOR
                 if pwr_full(63 downto 48) /= x"0000" then
                     -- CEILING: The signal is massive. Max it out to prevent wrapping.
                     pwr_val_16 <= x"FFFF";
@@ -240,7 +240,7 @@ begin
                                     peak_bin_index <= std_logic_vector(index_delay3);
                                 end if;
                             else
-                                -- Normal, fully-validated HPS math for lower bins
+                                -- Normal HPS for lower bins
                                 if hps_power > max_hps_pwr then
                                     max_hps_pwr <= hps_power;
                                     peak_bin_index <= std_logic_vector(index_delay3);
