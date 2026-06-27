@@ -114,6 +114,7 @@ INPUT ./figures/audio_interface_BD.png
 INPUT ./figures/audio_interface_BD.png
 INPUT ./figures/audio_interface_BD.png
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm
 INPUT ./figures/hps.png
 INPUT ./figures/hps.png
@@ -123,7 +124,6 @@ INPUT ./figures/hps.png
 INPUT ./main.bbl
 INPUT ./main.bbl
 INPUT main.bbl
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
 INPUT main.aux
 INPUT /home/frabo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb

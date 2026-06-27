@@ -27,8 +27,8 @@ check out the github repository~\cite{github}.
 
 \section{Downsampling}
 
-We aim to perform the Fast Fourier Transorm(FFT) on our samples to detect what 
-is the frequency with the maximum power, i.e. the fundamental frequency.
+We aim to perform the Fast Fourier Transorm (FFT) on our samples to detect what 
+is the frequency component with the maximum power, i.e. the fundamental frequency.
 But what resolution can we achieve? What is the range of frequencies we can measure?
 
 When we fill the FFT buffer, we are capturing a specific ``window'' of time. 
@@ -51,6 +51,7 @@ Substituting Equation~\ref{equation:time_window} into Equation~\ref{equation:fmi
     \label{equation:resolution}
 \end{equation}
 \textit{Since every bin of the FFT is spaced between one another in multiples of $\Delta f$.} 
+\paragraph{}
 
 We derived the equation that tells us the resolution \textbf{and} the minimum frequency detectable, but what about the maximum?
 The Nyquist theorem tells us that the maximum frequency we can detect through sampling is:
@@ -69,7 +70,7 @@ a certain resolution (instead of changing the sample rate, which would be inconv
 But instead of discarding 9 samples out of 10, we accumulate those 10 values into a register and use that 
 as our downsampled value.
 \paragraph{}
-This method in addition helps prevent spikes given by physical events (like picking a string)
+This method also helps prevent spikes given by physical events (like picking a string)
 by effectively computing an \textit{unscaled average}.
 (Since we are looking for the biggest value in the FFT, we do not need to scale it back down).
 
@@ -79,6 +80,7 @@ tells us that if the guitar produces some high frequency noises (which it does),
 noise into the processed data. If you just dropped 9 out of 10 samples, all the frequencies multiple of $f_s$ would alias
 to 0 Hz (DC), giving power to the incorrect bin.
 A visual explanation can be found at dsprelated.com\cite{dsprelated}.
+\paragraph{}
 The accumulation helps because it acts as a \textbf{low pass filter}:\\
 In signal processing, summing $N$ subsequent samples is the same as \textbf{convolving} your
 audio with a ``rectangular window''\cite{dsp}, which in the frequency domain has a frequency response
@@ -92,7 +94,7 @@ given by the $sinc$ function:
 
 This solves completely the ``alias to 0'' problem, becuase the Equation~\ref{equation:FR} has zeroes at multiples of $f_s$.
 Moreover, the low-frequencies pass through with maximum gain($M=10$), while the higher frequencies are attenuated.
-For example at our Nyquist limit:
+For example, at our Nyquist limit:
 \begin{equation}
     H(2400) = 6.39
 \end{equation}
@@ -101,14 +103,18 @@ For example at our Nyquist limit:
 \section{The ping pong buffer}
 
 To prevent data loss while the FFT component is elaborating the data,
-we set up two buffers of 8192 entries in BRAM, and when one is full we start the 
-FFT on that data and start pushing new samples on the other buffer.
+we set up two buffers of 8192 entries using BRAM, and when one is full we feed it to the FFT 
+and start pushing new samples into the other buffer.
 
 \section{The FFT IP}\label{section:fft}
 
-For performing the FFT we use the Xilinx component set up like that:
-%Missing stuff
-\\
+To perfrom the FFT we use the Xilinx component \texttt{Fast Fourier Transorm 9.1}. Reported here are 
+the most important settings:
+\begin{itemize}
+    \item Size ($N$) at 8192 bins 
+    \item Pipelined, streaming I/O
+\end{itemize}
+With these setting it uses 5185 LUTs, 34.5 BRAMs and 48 DSPs, and is able to do a full transformation in $247.15 \mu s$.
 The output of the FFT are the frequencies components values spread across 8192 bins. 
 
 \section{Smart peak finder}
