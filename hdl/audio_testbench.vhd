@@ -120,7 +120,7 @@ architecture Behavioral of audio_testbench is
             -- Control Inputs
             rot_in : in std_logic; -- '1' to rotate, '0' to stop
             dir_in : in std_logic; -- '0' clockwise, '1' counter-clockwise
-            speed_sel : in std_logic; -- '0' for fast, '1' for fine tuning
+            speed_sel : in std_logic; -- '0' for fast, '1' for slow
             -- Driver Outputs
             step_out : out std_logic; -- Step pulse
             dir_out : out std_logic;
@@ -347,7 +347,7 @@ begin
         reset => clean_reset,
         rot_in => sm_rotation, -- If true rotate, 0 stop
         dir_in => sm_direction, -- 0 rotate clockwise, 1 rotate coutner-clockwise
-        speed_sel => sw_deb(7), -- Use the switch to toggle speed (0 = slow, 1 = fast), used during testing
+        speed_sel => sw_deb(7), -- Use the switch to toggle speed (0 = fast, 1 = slow), used during testing
 
         step_out => sm_pins(1), -- Step signal - JA2
         dir_out => sm_pins(2), -- Motor direction - JA3

@@ -11,7 +11,6 @@ entity button_manager is
     );
 end entity button_manager;
 architecture Structural of button_manager is
-    -- Component declaration
     component debouncer
         generic (
             WAIT_CYCLES : integer
@@ -26,11 +25,11 @@ architecture Structural of button_manager is
     signal btn_deb : std_logic_vector(4 downto 0);
 
 begin
-    -- The "Loop Unrolling" (Generate Statement)
+    -- Loop Enrolling to generate each button's debouncer
     GEN_DEBOUNCERS : for i in 0 to 4 generate
         debouncer_inst : debouncer
         generic map(
-            WAIT_CYCLES => 2_000_000 -- 20ms for mechanical switches
+            WAIT_CYCLES => 2_000_000 -- 20ms
         )
         port map(
             clk => clk,

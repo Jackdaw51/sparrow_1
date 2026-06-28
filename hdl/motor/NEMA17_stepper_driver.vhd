@@ -9,7 +9,7 @@ entity nema17_control is
         -- Control Inputs
         rot_in : in std_logic; -- '1' to rotate, '0' to stop
         dir_in : in std_logic; -- '0' clockwise, '1' counter-clockwise
-        speed_sel : in std_logic; -- '0' for fast, '1' for fine tuning
+        speed_sel : in std_logic; -- '0' for fast, '1' for slow
         -- Driver Outputs
         step_out : out std_logic; -- Step pulse
         dir_out : out std_logic;
@@ -26,7 +26,7 @@ begin
 
     -- Set Speed: Lower limit_val = Faster pulses
     -- limit_val = f_clocl / (2 * f_step), where f_step is desired frequency of step pulses
-    -- f_step = 100Hz for fast tuning, 25Hz for fine tuning
+    -- f_step = 25Hz for fast tuning, 12.5Hz for fine tuning
     limit_val <= 2_000_000 when speed_sel = '0' else 4_000_000;
     
     process (clk)
