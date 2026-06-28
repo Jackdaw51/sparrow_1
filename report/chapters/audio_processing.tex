@@ -6,24 +6,26 @@ and can also output it on the line-out and do all sorts of transformations.
 The process of sampling has been facilitated by the use of the interface 
 developed by Mike Field~\cite{github}. 
 \paragraph{}
+\begin{figure}[h]
+
+\begin{subfigure}{0.49\textwidth}
+\includegraphics[width=0.9\linewidth]{figures/Audio_interface.png} 
+\caption{Audio interface overview}
+\label{fig:audio_interface}
+\end{subfigure}
+\begin{subfigure}{0.49\textwidth}
+\includegraphics[width=0.9\linewidth]{figures/audio_interface_BD.png}
+\caption{Audio interface block diagram.}
+\label{fig:audio_interface_bd}
+\end{subfigure}
+\end{figure}
 
 In Figure~\ref{fig:audio_interface} and Figure~\ref{fig:audio_interface_bd} you can
 see the high level overview of the interface. We won't cover it in detail here, but you can
 check out the github repository~\cite{github}.
-\paragraph{}
-\begin{figure}[htbp]
-    \centering 
-    \includegraphics[width=0.5\textwidth]{figures/Audio_interface.png}
-    \caption{Audio interface overview}
-    \label{fig:audio_interface}
-\end{figure}
 
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.6\textwidth]{figures/audio_interface_BD.png}
-    \caption{Audio interface block diagram.} 
-    \label{fig:audio_interface_bd}
-\end{figure}
+\paragraph{}
+The sampling frequency set by the interface is $48kHz$.
 
 \section{Downsampling}
 
@@ -105,6 +107,13 @@ For example, at our Nyquist limit:
 To prevent data loss while the FFT component is elaborating the data,
 we set up two buffers of 8192 entries using BRAM, and when one is full we feed it to the FFT 
 and start pushing new samples into the other buffer.
+\paragraph{}
+Since the effective $f_s$ after downsampling is $4.8kHz$, then the time it takes to full one buffer is:
+\begin{equation}
+    T = \frac{8192}{f_s} \approx 1.7 s
+\end{equation}
+
+Most of the time taken by the whole pipeline is waiting on the data to be sampled.
 
 \section{The FFT IP}\label{section:fft}
 
@@ -115,7 +124,8 @@ the most important settings:
     \item Pipelined, streaming I/O
 \end{itemize}
 With these setting it uses 5185 LUTs, 34.5 BRAMs and 48 DSPs, and is able to do a full transformation in $247.15 \mu s$.
-The output of the FFT are the frequencies components values spread across 8192 bins. 
+The output of the FFT are the frequencies real and complex components values spread across 8192 bins. 
+$N$ was chosen to be 8192 because it is a good compromise between logic area and \textbf{high} frequency resolution.
 
 \section{Smart peak finder}
 
@@ -183,7 +193,7 @@ and a 3-stage pipeline for the \textbf{HPS}:
     \item Multply last result with value in BRAM3.
     \item Compare and save the peak.
 \end{enumerate}
-\section{Outro}
+\section{Chapter summary}
 
 This is the conclusion to the part of the signal processing, that went from the very first
 sampling part to finding the fundamental frequency.
