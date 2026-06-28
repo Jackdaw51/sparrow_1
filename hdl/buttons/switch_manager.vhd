@@ -3,7 +3,7 @@ use IEEE.STD_LOGIC_1164.all;
 
 entity switch_manager is
     port (
-        clk : in std_logic; --Clock
+        clk : in std_logic;
         switches_in : in std_logic_vector(7 downto 0);
         switches_deb : out std_logic_vector(7 downto 0);
         switches_valid : out std_logic
@@ -24,7 +24,7 @@ architecture Structural of switch_manager is
     signal sw_deb : std_logic_vector(7 downto 0);
 
 begin
-    -- The "Loop Unrolling" (Generate Statement)
+    -- Loop Unrolling to generate a debouncer for each switch
     GEN_DEBOUNCERS : for i in 0 to 7 generate
         debouncer_inst : debouncer
         generic map(

@@ -218,9 +218,9 @@ architecture behavioral of oled_writer is
 
     -- We directly use the BCD format of the input frequency
     function note_finder(x : in std_logic_vector(15 downto 0)) return std_logic_vector is
-        variable ascii     : std_logic_vector(23 downto 0) := x"2D2D2D"; -- Default "---"
+        variable ascii     : std_logic_vector(23 downto 0) := x"2D2D2D"; -- Default is "---"
     begin
-        -- Check if frequency is inside guitar's range (30 Hz to 1000 Hz, which is actually higher)
+        -- Check if frequency is inside guitar's range (30 Hz to 1000 Hz, which is actually higher than necessary)
         if x >= x"0030" and x <= x"1000" then
             -- Search inside Look Up Table
             for i in 0 to NOTE_LUT'length - 1 loop -- The for cycle is 'fast' because the values are costants
