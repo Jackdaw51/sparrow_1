@@ -1,16 +1,16 @@
 # Fdb version 4
-["bibtex main"] 1782571244.96234 "main.aux" "main.bbl" "main" 1782571245.92049 0
-  "./references.bib" 1782569891.72539 470 94a9063903deba436abe7a19d4a99413 ""
+["bibtex main"] 1782659775.79194 "main.aux" "main.bbl" "main" 1782659792.02508 0
+  "./references.bib" 1782659772.23555 829 1b3f6dbb6b707d53fb66735e15d0d781 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "main.aux" 1782571246.04398 2682 a9e9b5ab8b7d0130c89cc73acf683be1 "pdflatex"
+  "main.aux" 1782659793.68677 5469 db33e295cd3454f974e0ffa6ba69242e "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1782571244.99833 "/home/frabo/exercises/windows/a/Programming/Vivado/speaker_3/report/main.tex" "main.pdf" "main" 1782571245.93029 0
+["pdflatex"] 1782659792.76567 "/home/frabo/exercises/windows/a/Programming/Vivado/speaker_3/report/main.tex" "main.pdf" "main" 1782659792.02994 0
   "/etc/texmf/web2c/texmf.cnf" 1782033098.63327 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/frabo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk" 1782382353.56537 14040 99f9a1041af1653ec831a6c7cd0045ac ""
-  "/home/frabo/exercises/windows/a/Programming/Vivado/speaker_3/report/main.tex" 1782571243.98905 483 cf6cc55d236e32bbbe2a69fc73fa33c5 ""
+  "/home/frabo/exercises/windows/a/Programming/Vivado/speaker_3/report/main.tex" 1782659436.47614 596 4fcbac779e724d678de395b52869c5bc ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -67,14 +67,18 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1782033105.72827 75955 f78456fd1308dc295dc476a68e28d85b ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1782033114 6800787 8674ed7857d446f69ad639fb7f93e16a ""
-  "chapters/audio_processing.tex" 1782570860.6746 9109 87a77ac240b62b02514c0cb8980ed4fe ""
-  "chapters/intro.tex" 1782403126.26475 1071 267313d3a43a7922517b5356fd357efc ""
+  "chapters/audio_processing.tex" 1782594546.27569 9402 c4278ce52b24e495e92071b7cd5bdfec ""
+  "chapters/intro.tex" 1782659436.37723 1123 20e727bf14d5397eb155499f9d70589f ""
+  "chapters/motor_control.tex" 1782659436.38957 6638 31d9c519cfbfd98dccb4c10a06b428e1 ""
+  "chapters/oled.tex" 1782659791.99229 2120 48f6085549cb5186e6db00a931847405 ""
   "figures/Audio_interface.png" 1782296627.71568 30244 9239b5aba27d2e6e3ec43942a858b2e1 ""
+  "figures/Driver_expansion_board.png" 1782659436.42904 568917 13332b9d44373c3b08558b7b1b6e5d5c ""
+  "figures/Motor_system_overview.png" 1782659436.47614 735751 a5ac369dc6397722035fa7cf0c07194c ""
   "figures/audio_interface_BD.png" 1782296651.40685 107010 942dc3fafb62ad2229cb3726cd400c32 ""
   "figures/hps.png" 1782463208.54869 18272 1d53c00291b03ed8783d382d35dece33 ""
-  "main.aux" 1782571246.04398 2682 a9e9b5ab8b7d0130c89cc73acf683be1 "pdflatex"
-  "main.bbl" 1782571245.38792 391 010ac6f090f6bc30ab7bbe3f6fd2ef65 "bibtex main"
-  "main.toc" 1782571246.05138 809 8e781cf07b90daf9160e50780cd59d81 "pdflatex"
+  "main.aux" 1782659793.68677 5469 db33e295cd3454f974e0ffa6ba69242e "pdflatex"
+  "main.bbl" 1782659776.70635 684 9bcc12a71b7148bb9d5e8c082422d012 "bibtex main"
+  "main.toc" 1782659793.69711 1919 db1fd3f13be47e29deb376f69a388dec "pdflatex"
   (generated)
   "main.aux"
   "main.log"

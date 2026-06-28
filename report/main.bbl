@@ -13,4 +13,14 @@ Mike Field.
 Richard~G. Lyons.
 \newblock {\em Understanding Digital Signal Processing, section 11.5}.
 
+\bibitem{OLED:repo}
+Michael Mattioli.
+\newblock Oled repository.
+\newblock \url{https://github.com/mmattioli/ZedBoard-OLED.git}.
+
+\bibitem{A4988}
+Allegro MicroSystems.
+\newblock A4988 datasheet.
+\newblock \url{https://www.allegromicro.com/~/media/files/datasheets/a4988-datasheet.pdf}, 2022.
+
 \end{thebibliography}
