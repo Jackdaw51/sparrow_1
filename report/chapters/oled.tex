@@ -31,11 +31,10 @@ Another information displayed is the note corresponding to the current frequency
 To achieve this we utilize the same data in BCD format and a pre-compiled Look-Up Table (LUT),
 containing the various notes in a specific frequency range.
 We chose the arbitrary value of 1000 Hz as the upper limit, which is more than enough to
-represent any note detected by our system, since the guitar's string can produce frequencies
-at most around 400Hz.
+represent any relevant note detected by our system.
 \paragraph{}
 
 The last information displayed on the OLED display is a simple incremental counter,
-used for debugging purposes, like ansuring the right refresh rate on the display.
+used for debugging purposes, like ensuring the right refresh rate on the display.
 This counter is also passed to the OLED module as a BCD encoded \texttt{std\_logic\_vector}.
 
