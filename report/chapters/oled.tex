@@ -1,7 +1,7 @@
 \section{OLED display}
 
-For quick access to information and data during testing, we used the OLED
-display integrated in the ZedBoard. This display has a resolution of 128x32 pixels
+For quick access to information and data during testing, we used the \textbf{OLED
+display} integrated in the ZedBoard. This display has a resolution of 128x32 pixels
 and is controlled through I2C communication.
 
 \section{Code implementation}
@@ -12,14 +12,14 @@ effective way to interface with the display implemented in VHDL and compatible w
 \paragraph{}
 
 Many of the functions provided by the repository were kept unchanged, while we focused
-on implementing new ones to display the information we needed on the screen.
+on \textbf{implementing new ones} to display the information we needed on the screen.
 The OLED display is divided into 4 lines, each with a maximum of 16 characters,
 and ASCII encoding is used to represent the characters.
 
 \section{Displayed information}
 
-Our audio processing module provides the current frequency of the audio signal. This data is
-encoded in Binary-Coded Decimal (BCD) format, where each digit is written as 4-bits,
+Our audio processing module provides the \textbf{current frequency} of the audio signal. This data is
+encoded in \textbf{Binary-Coded Decimal} (BCD) format, where each digit is written as 4-bits,
 which guarantee the necessary range from 0 to 9.
 The BCD format was chosen because it moves the operational weight of computing each digit
 from the OLED writer code, to other modules already tasked with computations.
@@ -27,14 +27,14 @@ This allows a quick translation of the input data into an ascii encoded buffer, 
 then be used to print the current frequency.
 \paragraph{}
 
-Another information displayed is the note corresponding to the current frequency.
-To achieve this we utilize the same data in BCD format and a pre-compiled Look-Up Table (LUT),
+Another information displayed is \textbf{the note} corresponding to the current frequency.
+To achieve this we utilize the same data in BCD format and a \textbf{pre-compiled Look-Up Table} (LUT),
 containing the various notes in a specific frequency range.
 We chose the arbitrary value of 1000 Hz as the upper limit, which is more than enough to
 represent any relevant note detected by our system.
 \paragraph{}
 
-The last information displayed on the OLED display is a simple incremental counter,
+The last information displayed on the OLED display is a simple \textbf{incremental counter},
 used for debugging purposes, like ensuring the right refresh rate on the display.
 This counter is also passed to the OLED module as a BCD encoded \texttt{std\_logic\_vector}.
 
