@@ -39,7 +39,7 @@ begin
         reset <= '0';
         wait for 100 ns;
 
-        -- 1. Write 8192 samples (fill one bank)
+        -- Write 8192 samples (fill one bank)
         for i in 0 to 8191 loop
             din_data <= std_logic_vector(to_unsigned(i, 32)); -- Send the index as data
             din_valid <= '1';
@@ -48,7 +48,7 @@ begin
             wait for CLK_PERIOD * 2; -- Gap between writes (similar to integrate & dump)
         end loop;
 
-        -- 2. Observe Read Behavior
+        -- Observe Read Behavior
         -- At this point, the state machine should switch to FEED_FFT
         wait for CLK_PERIOD * 10;
         
