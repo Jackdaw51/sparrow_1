@@ -67,7 +67,7 @@ but not too much; otherwise, we will not be able to detect some needed frequenci
 
 \paragraph{}
 
-Here is where \textbf{downsampling} comes into play: We can decide how many samples to keep to achieve 
+Here is where \textbf{downsampling} comes into play: we can decide how many samples to keep to achieve 
 a certain resolution (instead of changing the sample rate, which would be inconvenient).
 But instead of discarding 9 samples out of 10, we accumulate those 10 values into a register and use that 
 as our downsampled value.
@@ -125,7 +125,11 @@ the most important settings:
 \end{itemize}
 With these setting it uses 5185 LUTs, 34.5 BRAMs and 48 DSPs, and is able to do a full transformation in $247.15 \mu s$.
 The output of the FFT are the frequencies real and complex components values spread across 8192 bins. 
-$N$ was chosen to be 8192 because it is a good compromise between logic area and \textbf{high} frequency resolution.
+$N$ was chosen to be 8192 because it is a good compromise between logic area and \textbf{high} frequency resolution.\\
+The Pipelined version was chosen over the Radix burst version only because it is much easier to control. We still are collecting
+the whole frame and then sending it to the FFT rather than sending a new sample whenever it comes, so switching to a Radix burst
+version can be done with not much struggle.\\
+Since we have area to spare we can't keep it that way. Quoting the most famous sentence in engineering: \textit{if it works, don't touch it!}
 
 \section{Smart peak finder}
 
@@ -193,6 +197,20 @@ and a 3-stage pipeline for the \textbf{HPS}:
     \item Multply last result with value in BRAM3.
     \item Compare and save the peak.
 \end{enumerate}
+\section{Simulation}
+Reported in Figure~\ref{fig:testbench} there's the result of the simulation of the \texttt{fft\_top} component, which wires together 
+all the parts in this chapter.
+Simulated is a sine wave at 440 hz, and fed to the fft. After filling the buffer the result \texttt{0x01b8} (In decimal 440) pops
+up as \texttt{peak\_freq\_hz}.
+More testbenches not reported here are available on github.
+
+
+\begin{figure}[t]
+    \caption{Screenshot of simulation results of \texttt{tb\_fft\_top}}
+    \centering
+    \includegraphics[width=1.0\linewidth]{figures/testbench.png}
+    \label{fig:testbench}
+\end{figure}
 \section{Chapter summary}
 
 This is the conclusion to the part of the signal processing, that went from the very first

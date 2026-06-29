@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1782664865.63952 "main.aux" "main.bbl" "main" 1782664867.53546 0
+["bibtex main"] 1782725969.92204 "main.aux" "main.bbl" "main" 1782726224.40615 0
   "./references.bib" 1782659772.23555 829 1b3f6dbb6b707d53fb66735e15d0d781 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "main.aux" 1782664868.40169 5467 4d3057c55d333bed1e16885b90e5e89a "pdflatex"
+  "main.aux" 1782726225.49977 5772 517b978969125c038f623b40df1c230a "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1782664865.69662 "/home/frabo/exercises/windows/a/Programming/Vivado/speaker_3/report/main.tex" "main.pdf" "main" 1782664867.5402 0
+["pdflatex"] 1782726222.6512 "/home/frabo/exercises/windows/a/Programming/Vivado/speaker_3/report/main.tex" "main.pdf" "main" 1782726224.42 0
   "/etc/texmf/web2c/texmf.cnf" 1782033098.63327 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/frabo/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk" 1782382353.56537 14040 99f9a1041af1653ec831a6c7cd0045ac ""
   "/home/frabo/exercises/windows/a/Programming/Vivado/speaker_3/report/main.tex" 1782662213.09592 647 a405d62a5f4b4832ff44035ddab2310f ""
@@ -65,7 +65,7 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1782662512.54998 128028 f533b797fba58d231669ea19e894e23e ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1782662517 6800787 07adb99b1bd3c028b7bd8c6de4c4f890 ""
-  "chapters/audio_processing.tex" 1782664864.97829 9883 514061cc22a8c97fd7d00523754055de ""
+  "chapters/audio_processing.tex" 1782726224.03093 10949 e883c9c25fd5773978f1c3e60004280e ""
   "chapters/intro.tex" 1782664763.88252 1156 96f0dd0f2527d5af62b8144d16e4bd0f ""
   "chapters/motor_control.tex" 1782664375.2408 6802 0ef64d2506e4b554caef13661e4c1cf1 ""
   "chapters/oled.tex" 1782660459.12765 2054 3bc751c05dabb4c98c4c29496f8c1223 ""
@@ -74,9 +74,10 @@
   "figures/Motor_system_overview.png" 1782659436.47614 735751 a5ac369dc6397722035fa7cf0c07194c ""
   "figures/audio_interface_BD.png" 1782296651.40685 107010 942dc3fafb62ad2229cb3726cd400c32 ""
   "figures/hps.png" 1782463208.54869 18272 1d53c00291b03ed8783d382d35dece33 ""
-  "main.aux" 1782664868.40169 5467 4d3057c55d333bed1e16885b90e5e89a "pdflatex"
-  "main.bbl" 1782664866.96545 684 9bcc12a71b7148bb9d5e8c082422d012 "bibtex main"
-  "main.toc" 1782664868.40169 2031 57c9b7d51880db81d4fc138009bf2567 "pdflatex"
+  "figures/testbench.png" 1782725677.67562 22940 b5b7287b2e8c2ba76dcd5bda72ceadfe ""
+  "main.aux" 1782726225.49977 5772 517b978969125c038f623b40df1c230a "pdflatex"
+  "main.bbl" 1782725970.52317 684 9bcc12a71b7148bb9d5e8c082422d012 "bibtex main"
+  "main.toc" 1782726225.50794 2090 ae5940176032f38df109dfb2b6b4ad39 "pdflatex"
   (generated)
   "main.aux"
   "main.log"

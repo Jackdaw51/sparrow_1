@@ -4,7 +4,7 @@ vhdl xil_defaultlib  \
 "../../../../hdl/signal_processing/fft_ping_pong.vhd" \
 "../../../../hdl/signal_processing/fft_top.vhd" \
 "../../../../hdl/signal_processing/integrate_and_dump.vhd" \
-"../../../../hdl/signal_processing/peak_finder.vhd" \
+"../../../../hdl/signal_processing/smart_peak_finder.vhd" \
 "../../../../speaker_3.srcs/sim_1/new/tb_fft_top.vhd" \
 
 # Do not sort compile order

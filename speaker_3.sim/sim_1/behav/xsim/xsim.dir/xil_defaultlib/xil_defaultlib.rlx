@@ -2,14 +2,15 @@
 2020.2
 Nov  8 2024
 22:36:57
-C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_ping_pong.vhd,1777450366,vhdl,C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.srcs/sim_1/new/tb_fft_ping_pong.vhd,,,fft_ping_pong,,,,,,,,
-C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd,1777639679,vhdl,C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.srcs/sim_1/new/tb_fft_top.vhd,,,fft_top,,,,,,,,
-C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/integrate_and_dump.vhd,1777450366,vhdl,C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.srcs/sim_1/new/tb_integrate_and_dump.vhd,,,integrate_and_dump,,,,,,,,
+C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_ping_pong.vhd,1782550281,vhdl,C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.srcs/sim_1/new/tb_fft_ping_pong.vhd,,,fft_ping_pong,,,,,,,,
+C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/fft_top.vhd,1782551148,vhdl,C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.srcs/sim_1/new/tb_fft_top.vhd,,,fft_top,,,,,,,,
+C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/integrate_and_dump.vhd,1782307787,vhdl,C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.srcs/sim_1/new/tb_integrate_and_dump.vhd,,,integrate_and_dump,,,,,,,,
 C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/peak_finder.vhd,1777634190,vhdl,C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.srcs/sim_1/new/tb_peak_finder.vhd,,,peak_finder,,,,,,,,
+C:/Users/frabo/a/Programming/Vivado/speaker_3/hdl/signal_processing/smart_peak_finder.vhd,1782549585,vhdl,,,,smart_peak_finder,,,,,,,,
 C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.gen/sources_1/ip/blk_mem_gen_0/sim/blk_mem_gen_0.v,1777626718,verilog,,,,blk_mem_gen_0,,,,,,,,
 C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.gen/sources_1/ip/xfft_0/sim/xfft_0.vhd,1777638676,vhdl,,,,xfft_0,,,,,,,,
 C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.sim/sim_1/behav/xsim/glbl.v,1724786425,verilog,,,,glbl,,,,,,,,
 C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.srcs/sim_1/new/tb_fft_ping_pong.vhd,1777634654,vhdl,,,,tb_fft_ping_pong,,,,,,,,
-C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.srcs/sim_1/new/tb_fft_top.vhd,1777638276,vhdl,,,,tb_fft_top,,,,,,,,
+C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.srcs/sim_1/new/tb_fft_top.vhd,1782724767,vhdl,,,,tb_fft_top,,,,,,,,
 C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.srcs/sim_1/new/tb_integrate_and_dump.vhd,1777632889,vhdl,,,,tb_integrate_and_dump,,,,,,,,
 C:/Users/frabo/a/Programming/Vivado/speaker_3/speaker_3.srcs/sim_1/new/tb_peak_finder.vhd,1777633044,vhdl,,,,tb_peak_finder,,,,,,,,

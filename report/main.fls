@@ -111,6 +111,11 @@ INPUT ./figures/hps.png
 INPUT ./figures/hps.png
 INPUT ./figures/hps.png
 INPUT ./figures/hps.png
+INPUT ./figures/testbench.png
+INPUT ./figures/testbench.png
+INPUT ./figures/testbench.png
+INPUT ./figures/testbench.png
+INPUT ./figures/testbench.png
 INPUT ./chapters/oled.tex
 INPUT ./chapters/oled.tex
 INPUT chapters/oled.tex
