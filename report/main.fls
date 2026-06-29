@@ -132,6 +132,9 @@ INPUT ./figures/Motor_system_overview.png
 INPUT ./figures/Motor_system_overview.png
 INPUT ./figures/Motor_system_overview.png
 INPUT ./figures/Motor_system_overview.png
+INPUT ./chapters/conclusion.tex
+INPUT ./chapters/conclusion.tex
+INPUT chapters/conclusion.tex
 INPUT ./main.bbl
 INPUT ./main.bbl
 INPUT main.bbl

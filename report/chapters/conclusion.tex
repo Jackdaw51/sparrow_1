@@ -1,0 +1,16 @@
+\section{Design Data}
+As a conclusion we report here the relveant data of the whole design:
+It takes in total 6308 LUTs, 9946 Flip Flops, 54 BRAMs and 60 DSPs.
+It has a 0.369 ns of Worst Negative Slack and an estimated total on-chip power
+of 0.511 W.
+The motor has an estimated power utilization of 16.08 W while in use.
+\section{Future work}
+As a next step one could modify the design to lower the FFT resolution to use less area but
+most importantly less time to fill the buffer, to give the user the experience of having a continuous
+signal analysis rather than a discrete one.
+One could also try to make the FFT streaming rather than waiting for the buffer, or Radix burst to use less area.
+It is also possible to lower the sampling frequency with the benefits and drawbacks described in Chapter~\ref{chapter:sig}.
+
+\paragraph{}
+In conclusion one can experiment tuning this parameters to achieve the goal they want, but this design stays moreover the same.
+This report can serve as a guideline to whomever wants to improve it.
